@@ -15,6 +15,9 @@
 		133F79D11FAFFB630018BF2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F79D01FAFFB630018BF2D /* main.m */; };
 		133F79DB1FAFFB630018BF2D /* ______Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F79DA1FAFFB630018BF2D /* ______Tests.m */; };
 		133F79E61FAFFB630018BF2D /* ______UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F79E51FAFFB630018BF2D /* ______UITests.m */; };
+		133F79F61FAFFC5B0018BF2D /* DJXIndexTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F79F41FAFFC5B0018BF2D /* DJXIndexTableView.m */; };
+		133F79F71FAFFC5B0018BF2D /* DJXIndexTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133F79F51FAFFC5B0018BF2D /* DJXIndexTableView.xib */; };
+		133F79F91FAFFD360018BF2D /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 133F79F81FAFFD360018BF2D /* city.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 		133F79E11FAFFB630018BF2D /* 通讯录索引表UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "通讯录索引表UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		133F79E51FAFFB630018BF2D /* ______UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "______UITests.m"; sourceTree = "<group>"; };
 		133F79E71FAFFB630018BF2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		133F79F31FAFFC5B0018BF2D /* DJXIndexTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJXIndexTableView.h; sourceTree = "<group>"; };
+		133F79F41FAFFC5B0018BF2D /* DJXIndexTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXIndexTableView.m; sourceTree = "<group>"; };
+		133F79F51FAFFC5B0018BF2D /* DJXIndexTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DJXIndexTableView.xib; sourceTree = "<group>"; };
+		133F79F81FAFFD360018BF2D /* city.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = city.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +116,11 @@
 				133F79CA1FAFFB630018BF2D /* Assets.xcassets */,
 				133F79CC1FAFFB630018BF2D /* LaunchScreen.storyboard */,
 				133F79CF1FAFFB630018BF2D /* Info.plist */,
+				133F79F81FAFFD360018BF2D /* city.plist */,
 				133F79D01FAFFB630018BF2D /* main.m */,
+				133F79F31FAFFC5B0018BF2D /* DJXIndexTableView.h */,
+				133F79F41FAFFC5B0018BF2D /* DJXIndexTableView.m */,
+				133F79F51FAFFC5B0018BF2D /* DJXIndexTableView.xib */,
 			);
 			path = "通讯录索引表";
 			sourceTree = "<group>";
@@ -240,7 +251,9 @@
 			files = (
 				133F79CE1FAFFB630018BF2D /* LaunchScreen.storyboard in Resources */,
 				133F79CB1FAFFB630018BF2D /* Assets.xcassets in Resources */,
+				133F79F91FAFFD360018BF2D /* city.plist in Resources */,
 				133F79C91FAFFB630018BF2D /* Main.storyboard in Resources */,
+				133F79F71FAFFC5B0018BF2D /* DJXIndexTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +281,7 @@
 				133F79C61FAFFB630018BF2D /* ViewController.m in Sources */,
 				133F79D11FAFFB630018BF2D /* main.m in Sources */,
 				133F79C31FAFFB630018BF2D /* AppDelegate.m in Sources */,
+				133F79F61FAFFC5B0018BF2D /* DJXIndexTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +448,7 @@
 				DEVELOPMENT_TEAM = FAD5RKZHCT;
 				INFOPLIST_FILE = "通讯录索引表/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.index.------";
+				PRODUCT_BUNDLE_IDENTIFIER = com.index.djx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -448,7 +462,7 @@
 				DEVELOPMENT_TEAM = FAD5RKZHCT;
 				INFOPLIST_FILE = "通讯录索引表/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.index.------";
+				PRODUCT_BUNDLE_IDENTIFIER = com.index.djx;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

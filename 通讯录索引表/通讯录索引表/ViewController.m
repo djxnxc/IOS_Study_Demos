@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "DJXIndexTableView.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+//点击索引表按钮事件
+- (IBAction)indexButClick:(UIButton *)sender {
+    DJXIndexTableView *tableViewVC = [[DJXIndexTableView alloc]initWithNibName:@"DJXIndexTableView" bundle:nil];
+    [self presentViewController:tableViewVC animated:YES completion:nil];
 }
 
 
