@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131DE6881FB1974A006FA5DC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE6861FB1974A006FA5DC /* HomeViewController.m */; };
+		131DE6891FB1974A006FA5DC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131DE6871FB1974A006FA5DC /* HomeViewController.xib */; };
+		131DE6911FB1979A006FA5DC /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE68F1FB1979A006FA5DC /* MyViewController.m */; };
+		131DE6921FB1979A006FA5DC /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131DE6901FB1979A006FA5DC /* MyViewController.xib */; };
+		131DE6961FB197A7006FA5DC /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE6941FB197A7006FA5DC /* CartViewController.m */; };
+		131DE6971FB197A7006FA5DC /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131DE6951FB197A7006FA5DC /* CartViewController.xib */; };
+		131DE69B1FB197B3006FA5DC /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE6991FB197B3006FA5DC /* FindViewController.m */; };
+		131DE69C1FB197B3006FA5DC /* FindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131DE69A1FB197B3006FA5DC /* FindViewController.xib */; };
+		131DE6A01FB197CA006FA5DC /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE69E1FB197CA006FA5DC /* CategoryViewController.m */; };
+		131DE6A11FB197CA006FA5DC /* CategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131DE69F1FB197CA006FA5DC /* CategoryViewController.xib */; };
+		131DE6A41FB1981F006FA5DC /* DJXTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE6A31FB1981F006FA5DC /* DJXTabBar.m */; };
+		131DE6A71FB19844006FA5DC /* DJXNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131DE6A61FB19844006FA5DC /* DJXNavigationController.m */; };
 		133F7A081FB00A070018BF2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F7A071FB00A070018BF2D /* AppDelegate.m */; };
 		133F7A0B1FB00A070018BF2D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F7A0A1FB00A070018BF2D /* ViewController.m */; };
 		133F7A0E1FB00A070018BF2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 133F7A0C1FB00A070018BF2D /* Main.storyboard */; };
@@ -35,6 +47,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		131DE6851FB1974A006FA5DC /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		131DE6861FB1974A006FA5DC /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		131DE6871FB1974A006FA5DC /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		131DE68E1FB1979A006FA5DC /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		131DE68F1FB1979A006FA5DC /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		131DE6901FB1979A006FA5DC /* MyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
+		131DE6931FB197A7006FA5DC /* CartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
+		131DE6941FB197A7006FA5DC /* CartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
+		131DE6951FB197A7006FA5DC /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
+		131DE6981FB197B3006FA5DC /* FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		131DE6991FB197B3006FA5DC /* FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
+		131DE69A1FB197B3006FA5DC /* FindViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindViewController.xib; sourceTree = "<group>"; };
+		131DE69D1FB197CA006FA5DC /* CategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		131DE69E1FB197CA006FA5DC /* CategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		131DE69F1FB197CA006FA5DC /* CategoryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryViewController.xib; sourceTree = "<group>"; };
+		131DE6A21FB1981F006FA5DC /* DJXTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJXTabBar.h; sourceTree = "<group>"; };
+		131DE6A31FB1981F006FA5DC /* DJXTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXTabBar.m; sourceTree = "<group>"; };
+		131DE6A51FB19844006FA5DC /* DJXNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJXNavigationController.h; sourceTree = "<group>"; };
+		131DE6A61FB19844006FA5DC /* DJXNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXNavigationController.m; sourceTree = "<group>"; };
 		133F7A031FB00A070018BF2D /* DJXTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJXTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		133F7A061FB00A070018BF2D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		133F7A071FB00A070018BF2D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +109,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131DE6831FB196F4006FA5DC /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				131DE6841FB1971C006FA5DC /* Controller */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		131DE6841FB1971C006FA5DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				131DE6851FB1974A006FA5DC /* HomeViewController.h */,
+				131DE6861FB1974A006FA5DC /* HomeViewController.m */,
+				131DE6871FB1974A006FA5DC /* HomeViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		131DE68A1FB19750006FA5DC /* CategoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				131DE69D1FB197CA006FA5DC /* CategoryViewController.h */,
+				131DE69E1FB197CA006FA5DC /* CategoryViewController.m */,
+				131DE69F1FB197CA006FA5DC /* CategoryViewController.xib */,
+			);
+			path = CategoryVC;
+			sourceTree = "<group>";
+		};
+		131DE68B1FB1976A006FA5DC /* FindVC */ = {
+			isa = PBXGroup;
+			children = (
+				131DE6981FB197B3006FA5DC /* FindViewController.h */,
+				131DE6991FB197B3006FA5DC /* FindViewController.m */,
+				131DE69A1FB197B3006FA5DC /* FindViewController.xib */,
+			);
+			path = FindVC;
+			sourceTree = "<group>";
+		};
+		131DE68C1FB19770006FA5DC /* CartVC */ = {
+			isa = PBXGroup;
+			children = (
+				131DE6931FB197A7006FA5DC /* CartViewController.h */,
+				131DE6941FB197A7006FA5DC /* CartViewController.m */,
+				131DE6951FB197A7006FA5DC /* CartViewController.xib */,
+			);
+			path = CartVC;
+			sourceTree = "<group>";
+		};
+		131DE68D1FB19779006FA5DC /* MyVC */ = {
+			isa = PBXGroup;
+			children = (
+				131DE68E1FB1979A006FA5DC /* MyViewController.h */,
+				131DE68F1FB1979A006FA5DC /* MyViewController.m */,
+				131DE6901FB1979A006FA5DC /* MyViewController.xib */,
+			);
+			path = MyVC;
+			sourceTree = "<group>";
+		};
 		133F79FA1FB00A070018BF2D = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +190,11 @@
 		133F7A051FB00A070018BF2D /* DJXTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				131DE68D1FB19779006FA5DC /* MyVC */,
+				131DE68C1FB19770006FA5DC /* CartVC */,
+				131DE68B1FB1976A006FA5DC /* FindVC */,
+				131DE68A1FB19750006FA5DC /* CategoryVC */,
+				131DE6831FB196F4006FA5DC /* HomeVC */,
 				133F7A061FB00A070018BF2D /* AppDelegate.h */,
 				133F7A071FB00A070018BF2D /* AppDelegate.m */,
 				133F7A091FB00A070018BF2D /* ViewController.h */,
@@ -110,6 +204,10 @@
 				133F7A111FB00A070018BF2D /* LaunchScreen.storyboard */,
 				133F7A141FB00A070018BF2D /* Info.plist */,
 				133F7A151FB00A070018BF2D /* main.m */,
+				131DE6A21FB1981F006FA5DC /* DJXTabBar.h */,
+				131DE6A31FB1981F006FA5DC /* DJXTabBar.m */,
+				131DE6A51FB19844006FA5DC /* DJXNavigationController.h */,
+				131DE6A61FB19844006FA5DC /* DJXNavigationController.m */,
 			);
 			path = DJXTabBar;
 			sourceTree = "<group>";
@@ -238,9 +336,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131DE6A11FB197CA006FA5DC /* CategoryViewController.xib in Resources */,
 				133F7A131FB00A070018BF2D /* LaunchScreen.storyboard in Resources */,
 				133F7A101FB00A070018BF2D /* Assets.xcassets in Resources */,
 				133F7A0E1FB00A070018BF2D /* Main.storyboard in Resources */,
+				131DE6891FB1974A006FA5DC /* HomeViewController.xib in Resources */,
+				131DE6971FB197A7006FA5DC /* CartViewController.xib in Resources */,
+				131DE69C1FB197B3006FA5DC /* FindViewController.xib in Resources */,
+				131DE6921FB1979A006FA5DC /* MyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +368,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131DE6A01FB197CA006FA5DC /* CategoryViewController.m in Sources */,
 				133F7A0B1FB00A070018BF2D /* ViewController.m in Sources */,
+				131DE6A71FB19844006FA5DC /* DJXNavigationController.m in Sources */,
+				131DE6A41FB1981F006FA5DC /* DJXTabBar.m in Sources */,
 				133F7A161FB00A070018BF2D /* main.m in Sources */,
 				133F7A081FB00A070018BF2D /* AppDelegate.m in Sources */,
+				131DE6881FB1974A006FA5DC /* HomeViewController.m in Sources */,
+				131DE6961FB197A7006FA5DC /* CartViewController.m in Sources */,
+				131DE6911FB1979A006FA5DC /* MyViewController.m in Sources */,
+				131DE69B1FB197B3006FA5DC /* FindViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +543,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FAD5RKZHCT;
 				INFOPLIST_FILE = DJXTabBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.index.DJXTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -447,10 +558,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FAD5RKZHCT;
 				INFOPLIST_FILE = DJXTabBar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.index.DJXTabBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
