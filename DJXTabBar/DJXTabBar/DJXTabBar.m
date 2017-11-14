@@ -7,51 +7,43 @@
 //
 
 #import "DJXTabBar.h"
-#import "MyViewController.h"
-#import "CartViewController.h"
-#import "FindViewController.h"
-#import "CategoryViewController.h"
-#import "HomeViewController.h"
+#import "HomeVC.h"
+#import "NearbyVC.h"
+#import "FriendsVC.h"
+#import "MeVC.h"
 #import "DJXNavigationController.h"
 @interface DJXTabBar ()
-@property(nonatomic,strong)HomeViewController *homeVC;
-@property(nonatomic,strong)CartViewController *cartVC;
-@property(nonatomic,strong)FindViewController *findVC;
-@property(nonatomic,strong)CategoryViewController *categoryVC;
-@property(nonatomic,strong)MyViewController *myVC;
+@property(nonatomic,strong)HomeVC *homeVC;
+@property(nonatomic,strong)NearbyVC *nearbyVC;
+@property(nonatomic,strong)FriendsVC *friendVC;
+@property(nonatomic,strong)MeVC *meVC;
 @end
 
 @implementation DJXTabBar
--(HomeViewController *)homeVC{
+-(HomeVC *)homeVC{
     if (!_homeVC) {
-        _homeVC = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+        _homeVC = [[HomeVC alloc]initWithNibName:@"HomeVC" bundle:nil];
     }
     return _homeVC;
 }
 
--(CartViewController *)cartVC{
-    if (!_cartVC) {
-        _cartVC = [[CartViewController alloc] initWithNibName:@"CartViewController" bundle:nil];
+-(NearbyVC *)nearbyVC{
+    if (!_nearbyVC) {
+        _nearbyVC = [[NearbyVC alloc] initWithNibName:@"NearbyVC" bundle:nil];
     }
-    return _cartVC;
+    return _nearbyVC;
 }
--(FindViewController *)findVC{
-    if (!_findVC) {
-        _findVC = [[FindViewController alloc]initWithNibName:@"FindViewController" bundle:nil];
+-(FriendsVC *)friendVC{
+    if (!_friendVC) {
+        _friendVC = [[FriendsVC alloc]initWithNibName:@"FriendsVC" bundle:nil];
     }
-    return _findVC;
+    return _friendVC;
 }
--(CategoryViewController *)categoryVC{
-    if (!_categoryVC) {
-        _categoryVC = [[CategoryViewController alloc]initWithNibName:@"CategoryViewController" bundle:nil];
+-(MeVC *)meVC{
+    if (!_meVC) {
+        _meVC = [[MeVC alloc]initWithNibName:@"MeVC" bundle:nil];
     }
-    return _categoryVC;
-}
--(MyViewController *)myVC{
-    if (!_myVC) {
-        _myVC = [[MyViewController alloc]initWithNibName:@"MyViewController" bundle:nil];
-    }
-    return _myVC;
+    return _meVC;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -60,11 +52,11 @@
 }
 //添加视图
 -(void)addChildVCS{
-    [self addChildVC:self.homeVC title:@"首页" imageName:@"tabBar_home_normal" selectImageName:@"tabBar_home_press"];
-    [self addChildVC:self.categoryVC title:@"分类" imageName:@"tabBar_category_normal" selectImageName:@"tabBar_category_press"];
-    [self addChildVC:self.findVC title:@"发现" imageName:@"tabBar_find_normal" selectImageName:@"tabBar_find_press"];
-    [self addChildVC:self.cartVC title:@"购物车" imageName:@"tabBar_cart_normal" selectImageName:@"tabBar_cart_press"];
-    [self addChildVC:self.myVC title:@"我的" imageName:@"tabBar_myJD_normal" selectImageName:@"tabBar_myJD_press"];
+    [self addChildVC:self.homeVC title:@"Home" imageName:@"首页未选择" selectImageName:@"首页"];
+    [self addChildVC:self.nearbyVC title:@"Nearby" imageName:@"附近未选择" selectImageName:@"附近"];
+
+    [self addChildVC:self.friendVC title:@"Friends" imageName:@"团队未选择" selectImageName:@"团队选中"];
+    [self addChildVC:self.meVC title:@"Me" imageName:@"我的" selectImageName:@"我的选中"];
 
 }
 -(void)addChildVC:(UIViewController *)vc title:(NSString *)title imageName:(NSString *)imageName selectImageName:(NSString *)selectImageName{
