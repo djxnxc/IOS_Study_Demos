@@ -7,8 +7,11 @@
 //
 
 #import "FriendsVC.h"
+#import <AddressBookUI/ABPeoplePickerNavigationController.h>
+#import <AddressBook/ABPerson.h>
+#import <AddressBookUI/ABPersonViewController.h>
 
-@interface FriendsVC ()
+@interface FriendsVC ()<ABPeoplePickerNavigationControllerDelegate>
 
 @end
 
@@ -16,9 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ABPeoplePickerNavigationController *nav = [[ABPeoplePickerNavigationController alloc] init];
+    nav.peoplePickerDelegate = self;
+    nav.predicateForSelectionOfPerson = [NSPredicate predicateWithValue:false];
+    [self presentViewController:nav animated:YES completion:nil];
     // Do any additional setup after loading the view from its nib.
 }
-
+//取消选择
+- (void)peoplePickerNavigationControllerDidCancel:(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [peoplePicker dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

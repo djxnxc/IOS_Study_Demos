@@ -7,18 +7,84 @@
 //
 
 #import "MeVC.h"
-
-@interface MeVC ()
+#import "MeHeaderCell.h"
+#import "MeListCell.h"
+@interface MeVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 
 @end
 
 @implementation MeVC
+//在页面出现的时候就将黑线隐藏起来
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+}
+//在页面消失的时候就让navigationbar还原样式
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"My Wallet";
+    [self initView];
     // Do any additional setup after loading the view from its nib.
 }
+-(void)initView{
+     [DJXRefreshTool initWithTableViewGifRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:nil];
+    self.mainTableView.delegate = self;
+    self.mainTableView.dataSource = self;
+}
+-(void)headerRefresh{
+    [self.mainTableView.mj_header endRefreshing];
 
+}
+#pragma mark-UITableViewDelegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section==0||section==1||section==3) {
+        return 1;
+    }
+    else{
+        return 4;
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        return 150;
+    }
+    else {
+        return 50;
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    if (section==3) {
+        return 0.001;
+    }
+    return 10;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        MeHeaderCell *headCell = [MeHeaderCell cellWithTableView:tableView];
+        return headCell;
+    }
+    else{
+        MeListCell *listCell = [MeListCell initCellWithTableView:tableView];
+        return listCell;
+    }
+}
+#pragma mark-UITableViewDataSource
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

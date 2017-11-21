@@ -22,8 +22,11 @@
 #import "DJXRefreshTool.h"//MJ刷新封装
 /********宏定义***********/
 #define MMP_CUSTOM_COLOR(R,G,B,A)  [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
+#define MMP_NAV_STATESBAR_HEIGHT 20
+#define MMP_NAV_HEIGHT 44
+
 #define BLUECOLOR MMP_CUSTOM_COLOR(56,150,254,1)
 //图片
-#define GETIMAGE(imageName) [UIImage imageNamed:imageName]
+#define MMP_IMAGE(imageName) [UIImage imageNamed:imageName]
 #endif /* DJXPrefixHeader_pch */
 

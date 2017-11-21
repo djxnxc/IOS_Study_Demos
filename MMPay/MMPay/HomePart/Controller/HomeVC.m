@@ -30,7 +30,7 @@
  */
 -(void)initView{
     self.searchView.layer.masksToBounds = YES;
-    self.searchView.layer.cornerRadius = 20;
+    self.searchView.layer.cornerRadius = 15;
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mainTableView.dataSource = self;
     self.mainTableView.delegate = self;

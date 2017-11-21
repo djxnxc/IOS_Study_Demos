@@ -57,6 +57,13 @@
 		132CBE121FBAF31000DDF35A /* 8.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 132CBE0A1FBAF30F00DDF35A /* 8.tiff */; };
 		132CBE131FBAF31000DDF35A /* 1.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 132CBE0B1FBAF30F00DDF35A /* 1.tiff */; };
 		132CBE141FBAF31000DDF35A /* 4.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 132CBE0C1FBAF31000DDF35A /* 4.tiff */; };
+		1337776D1FC27ADC00E7E9B8 /* NearbyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337776B1FC27ADC00E7E9B8 /* NearbyListCell.m */; };
+		1337776E1FC27ADC00E7E9B8 /* NearbyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1337776C1FC27ADC00E7E9B8 /* NearbyListCell.xib */; };
+		13F914E21FBD272E00411A67 /* MeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F914E11FBD272E00411A67 /* MeModel.m */; };
+		13F914E61FBD275400411A67 /* MeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F914E41FBD275400411A67 /* MeListCell.m */; };
+		13F914E71FBD275400411A67 /* MeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F914E51FBD275400411A67 /* MeListCell.xib */; };
+		13F914EB1FBD2A3200411A67 /* MeHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F914E91FBD2A3200411A67 /* MeHeaderCell.m */; };
+		13F914EC1FBD2A3200411A67 /* MeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F914EA1FBD2A3200411A67 /* MeHeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +174,17 @@
 		132CBE0A1FBAF30F00DDF35A /* 8.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = 8.tiff; sourceTree = "<group>"; };
 		132CBE0B1FBAF30F00DDF35A /* 1.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = 1.tiff; sourceTree = "<group>"; };
 		132CBE0C1FBAF31000DDF35A /* 4.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = 4.tiff; sourceTree = "<group>"; };
+		1337776A1FC27ADC00E7E9B8 /* NearbyListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearbyListCell.h; sourceTree = "<group>"; };
+		1337776B1FC27ADC00E7E9B8 /* NearbyListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearbyListCell.m; sourceTree = "<group>"; };
+		1337776C1FC27ADC00E7E9B8 /* NearbyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyListCell.xib; sourceTree = "<group>"; };
+		13F914E01FBD272E00411A67 /* MeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeModel.h; sourceTree = "<group>"; };
+		13F914E11FBD272E00411A67 /* MeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeModel.m; sourceTree = "<group>"; };
+		13F914E31FBD275400411A67 /* MeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeListCell.h; sourceTree = "<group>"; };
+		13F914E41FBD275400411A67 /* MeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeListCell.m; sourceTree = "<group>"; };
+		13F914E51FBD275400411A67 /* MeListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeListCell.xib; sourceTree = "<group>"; };
+		13F914E81FBD2A3200411A67 /* MeHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeHeaderCell.h; sourceTree = "<group>"; };
+		13F914E91FBD2A3200411A67 /* MeHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeHeaderCell.m; sourceTree = "<group>"; };
+		13F914EA1FBD2A3200411A67 /* MeHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeHeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +405,9 @@
 		132CBD311FBA857100DDF35A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1337776A1FC27ADC00E7E9B8 /* NearbyListCell.h */,
+				1337776B1FC27ADC00E7E9B8 /* NearbyListCell.m */,
+				1337776C1FC27ADC00E7E9B8 /* NearbyListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -394,6 +415,8 @@
 		132CBD321FBA857A00DDF35A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				13F914E01FBD272E00411A67 /* MeModel.h */,
+				13F914E11FBD272E00411A67 /* MeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -401,6 +424,12 @@
 		132CBD331FBA857A00DDF35A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				13F914E31FBD275400411A67 /* MeListCell.h */,
+				13F914E41FBD275400411A67 /* MeListCell.m */,
+				13F914E51FBD275400411A67 /* MeListCell.xib */,
+				13F914E81FBD2A3200411A67 /* MeHeaderCell.h */,
+				13F914E91FBD2A3200411A67 /* MeHeaderCell.m */,
+				13F914EA1FBD2A3200411A67 /* MeHeaderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,8 +701,11 @@
 				132CBE101FBAF31000DDF35A /* 5.tiff in Resources */,
 				132CBE0F1FBAF31000DDF35A /* 3.tiff in Resources */,
 				132CBE121FBAF31000DDF35A /* 8.tiff in Resources */,
+				13F914EC1FBD2A3200411A67 /* MeHeaderCell.xib in Resources */,
+				1337776E1FC27ADC00E7E9B8 /* NearbyListCell.xib in Resources */,
 				132CBD521FBAC51A00DDF35A /* HomeHeaderCell.xib in Resources */,
 				132CBD8F1FBADC0800DDF35A /* MJRefresh.bundle in Resources */,
+				13F914E71FBD275400411A67 /* MeListCell.xib in Resources */,
 				132CBD3E1FBA861D00DDF35A /* NearbyVC.xib in Resources */,
 				132CBE0D1FBAF31000DDF35A /* 7.tiff in Resources */,
 			);
@@ -703,6 +735,7 @@
 				132CBCE61FBA832000DDF35A /* ViewController.m in Sources */,
 				132CBD971FBADC0800DDF35A /* MJRefreshAutoGifFooter.m in Sources */,
 				132CBCF11FBA832000DDF35A /* main.m in Sources */,
+				13F914EB1FBD2A3200411A67 /* MeHeaderCell.m in Sources */,
 				132CBD9D1FBADC0900DDF35A /* MJRefreshHeader.m in Sources */,
 				132CBD961FBADC0800DDF35A /* MJRefreshAutoStateFooter.m in Sources */,
 				132CBD421FBA863100DDF35A /* FriendsVC.m in Sources */,
@@ -716,8 +749,10 @@
 				132CBD381FBA860800DDF35A /* HomeVC.m in Sources */,
 				132CBD9B1FBADC0800DDF35A /* MJRefreshGifHeader.m in Sources */,
 				132CBD8D1FBADC0800DDF35A /* UIScrollView+MJRefresh.m in Sources */,
+				13F914E21FBD272E00411A67 /* MeModel.m in Sources */,
 				132CBD901FBADC0800DDF35A /* UIScrollView+MJExtension.m in Sources */,
 				132CBD981FBADC0800DDF35A /* MJRefreshAutoNormalFooter.m in Sources */,
+				1337776D1FC27ADC00E7E9B8 /* NearbyListCell.m in Sources */,
 				132CBD551FBACA7D00DDF35A /* HomeModel.m in Sources */,
 				132CBD941FBADC0800DDF35A /* MJRefreshBackStateFooter.m in Sources */,
 				132CBD911FBADC0800DDF35A /* NSBundle+MJRefresh.m in Sources */,
@@ -728,6 +763,7 @@
 				132CBD9C1FBADC0800DDF35A /* MJRefreshFooter.m in Sources */,
 				132CBCE31FBA832000DDF35A /* AppDelegate.m in Sources */,
 				132CBD511FBAC51A00DDF35A /* HomeHeaderCell.m in Sources */,
+				13F914E61FBD275400411A67 /* MeListCell.m in Sources */,
 				132CBD191FBA83B100DDF35A /* DJXTabBar.m in Sources */,
 				132CBD9E1FBADC0900DDF35A /* MJRefreshBackFooter.m in Sources */,
 				132CBDA41FBADD3700DDF35A /* DJXRefreshTool.m in Sources */,

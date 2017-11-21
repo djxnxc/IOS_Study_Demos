@@ -16,6 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[UINavigationBar appearance] setBarTintColor:BLUECOLOR];
+    [[UINavigationBar appearance] setTranslucent:NO];
+
+    [self.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+
     // Do any additional setup after loading the view.
 }
 
