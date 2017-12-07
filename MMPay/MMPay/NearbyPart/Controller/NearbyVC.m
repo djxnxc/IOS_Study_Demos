@@ -9,6 +9,9 @@
 #import "NearbyVC.h"
 
 @interface NearbyVC ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navStateBarHeight;
+@property (weak, nonatomic) IBOutlet UIView *searchTextView;
+
 
 @end
 
@@ -19,9 +22,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initView];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)initView{
+    self.navStateBarHeight.constant = MMP_NAV_STATESBAR_HEIGHT;
+    self.searchTextView.layer.masksToBounds = YES;
+    self.searchTextView.layer.cornerRadius = 15;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

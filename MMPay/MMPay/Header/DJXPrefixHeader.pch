@@ -12,21 +12,26 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #import "DJXTabBar.h"//自定义tabbar
+/**********首页**************/
 #import "HomeVC.h"//首页
-#import "NearbyVC.h"//附件
+#import "DJXScanViewController.h"//扫一扫
+
+/**********附近**************/
+#import "NearbyVC.h"//附近
+
+/**********通讯**************/
 #import "FriendsVC.h"//通讯
+
+/**********我的**************/
 #import "MeVC.h"//我的
+
 /**********工具类**************/
+#import "MMPHeader.h"//宏定义头文件
+#import <AFNetworking.h>//网络请求
+#import "MMPRequestTool.h"//自定义封装的post请求
 #import "JXButton.h"//文字在下图片在上的按钮
 #import "MJRefresh.h"//MJ刷新
 #import "DJXRefreshTool.h"//MJ刷新封装
-/********宏定义***********/
-#define MMP_CUSTOM_COLOR(R,G,B,A)  [UIColor colorWithRed:R/255.0f green:G/255.0f blue:B/255.0f alpha:A]
-#define MMP_NAV_STATESBAR_HEIGHT 20
-#define MMP_NAV_HEIGHT 44
 
-#define BLUECOLOR MMP_CUSTOM_COLOR(56,150,254,1)
-//图片
-#define MMP_IMAGE(imageName) [UIImage imageNamed:imageName]
 #endif /* DJXPrefixHeader_pch */
 

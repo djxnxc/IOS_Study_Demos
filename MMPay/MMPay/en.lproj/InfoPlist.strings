@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  MMPay
+
+  Created by 12 on 2017/12/5.
+  Copyright © 2017年 Jack_D. All rights reserved.
+*/
+CFBundleDisplayName = "MMPay";

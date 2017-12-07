@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTV-IL-0wX" customClass="HomeMenuCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="64" height="65"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="64" height="65"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="转账" translatesAutoresizingMaskIntoConstraints="NO" id="ots-kt-sbW">
+                        <rect key="frame" x="20" y="10.5" width="24" height="24"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="转账" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gY1-t6-M4p">
+                        <rect key="frame" x="21" y="40" width="22.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="aqm-fz-bHQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBp-NL-d9S">
+                        <rect key="frame" x="1" y="1" width="62" height="63"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="gY1-t6-M4p" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="15" id="0SZ-lO-JId"/>
+                <constraint firstItem="ots-kt-sbW" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-10" id="3YH-qw-y0e"/>
+                <constraint firstAttribute="trailing" secondItem="iBp-NL-d9S" secondAttribute="trailing" constant="1" id="3lq-2x-OZG"/>
+                <constraint firstAttribute="bottom" secondItem="iBp-NL-d9S" secondAttribute="bottom" constant="1" id="3s5-aK-9Di"/>
+                <constraint firstItem="gY1-t6-M4p" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7Yd-gs-qeW"/>
+                <constraint firstItem="ots-kt-sbW" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="8He-kw-Sbm"/>
+                <constraint firstItem="iBp-NL-d9S" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="f16-l9-6bU"/>
+                <constraint firstItem="iBp-NL-d9S" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="w7h-1q-X91"/>
+            </constraints>
+            <size key="customSize" width="64" height="55"/>
+            <connections>
+                <outlet property="imageView" destination="ots-kt-sbW" id="lZ9-gj-1ff"/>
+                <outlet property="titleL" destination="gY1-t6-M4p" id="u0x-OJ-vH2"/>
+            </connections>
+            <point key="canvasLocation" x="-222" y="-183"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="转账" width="24" height="24"/>
+    </resources>
+</document>

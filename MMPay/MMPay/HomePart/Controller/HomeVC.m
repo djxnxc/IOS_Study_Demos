@@ -8,7 +8,9 @@
 
 #import "HomeVC.h"
 #import "HomeHeaderCell.h"
+#import "HomeMenuCell.h"
 @interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,HomeButProtocol>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navStateHeight;
 
 @property (weak, nonatomic) IBOutlet UIView *searchView;//搜索框
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
@@ -29,6 +31,7 @@
  * 初始化
  */
 -(void)initView{
+    self.navStateHeight.constant = MMP_NAV_STATESBAR_HEIGHT;
     self.searchView.layer.masksToBounds = YES;
     self.searchView.layer.cornerRadius = 15;
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -54,6 +57,9 @@
     if (indexPath.row==0) {
         return 100;
     }
+    if (indexPath.row==1) {
+        return 66*3;
+    }
     return 50;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -67,6 +73,10 @@
             headCell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         return headCell;
+    }
+    else if (indexPath.row==1) {
+        HomeMenuCell *menuCell = [HomeMenuCell cellWithTableView:tableView];
+        return menuCell;
     }
     else
     {
@@ -89,10 +99,14 @@
      *scan tag=100,pay tag=101, collect tag=102,offers tag=103
      */
     switch (sender.tag) {
-        case 100:
+        case 100:{
             [self.mainTableView.mj_header endRefreshing];
-
+            DJXScanViewController *vc = [[DJXScanViewController alloc]init];
+            [self presentViewController:vc animated:YES completion:^{
+                
+            }];
             NSLog(@"scan");
+            }
             break;
         case 101:
             NSLog(@"pay");

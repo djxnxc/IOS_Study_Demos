@@ -33,6 +33,8 @@
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）
     if (headerSelector) {
         MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:target refreshingAction:headerSelector];
+        CGRect frame = tableView.mj_header.frame;
+        header.frame = frame;
         NSMutableArray *images = [NSMutableArray array];
         for (int i = 1; i <= 8; i++) {
             NSString *imageName = [NSString stringWithFormat:@"%d.tiff",i];
@@ -49,10 +51,7 @@
         header.lastUpdatedTimeLabel.hidden=YES;
         header.stateLabel.hidden=YES;
         tableView.mj_header = header;
-        
     }
-    
-    
     // 添加默认的上拉刷新
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
     if (footerSelector) {

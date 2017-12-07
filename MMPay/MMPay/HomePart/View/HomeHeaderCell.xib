@@ -121,7 +121,7 @@
                     <constraint firstItem="DyQ-yN-Tc8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ibs-dF-aa5"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="61" y="-196"/>
+            <point key="canvasLocation" x="248" y="-196"/>
         </tableViewCell>
     </objects>
     <resources>

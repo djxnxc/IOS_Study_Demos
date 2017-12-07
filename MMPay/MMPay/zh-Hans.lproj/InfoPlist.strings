@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  MMPay
+
+  Created by 12 on 2017/12/5.
+  Copyright © 2017年 Jack_D. All rights reserved.
+*/
+// Localizable App Name是App在简体中文环境下显示的名称
+CFBundleDisplayName = "MM支付";

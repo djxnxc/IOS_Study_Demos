@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NearbyVC">
             <connections>
+                <outlet property="navStateBarHeight" destination="U1D-Xd-njA" id="ruj-2R-1lG"/>
+                <outlet property="searchTextView" destination="t5L-Cd-HpP" id="1mM-4U-ayG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -257,7 +259,7 @@
                 <constraint firstItem="aZe-jF-sBi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kPL-By-hsh"/>
                 <constraint firstAttribute="trailing" secondItem="aZe-jF-sBi" secondAttribute="trailing" id="ywP-Wh-3lb"/>
             </constraints>
-            <point key="canvasLocation" x="108.5" y="-742.5"/>
+            <point key="canvasLocation" x="-251" y="-760"/>
         </view>
     </objects>
     <resources>

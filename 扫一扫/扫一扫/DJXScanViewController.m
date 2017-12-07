@@ -43,13 +43,13 @@
     self.view.backgroundColor = [UIColor blackColor];
     //返回按钮
     UIButton *backBut = [UIButton buttonWithType:UIButtonTypeCustom];
-    backBut.frame = CGRectMake(10, 20, 60, 30);
+    backBut.frame = CGRectMake(10, MMP_iPhoneX ? 54:30, 60, 30);
     [backBut setTitle:@"取消" forState:UIControlStateNormal];
     [backBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [backBut addTarget:self action:@selector(backButClick) forControlEvents:UIControlEventTouchUpInside];
     //相册按钮
     UIButton *photoBut = [UIButton buttonWithType:UIButtonTypeCustom];
-    photoBut.frame = CGRectMake(KMainW-70, 20, 60, 30);
+    photoBut.frame = CGRectMake(KMainW-70, MMP_iPhoneX ? 54:30, 60, 30);
     [photoBut setTitle:@"相册" forState:UIControlStateNormal];
     [photoBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [photoBut addTarget:self action:@selector(photoButClick) forControlEvents:UIControlEventTouchUpInside];
@@ -98,7 +98,6 @@
         CGFloat imgViewX = (scanW - cornerW) * (i % 2);
         CGFloat imgViewY = (scanW - cornerW) * (i / 2);
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(imgViewX, imgViewY, cornerW, cornerW)];
-        imgView.backgroundColor = [UIColor redColor];
         [self drawImageForImageView:imgView];
         if (i == 0 || i == 1) {
             imgView.transform = CGAffineTransformRotate(imgView.transform, M_PI_2 * i);
@@ -242,7 +241,7 @@ static NSArray * _Nonnull extracted() {
         dispatch_async(dispatch_get_main_queue(), ^{
         self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:captureSession];
         self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-            self.previewLayer.frame = CGRectMake(0, 0, KMainW, KMainH);
+            self.previewLayer.frame = CGRectMake(0, 0, KMainW,KMainH);
         [self.view.layer insertSublayer:self.previewLayer atIndex:0];
         [captureSession startRunning];
         });

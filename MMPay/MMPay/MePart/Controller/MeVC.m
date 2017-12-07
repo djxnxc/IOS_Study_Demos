@@ -10,6 +10,10 @@
 #import "MeHeaderCell.h"
 #import "MeListCell.h"
 @interface MeVC ()<UITableViewDelegate,UITableViewDataSource>
+{
+    CGFloat last;
+}
+@property(nonatomic,strong)UIView *refreshBgV;
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 
 @end
@@ -30,14 +34,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"My Wallet";
     [self initView];
     // Do any additional setup after loading the view from its nib.
 }
 -(void)initView{
-     [DJXRefreshTool initWithTableViewGifRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:nil];
+    last = 0;
+    self.refreshBgV = [[UIView alloc] initWithFrame:CGRectMake(0, -MMP_ScreenH, MMP_ScreenW, MMP_ScreenH)];
+    self.refreshBgV.backgroundColor = MMP_BLUECOLOR;
+//    [self.view addSubview:self.refreshBgV];
+//    [self.view sendSubviewToBack:self.refreshBgV];
+    
+    [DJXRefreshTool initWithTableViewGifRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:nil];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
+    self.mainTableView.backgroundColor = MMP_BLUECOLOR;
 }
 -(void)headerRefresh{
     [self.mainTableView.mj_header endRefreshing];
@@ -81,9 +91,18 @@
         return listCell;
     }
 }
+
 #pragma mark-UITableViewDataSource
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    CGRect frame = self.refreshBgV.frame;
+    frame.origin.y = frame.origin.y - (scrollView.contentOffset.y - last);
+    self.refreshBgV.frame = frame;
+    last = scrollView.contentOffset.y;
+    [self.view setNeedsLayout];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

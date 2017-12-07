@@ -15,7 +15,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.topView.backgroundColor = BLUECOLOR;
+    self.topView.backgroundColor = MMP_BLUECOLOR;
     // Initialization code
 }
 +(instancetype)cellWithTableView:(UITableView *)tableView{
