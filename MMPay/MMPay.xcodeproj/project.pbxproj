@@ -53,6 +53,12 @@
 		137126871FE8A982001C783D /* TransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 137126851FE8A982001C783D /* TransferCell.m */; };
 		137126881FE8A982001C783D /* TransferCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137126861FE8A982001C783D /* TransferCell.xib */; };
 		1371268B1FE8AB10001C783D /* TransferVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1371268A1FE8AB10001C783D /* TransferVC.m */; };
+		1375BCE31FE9F8F3006B0DB4 /* TransferMoneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1375BCE21FE9F8F3006B0DB4 /* TransferMoneyVC.m */; };
+		1375BCE71FE9F92D006B0DB4 /* TransferMoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1375BCE51FE9F92D006B0DB4 /* TransferMoneyCell.m */; };
+		1375BCE81FE9F92D006B0DB4 /* TransferMoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1375BCE61FE9F92D006B0DB4 /* TransferMoneyCell.xib */; };
+		1375BCEB1FEA0E9C006B0DB4 /* SYPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1375BCE91FEA0E9C006B0DB4 /* SYPasswordView.m */; };
+		1375BCF01FEA2AD2006B0DB4 /* TransferSuccessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1375BCEE1FEA2AD2006B0DB4 /* TransferSuccessVC.m */; };
+		1375BCF11FEA2AD2006B0DB4 /* TransferSuccessVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1375BCEF1FEA2AD2006B0DB4 /* TransferSuccessVC.xib */; };
 		1376599E1FE7B8310038FC3C /* MeLogOutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1376599C1FE7B8310038FC3C /* MeLogOutCell.m */; };
 		1376599F1FE7B8310038FC3C /* MeLogOutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1376599D1FE7B8310038FC3C /* MeLogOutCell.xib */; };
 		1376E2FB1FD783E4000C1AAB /* MMPRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1376E2FA1FD783E4000C1AAB /* MMPRequestTool.m */; };
@@ -163,6 +169,16 @@
 		137126861FE8A982001C783D /* TransferCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferCell.xib; sourceTree = "<group>"; };
 		137126891FE8AB10001C783D /* TransferVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferVC.h; sourceTree = "<group>"; };
 		1371268A1FE8AB10001C783D /* TransferVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferVC.m; sourceTree = "<group>"; };
+		1375BCE11FE9F8F3006B0DB4 /* TransferMoneyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferMoneyVC.h; sourceTree = "<group>"; };
+		1375BCE21FE9F8F3006B0DB4 /* TransferMoneyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferMoneyVC.m; sourceTree = "<group>"; };
+		1375BCE41FE9F92D006B0DB4 /* TransferMoneyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferMoneyCell.h; sourceTree = "<group>"; };
+		1375BCE51FE9F92D006B0DB4 /* TransferMoneyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferMoneyCell.m; sourceTree = "<group>"; };
+		1375BCE61FE9F92D006B0DB4 /* TransferMoneyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferMoneyCell.xib; sourceTree = "<group>"; };
+		1375BCE91FEA0E9C006B0DB4 /* SYPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYPasswordView.m; sourceTree = "<group>"; };
+		1375BCEA1FEA0E9C006B0DB4 /* SYPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYPasswordView.h; sourceTree = "<group>"; };
+		1375BCED1FEA2AD2006B0DB4 /* TransferSuccessVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransferSuccessVC.h; sourceTree = "<group>"; };
+		1375BCEE1FEA2AD2006B0DB4 /* TransferSuccessVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransferSuccessVC.m; sourceTree = "<group>"; };
+		1375BCEF1FEA2AD2006B0DB4 /* TransferSuccessVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferSuccessVC.xib; sourceTree = "<group>"; };
 		1376599A1FE75F8A0038FC3C /* 微软雅黑.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "微软雅黑.ttf"; sourceTree = "<group>"; };
 		1376599B1FE7B8310038FC3C /* MeLogOutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeLogOutCell.h; sourceTree = "<group>"; };
 		1376599C1FE7B8310038FC3C /* MeLogOutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeLogOutCell.m; sourceTree = "<group>"; };
@@ -250,6 +266,8 @@
 		130A52041FE90BC8004AC8F8 /* TransferMoneyVC */ = {
 			isa = PBXGroup;
 			children = (
+				1375BCE01FE9F8D7006B0DB4 /* View */,
+				1375BCDF1FE9F8C8006B0DB4 /* Controller */,
 			);
 			path = TransferMoneyVC;
 			sourceTree = "<group>";
@@ -257,6 +275,8 @@
 		130A52051FE918BE004AC8F8 /* MMPPassWordView */ = {
 			isa = PBXGroup;
 			children = (
+				1375BCEA1FEA0E9C006B0DB4 /* SYPasswordView.h */,
+				1375BCE91FEA0E9C006B0DB4 /* SYPasswordView.m */,
 				130A52061FE918D9004AC8F8 /* MMPPassWordView.h */,
 				130A52071FE918D9004AC8F8 /* MMPPassWordView.m */,
 				130A52091FE91A0F004AC8F8 /* MMPPassWordView.xib */,
@@ -568,6 +588,8 @@
 		1371267E1FE8A6A8001C783D /* TransferVC */ = {
 			isa = PBXGroup;
 			children = (
+				1375BCF21FEA3C84006B0DB4 /* TranstoMobileMoneyVC */,
+				1375BCEC1FEA2A99006B0DB4 /* TransferSuccessVC */,
 				130A52041FE90BC8004AC8F8 /* TransferMoneyVC */,
 				130A51EC1FE8E2DA004AC8F8 /* TransferToBankCardVC */,
 				137126831FE8A952001C783D /* Controller */,
@@ -593,6 +615,42 @@
 				1371268A1FE8AB10001C783D /* TransferVC.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1375BCDF1FE9F8C8006B0DB4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1375BCE11FE9F8F3006B0DB4 /* TransferMoneyVC.h */,
+				1375BCE21FE9F8F3006B0DB4 /* TransferMoneyVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1375BCE01FE9F8D7006B0DB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1375BCE41FE9F92D006B0DB4 /* TransferMoneyCell.h */,
+				1375BCE51FE9F92D006B0DB4 /* TransferMoneyCell.m */,
+				1375BCE61FE9F92D006B0DB4 /* TransferMoneyCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1375BCEC1FEA2A99006B0DB4 /* TransferSuccessVC */ = {
+			isa = PBXGroup;
+			children = (
+				1375BCED1FEA2AD2006B0DB4 /* TransferSuccessVC.h */,
+				1375BCEE1FEA2AD2006B0DB4 /* TransferSuccessVC.m */,
+				1375BCEF1FEA2AD2006B0DB4 /* TransferSuccessVC.xib */,
+			);
+			path = TransferSuccessVC;
+			sourceTree = "<group>";
+		};
+		1375BCF21FEA3C84006B0DB4 /* TranstoMobileMoneyVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TranstoMobileMoneyVC;
 			sourceTree = "<group>";
 		};
 		1376E2F81FD78134000C1AAB /* MMPRequestTool */ = {
@@ -747,6 +805,7 @@
 				132CBCEE1FBA832000DDF35A /* LaunchScreen.storyboard in Resources */,
 				132CBD431FBA863100DDF35A /* FriendsVC.xib in Resources */,
 				132CBD391FBA860800DDF35A /* HomeVC.xib in Resources */,
+				1375BCE81FE9F92D006B0DB4 /* TransferMoneyCell.xib in Resources */,
 				132CBCEB1FBA832000DDF35A /* Assets.xcassets in Resources */,
 				132CBE131FBAF31000DDF35A /* 1.tiff in Resources */,
 				132CBD481FBA864200DDF35A /* MeVC.xib in Resources */,
@@ -763,6 +822,7 @@
 				132CBD521FBAC51A00DDF35A /* HomeHeaderCell.xib in Resources */,
 				138AC3171FC65CC400AAC3D2 /* HomeMenuCell.xib in Resources */,
 				13F914E71FBD275400411A67 /* MeListCell.xib in Resources */,
+				1375BCF11FEA2AD2006B0DB4 /* TransferSuccessVC.xib in Resources */,
 				132CBD3E1FBA861D00DDF35A /* NearbyVC.xib in Resources */,
 				132CBE0D1FBAF31000DDF35A /* 7.tiff in Resources */,
 			);
@@ -848,6 +908,7 @@
 				132CBCF11FBA832000DDF35A /* main.m in Sources */,
 				1376599E1FE7B8310038FC3C /* MeLogOutCell.m in Sources */,
 				132CBD421FBA863100DDF35A /* FriendsVC.m in Sources */,
+				1375BCEB1FEA0E9C006B0DB4 /* SYPasswordView.m in Sources */,
 				132CBD181FBA83B100DDF35A /* DJXNavigationController.m in Sources */,
 				130A51FE1FE8FDE9004AC8F8 /* CardIssuerVC.m in Sources */,
 				137126871FE8A982001C783D /* TransferCell.m in Sources */,
@@ -859,6 +920,7 @@
 				132CBD381FBA860800DDF35A /* HomeVC.m in Sources */,
 				13F914E21FBD272E00411A67 /* MeModel.m in Sources */,
 				1337776D1FC27ADC00E7E9B8 /* NearbyListCell.m in Sources */,
+				1375BCF01FEA2AD2006B0DB4 /* TransferSuccessVC.m in Sources */,
 				130A52021FE8FE24004AC8F8 /* CardIssuerCell.m in Sources */,
 				130A51F11FE8E361004AC8F8 /* TransferToBankCardVC.m in Sources */,
 				132CBD551FBACA7D00DDF35A /* HomeModel.m in Sources */,
@@ -867,6 +929,8 @@
 				132CBD511FBAC51A00DDF35A /* HomeHeaderCell.m in Sources */,
 				130A52081FE918D9004AC8F8 /* MMPPassWordView.m in Sources */,
 				13F914E61FBD275400411A67 /* MeListCell.m in Sources */,
+				1375BCE71FE9F92D006B0DB4 /* TransferMoneyCell.m in Sources */,
+				1375BCE31FE9F8F3006B0DB4 /* TransferMoneyVC.m in Sources */,
 				132CBD191FBA83B100DDF35A /* DJXTabBar.m in Sources */,
 				132F648C1FE0C61800275F3B /* HomeSearchVC.m in Sources */,
 				1371268B1FE8AB10001C783D /* TransferVC.m in Sources */,
@@ -1053,7 +1117,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MMpay/Header/DJXPrefixHeader.pch";
 				INFOPLIST_FILE = MMPay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DJXMMPay.demo.MMPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1071,7 +1135,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MMpay/Header/DJXPrefixHeader.pch";
 				INFOPLIST_FILE = MMPay/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.DJXMMPay.demo.MMPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";

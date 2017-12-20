@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 typedef void  (^butClickBlock)(NSString *str);
 @interface TransferToBankCardCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *cardNoTextField;
-@property (weak, nonatomic) IBOutlet UITextField *banksTextField;
-@property (weak, nonatomic) IBOutlet UITextField *amountTextField;
-@property (weak, nonatomic) IBOutlet UIButton *nextBut;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;//name输入框
+@property (weak, nonatomic) IBOutlet UITextField *cardNoTextField;//card No.输入框
+@property (weak, nonatomic) IBOutlet UITextField *banksTextField;//banks输入框
+@property (weak, nonatomic) IBOutlet UITextField *amountTextField;//amount金额输入框
+@property (weak, nonatomic) IBOutlet UIButton *nextBut;//下一步按钮
 
 @property(nonatomic,copy)butClickBlock block;
 +(instancetype)cellWithTableView:(UITableView *)tableView;

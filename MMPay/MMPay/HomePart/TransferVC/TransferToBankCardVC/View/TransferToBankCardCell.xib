@@ -24,10 +24,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqo-NE-aGf" userLabel="Name">
-                        <rect key="frame" x="0.0" y="15" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ZQ-3p-2cv">
-                                <rect key="frame" x="10" y="16" width="42.5" height="19"/>
+                                <rect key="frame" x="10" y="16.5" width="42.5" height="19"/>
                                 <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,10 +60,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCo-8A-OZO" userLabel="Card No.">
-                        <rect key="frame" x="0.0" y="65" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="50" width="320" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card No." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-oM-m3s">
-                                <rect key="frame" x="10" y="16" width="64.5" height="19"/>
+                                <rect key="frame" x="10" y="16.5" width="64.5" height="19"/>
                                 <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -96,10 +96,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-w6-zoa" userLabel="Banks">
-                        <rect key="frame" x="0.0" y="115" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="100" width="320" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rZ-Wu-dOc">
-                                <rect key="frame" x="10" y="16" width="45" height="19"/>
+                                <rect key="frame" x="10" y="16.5" width="45" height="19"/>
                                 <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,10 +152,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cV5-75-KPe" userLabel="Amount">
-                        <rect key="frame" x="0.0" y="180" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="165" width="320" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybS-zG-Gvh">
-                                <rect key="frame" x="10" y="16" width="56.5" height="19"/>
+                                <rect key="frame" x="10" y="16.5" width="56.5" height="19"/>
                                 <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -188,7 +188,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9g-0I-J0d">
-                        <rect key="frame" x="25" y="245" width="270" height="44"/>
+                        <rect key="frame" x="25" y="230" width="270" height="44"/>
                         <color key="backgroundColor" red="0.76078431369999999" green="0.8862745098" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="XVe-9X-bdC"/>
@@ -204,11 +204,6 @@
                             <action selector="nextButClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IfX-VL-MmM"/>
                         </connections>
                     </button>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSd-jJ-Qwv" userLabel="line">
-                        <rect key="frame" x="5" y="307" width="310" height="1"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
                 </subviews>
                 <color key="backgroundColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
@@ -223,7 +218,7 @@
                     <constraint firstItem="wUI-w6-zoa" firstAttribute="top" secondItem="wCo-8A-OZO" secondAttribute="bottom" id="h2o-mB-l6p"/>
                     <constraint firstItem="wUI-w6-zoa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="mFO-Pq-5oL"/>
                     <constraint firstItem="i9g-0I-J0d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="rRy-ap-2S5"/>
-                    <constraint firstItem="cqo-NE-aGf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="tZZ-3u-5Ut"/>
+                    <constraint firstItem="cqo-NE-aGf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tZZ-3u-5Ut"/>
                     <constraint firstItem="cV5-75-KPe" firstAttribute="top" secondItem="wUI-w6-zoa" secondAttribute="bottom" constant="15" id="xoI-3t-8Ir"/>
                     <constraint firstItem="i9g-0I-J0d" firstAttribute="top" secondItem="cV5-75-KPe" secondAttribute="bottom" constant="15" id="y6i-uv-rE3"/>
                     <constraint firstAttribute="trailing" secondItem="wCo-8A-OZO" secondAttribute="trailing" id="zZd-9o-MxE"/>

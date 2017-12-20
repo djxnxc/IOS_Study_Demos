@@ -9,6 +9,7 @@
 #import "TransferToBankCardVC.h"
 #import "TransferToBankCardCell.h"
 #import "CardIssuerVC.h"
+#import "TransferMoneyVC.h"
 @interface TransferToBankCardVC ()
 @end
 
@@ -53,7 +54,9 @@
     cell.block = ^(NSString *str) {
         if ([str isEqualToString:@"next"]) {
             //下一步
-            NSLog(@"ddddd");
+            TransferMoneyVC *vc = [[TransferMoneyVC alloc]init];
+            vc.title = @"Transfer money";
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else{
             //选择银行
