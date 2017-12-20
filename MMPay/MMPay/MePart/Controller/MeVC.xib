@@ -6,12 +6,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="微软雅黑.ttf">
+            <string>MicrosoftYaHei</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeVC">
             <connections>
-                <outlet property="mainTableView" destination="Aax-EC-B3H" id="ZuZ-n4-c2a"/>
+                <outlet property="mainTableView" destination="Aax-EC-B3H" id="Tr8-T9-Kzj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,17 +27,64 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Aax-EC-B3H">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="167" width="375" height="456"/>
+                    <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCr-Dn-KqK">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="167"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M-PESA账户" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02E-Ms-rUY">
+                            <rect key="frame" x="140" y="89" width="94" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="ykv-QC-V3w"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_headsculpture_me" translatesAutoresizingMaskIntoConstraints="NO" id="xDo-yP-bgF">
+                            <rect key="frame" x="150" y="0.0" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="xDo-yP-bgF" secondAttribute="height" multiplier="1:1" id="Dah-Wi-aul"/>
+                                <constraint firstAttribute="width" constant="75" id="otC-Rh-7KQ"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345678900" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw5-5Y-ePN">
+                            <rect key="frame" x="145.5" y="115" width="86" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="rtY-97-rVr"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
+                            <color key="textColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.22352941176470587" green="0.58823529409999997" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="167" id="0fp-vQ-KSW"/>
+                        <constraint firstItem="xDo-yP-bgF" firstAttribute="top" secondItem="CCr-Dn-KqK" secondAttribute="top" id="23a-FC-DCp"/>
+                        <constraint firstItem="pw5-5Y-ePN" firstAttribute="centerX" secondItem="CCr-Dn-KqK" secondAttribute="centerX" id="4pL-2f-cDs"/>
+                        <constraint firstItem="02E-Ms-rUY" firstAttribute="top" secondItem="xDo-yP-bgF" secondAttribute="bottom" constant="14" id="XmN-03-vGr"/>
+                        <constraint firstItem="pw5-5Y-ePN" firstAttribute="top" secondItem="02E-Ms-rUY" secondAttribute="bottom" constant="9" id="czR-tB-q3g"/>
+                        <constraint firstItem="02E-Ms-rUY" firstAttribute="centerX" secondItem="CCr-Dn-KqK" secondAttribute="centerX" id="iSe-1a-91Z"/>
+                        <constraint firstItem="xDo-yP-bgF" firstAttribute="centerX" secondItem="CCr-Dn-KqK" secondAttribute="centerX" id="oTD-GU-cXI"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Aax-EC-B3H" secondAttribute="trailing" id="2HM-MC-dS8"/>
                 <constraint firstItem="Aax-EC-B3H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="8Hz-4V-w5t"/>
+                <constraint firstAttribute="trailing" secondItem="CCr-Dn-KqK" secondAttribute="trailing" id="CJp-BK-9BO"/>
+                <constraint firstItem="CCr-Dn-KqK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I7X-Hz-Ibw"/>
                 <constraint firstAttribute="bottom" secondItem="Aax-EC-B3H" secondAttribute="bottom" constant="44" id="SFM-sU-S4v"/>
-                <constraint firstItem="Aax-EC-B3H" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kNo-fO-CHp"/>
+                <constraint firstItem="CCr-Dn-KqK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="h3m-IS-bSS"/>
+                <constraint firstItem="Aax-EC-B3H" firstAttribute="top" secondItem="CCr-Dn-KqK" secondAttribute="bottom" id="h7s-qg-ItU"/>
             </constraints>
+            <point key="canvasLocation" x="-159.5" y="-34.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="img_headsculpture_me" width="75" height="75"/>
+    </resources>
 </document>

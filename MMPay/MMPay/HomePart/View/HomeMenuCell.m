@@ -24,7 +24,7 @@
 }
 -(NSArray *)collectionData{
     if (!_collectionData) {
-        _collectionData = @[@{@"title":@"Transfer",@"image":@"转账"},@{@"title":@"Top up",@"image":@"充值"},@{@"title":@"Withdraw",@"image":@"提现"},@{@"title":@"Bouns",@"image":@"佣金奖励"},@{@"title":@"Coupon",@"image":@"优惠券"},@{@"title":@"Credit",@"image":@"credit"},@{@"title":@"Credit pay",@"image":@"支付"},@{@"title":@"Insurance",@"image":@"保险"},@{@"title":@"Fortune",@"image":@"财富"},@{@"title":@"Phone Top up",@"image":@"手机充值"},@{@"title":@"Utilities",@"image":@"生活缴费"},@{@"title":@"Intl.wire",@"image":@"跨境人民币汇款"}];
+        _collectionData = @[@{@"title":@"Transfer",@"image":@"icom_transfer"},@{@"title":@"Top up",@"image":@"icon_topup"},@{@"title":@"Withdraw",@"image":@"icon_withdraw"},@{@"title":@"Bouns",@"image":@"icon_bouns"},@{@"title":@"Coupon",@"image":@"icon_coupon"},@{@"title":@"Credit",@"image":@"icon_credit"},@{@"title":@"Credit pay",@"image":@"icon_creditPay"},@{@"title":@"Insurance",@"image":@"icon_insurance"},@{@"title":@"Fortune",@"image":@"iocn_fortune"},@{@"title":@"Phone Top up",@"image":@"icon_phoneTopup"},@{@"title":@"Utilities",@"image":@"icon_utilities"},@{@"title":@"Intl.wire",@"image":@"icon_Intl.wire"}];
     }
     return _collectionData;
 }
@@ -47,14 +47,24 @@
     return cell;
 }
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(MMP_ScreenW/4-3, 65);
+    return CGSizeMake(MMP_ScreenW/4-0.03, 65);
     
 }
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return 1;
+    return 0.01;
 }
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 1;
+    return 0.01;
+}
+-(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%ld",indexPath.row);
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(mmpCollectionView:didSelectItemAtIndexPath:)]) {
+        [self.delegate mmpCollectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

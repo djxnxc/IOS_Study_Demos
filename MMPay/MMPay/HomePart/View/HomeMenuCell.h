@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeMenuCell : UITableViewCell
-+(instancetype)cellWithTableView:(UITableView *)tableView;
-
+@protocol HomeMenuCellDelegate <NSObject>
+-(void)mmpCollectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 @end
+
+@interface HomeMenuCell : UITableViewCell
+@property(nonatomic,weak)id <HomeMenuCellDelegate>delegate;
++(instancetype)cellWithTableView:(UITableView *)tableView;
+@end
+

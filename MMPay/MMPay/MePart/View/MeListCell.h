@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 @class MeModel;
 @interface MeListCell : UITableViewCell
-@property(nonatomic,strong)MeModel *model;
+@property(nonatomic,strong)NSDictionary *dictData;
+@property(nonatomic,copy)NSString *type;//cell类型
 +(instancetype)initCellWithTableView:(UITableView *)tableView;
+
 @end

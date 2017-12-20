@@ -15,7 +15,7 @@
 /**********首页**************/
 #import "HomeVC.h"//首页
 #import "DJXScanViewController.h"//扫一扫
-
+#import "TransferVC.h"//转账
 /**********附近**************/
 #import "NearbyVC.h"//附近
 

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "HomeButProtocol.h"
 @interface HomeHeaderCell : UITableViewCell
-@property (nonatomic,strong)id <HomeButProtocol>delegate;
+@property (nonatomic,weak)id <HomeButProtocol>delegate;
 @end

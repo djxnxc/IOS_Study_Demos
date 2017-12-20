@@ -9,7 +9,8 @@
 #import "HomeVC.h"
 #import "HomeHeaderCell.h"
 #import "HomeMenuCell.h"
-@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,HomeButProtocol>
+#import "HomeSearchVC.h"
+@interface HomeVC ()<UITableViewDelegate,UITableViewDataSource,HomeButProtocol,HomeMenuCellDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *navStateHeight;
 
 @property (weak, nonatomic) IBOutlet UIView *searchView;//搜索框
@@ -21,10 +22,14 @@
     [super viewWillAppear:YES];
     self.navigationController.navigationBarHidden = YES;
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
-
+   
     // Do any additional setup after loading the view from its nib.
 }
 /**
@@ -39,7 +44,7 @@
     self.mainTableView.delegate = self;
 //    [DJXRefreshTool initWithTableViewRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:@selector(footerRefresh)];
 
-    [DJXRefreshTool initWithTableViewGifRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:@selector(footerRefresh)];
+//    [DJXRefreshTool initWithTableViewGifRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:@selector(footerRefresh)];
 }
 -(void)headerRefresh{
 //    [self.mainTableView.mj_header endRefreshing];
@@ -55,27 +60,16 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row==0) {
-        return 100;
+        return 210;
     }
-    if (indexPath.row==1) {
-        return 66*3;
-    }
-    return 50;
+    return 8+MMP_ScreenW/375*165;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==0) {
-        static NSString *headCellID = @"headCell";
-        HomeHeaderCell *headCell = [tableView dequeueReusableCellWithIdentifier:headCellID];
-        if (!headCell) {
-            headCell = [[NSBundle mainBundle]loadNibNamed:@"HomeHeaderCell" owner:self options:nil].lastObject;
-            headCell.delegate = self;
-            headCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        return headCell;
-    }
-    else if (indexPath.row==1) {
+
+  if (indexPath.row==0) {
         HomeMenuCell *menuCell = [HomeMenuCell cellWithTableView:tableView];
+        menuCell.delegate = self;
         return menuCell;
     }
     else
@@ -86,6 +80,11 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+        UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 8, MMP_ScreenW, MMP_ScreenW/375*165)];
+        cell.contentView.backgroundColor = MMP_CUSTOM_COLOR(250, 249, 249, 1);
+        imageV.image = [UIImage imageNamed:@"bg_banner"];
+        imageV.contentMode = UIViewContentModeScaleAspectFit;
+        [cell.contentView addSubview: imageV];
         return cell;
     }
 }
@@ -108,8 +107,12 @@
             NSLog(@"scan");
             }
             break;
-        case 101:
+        case 101:{
+            HomeSearchVC *vc = [[HomeSearchVC alloc]init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
             NSLog(@"pay");
+            }
             break;
         case 102:
             NSLog(@"collect");
@@ -117,6 +120,22 @@
         case 103:
             NSLog(@"offers");
             break;
+        default:
+            break;
+    }
+}
+#pragma mark-HomeMenuCellDelegate
+-(void)mmpCollectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.row) {
+        case 0: //Transfer
+            {
+                TransferVC *vc = [[TransferVC alloc]init];
+                vc.title = @"Transfer";
+                vc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            break;
+            
         default:
             break;
     }

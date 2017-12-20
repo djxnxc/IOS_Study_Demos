@@ -52,11 +52,11 @@
 }
 //添加视图
 -(void)addChildVCS{
-    [self addChildVC:self.homeVC title:@"Home" imageName:@"首页未选择" selectImageName:@"首页"];
-    [self addChildVC:self.nearbyVC title:@"Nearby" imageName:@"附近未选择" selectImageName:@"附近"];
+    [self addChildVC:self.homeVC title:@"Home" imageName:@"icon_home" selectImageName:@"icon_home_selected"];
+    [self addChildVC:self.nearbyVC title:@"Nearby" imageName:@"icon_nearby" selectImageName:@"icon_nearby_selected"];
 
-    [self addChildVC:self.friendVC title:@"Friends" imageName:@"团队未选择" selectImageName:@"团队选中"];
-    [self addChildVC:self.meVC title:@"Me" imageName:@"我的" selectImageName:@"我的选中"];
+    [self addChildVC:self.friendVC title:@"Friends" imageName:@"icon_Friends" selectImageName:@"icon_Friends_selected"];
+    [self addChildVC:self.meVC title:@"Me" imageName:@"icon_me" selectImageName:@"icon_me_selected"];
 
 }
 -(void)addChildVC:(UIViewController *)vc title:(NSString *)title imageName:(NSString *)imageName selectImageName:(NSString *)selectImageName{

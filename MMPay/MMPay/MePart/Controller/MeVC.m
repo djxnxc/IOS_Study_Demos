@@ -7,18 +7,24 @@
 //
 
 #import "MeVC.h"
-#import "MeHeaderCell.h"
 #import "MeListCell.h"
+#import "MeLogOutCell.h"
 @interface MeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     CGFloat last;
 }
 @property(nonatomic,strong)UIView *refreshBgV;
-@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
-
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;//列表
+@property(nonatomic,strong)NSArray *cellDataArr;//列表数据源
 @end
 
 @implementation MeVC
+-(NSArray *)cellDataArr{
+    if (!_cellDataArr) {
+        _cellDataArr = @[@{@"type":@"1",@"cellTitle":@"Balance",@"value":@"100.00",@"imageName":@"icon_shuaxing"},@{@"type":@"2",@"cellTitle":@"Transactions",@"value":@"",@"imageName":@"icon_disclosurearrow"},@{@"type":@"2",@"cellTitle":@"Settings",@"value":@"",@"imageName":@"icon_disclosurearrow"},@{@"type":@"3",@"cellTitle":@"Help Cenyer",@"value":@"1234567890",@"imageName":@""}];
+    }
+    return _cellDataArr;
+}
 //在页面出现的时候就将黑线隐藏起来
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -27,7 +33,6 @@
 }
 //在页面消失的时候就让navigationbar还原样式
 -(void)viewWillDisappear:(BOOL)animated{
-    
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
@@ -36,58 +41,40 @@
     [super viewDidLoad];
     [self initView];
     // Do any additional setup after loading the view from its nib.
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 -(void)initView{
-    last = 0;
-    self.refreshBgV = [[UIView alloc] initWithFrame:CGRectMake(0, -MMP_ScreenH, MMP_ScreenW, MMP_ScreenH)];
-    self.refreshBgV.backgroundColor = MMP_BLUECOLOR;
-//    [self.view addSubview:self.refreshBgV];
-//    [self.view sendSubviewToBack:self.refreshBgV];
-    
-    [DJXRefreshTool initWithTableViewGifRefresh:self.mainTableView andTarget:self andHeaderSelector:@selector(headerRefresh) andFooterSelector:nil];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
-    self.mainTableView.backgroundColor = MMP_BLUECOLOR;
-}
--(void)headerRefresh{
-    [self.mainTableView.mj_header endRefreshing];
-
+    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 #pragma mark-UITableViewDelegate
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 4;
-}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section==0||section==1||section==3) {
-        return 1;
-    }
-    else{
-        return 4;
-    }
+    return self.cellDataArr.count+1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==0) {
-        return 150;
+    if(indexPath.row==self.cellDataArr.count){
+        return 100;
     }
-    else {
-        return 50;
-    }
+    return 71;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    if (section==3) {
-        return 0.001;
-    }
-    return 10;
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.001;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.001;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section==0) {
-        MeHeaderCell *headCell = [MeHeaderCell cellWithTableView:tableView];
-        return headCell;
+    if(indexPath.row==self.cellDataArr.count){
+        MeLogOutCell *logOutCell = [MeLogOutCell initCellWithTableView:tableView];
+        logOutCell.block = ^(NSString *logOut) {
+            MMP_ALERT_SHOW(@"提示",@"注销登录");
+        };
+        return logOutCell;
     }
     else{
         MeListCell *listCell = [MeListCell initCellWithTableView:tableView];
+        listCell.dictData = _cellDataArr[indexPath.row];
         return listCell;
     }
 }
