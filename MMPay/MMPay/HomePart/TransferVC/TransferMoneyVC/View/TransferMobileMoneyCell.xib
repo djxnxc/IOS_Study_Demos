@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="微软雅黑.ttf">
+            <string>MicrosoftYaHei</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="333" id="KGk-i7-Jjw" customClass="TransferMobileMoneyCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="333"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="332.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ccb_transfermoney" translatesAutoresizingMaskIntoConstraints="NO" id="8oo-pa-muP">
+                        <rect key="frame" x="130" y="31" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="8oo-pa-muP" secondAttribute="height" multiplier="1:1" id="9q5-PG-Pct"/>
+                            <constraint firstAttribute="width" constant="60" id="ARy-Bn-6TE"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSv-K8-KaH">
+                        <rect key="frame" x="139" y="101" width="42.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="d75-L2-TuG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transfer to bank" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyV-fB-c4L">
+                        <rect key="frame" x="108.5" y="131" width="101.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="ZMh-vk-twH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ciF-3l-sPn">
+                        <rect key="frame" x="0.0" y="236" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="9IM-eF-bIs"/>
+                            <constraint firstAttribute="height" constant="1" id="CyC-Hp-ihe"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TZS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwu-kp-Jqu">
+                        <rect key="frame" x="15" y="185" width="40.5" height="26"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DpF-BP-31J">
+                        <rect key="frame" x="70.5" y="176" width="234.5" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="rhy-2n-Pyl"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="33"/>
+                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                    </textField>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCf-Oq-eiy">
+                        <rect key="frame" x="15" y="267" width="290" height="44"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="8ST-qh-p9n"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Hvb-hj-4zU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                        <state key="normal" title="Transfer">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="transferButClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XAU-E2-aqu"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="pwu-kp-Jqu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="0jE-xz-lfc"/>
+                    <constraint firstItem="yyV-fB-c4L" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="3pe-8S-AU6"/>
+                    <constraint firstItem="ciF-3l-sPn" firstAttribute="top" secondItem="pwu-kp-Jqu" secondAttribute="bottom" constant="25" id="4Uj-sq-EvW"/>
+                    <constraint firstItem="bSv-K8-KaH" firstAttribute="top" secondItem="8oo-pa-muP" secondAttribute="bottom" constant="10" id="9Zi-Qb-dOp"/>
+                    <constraint firstItem="yyV-fB-c4L" firstAttribute="top" secondItem="bSv-K8-KaH" secondAttribute="bottom" constant="15" id="9rW-2W-O53"/>
+                    <constraint firstAttribute="trailing" secondItem="SCf-Oq-eiy" secondAttribute="trailing" constant="15" id="CbV-Mg-UZ0"/>
+                    <constraint firstAttribute="trailing" secondItem="DpF-BP-31J" secondAttribute="trailing" constant="15" id="ENr-Vj-3Gj"/>
+                    <constraint firstItem="DpF-BP-31J" firstAttribute="leading" secondItem="pwu-kp-Jqu" secondAttribute="trailing" constant="15" id="FwV-Ec-Fsa"/>
+                    <constraint firstItem="bSv-K8-KaH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="L4E-bd-Te5"/>
+                    <constraint firstItem="8oo-pa-muP" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="LcH-JB-efp"/>
+                    <constraint firstItem="8oo-pa-muP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="20" id="V7U-UY-Qgq"/>
+                    <constraint firstItem="ciF-3l-sPn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="YNO-y3-Clt"/>
+                    <constraint firstItem="SCf-Oq-eiy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="YRk-lh-inj"/>
+                    <constraint firstItem="DpF-BP-31J" firstAttribute="bottom" secondItem="pwu-kp-Jqu" secondAttribute="bottom" id="eH4-8K-E5M"/>
+                    <constraint firstItem="DpF-BP-31J" firstAttribute="top" secondItem="yyV-fB-c4L" secondAttribute="bottom" constant="30" id="syR-B7-kej"/>
+                    <constraint firstItem="SCf-Oq-eiy" firstAttribute="top" secondItem="ciF-3l-sPn" secondAttribute="bottom" constant="30" id="wjW-Aa-ba0"/>
+                    <constraint firstAttribute="trailing" secondItem="ciF-3l-sPn" secondAttribute="trailing" id="y5B-uG-cJt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="DpF-BP-31J" id="Cq1-gA-kRa"/>
+                <outlet property="transferBut" destination="SCf-Oq-eiy" id="dWt-He-Sgs"/>
+            </connections>
+            <point key="canvasLocation" x="75" y="44"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_ccb_transfermoney" width="56" height="60"/>
+    </resources>
+</document>

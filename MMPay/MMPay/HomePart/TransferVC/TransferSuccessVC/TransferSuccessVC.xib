@@ -16,7 +16,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransferSuccessVC">
             <connections>
+                <outlet property="amountLabel" destination="Mfe-Ln-aCP" id="LHq-CK-XEq"/>
                 <outlet property="doneButTop" destination="uXq-EY-MRA" id="M8x-4J-GX4"/>
+                <outlet property="itemLabel" destination="u4a-YH-ISq" id="bV1-j4-Qhr"/>
+                <outlet property="promptLabel" destination="4aU-q1-LtP" id="0yL-5N-LZD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -131,7 +134,7 @@
                 <constraint firstItem="tYD-NQ-3tM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="uXq-EY-MRA"/>
                 <constraint firstItem="Mfe-Ln-aCP" firstAttribute="top" secondItem="4aU-q1-LtP" secondAttribute="bottom" constant="25" id="w4O-k2-qLd"/>
             </constraints>
-            <point key="canvasLocation" x="-815" y="124"/>
+            <point key="canvasLocation" x="-1112" y="-204"/>
         </view>
     </objects>
 </document>

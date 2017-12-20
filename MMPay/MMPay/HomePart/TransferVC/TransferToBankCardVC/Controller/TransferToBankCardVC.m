@@ -56,6 +56,7 @@
             //下一步
             TransferMoneyVC *vc = [[TransferMoneyVC alloc]init];
             vc.title = @"Transfer money";
+            vc.type =@"1";
             [self.navigationController pushViewController:vc animated:YES];
         }
         else{

@@ -37,8 +37,8 @@
  */
 -(void)initView{
     self.navStateHeight.constant = MMP_NAV_STATESBAR_HEIGHT;
-    self.searchView.layer.masksToBounds = YES;
     self.searchView.layer.cornerRadius = 15;
+    self.searchView.layer.masksToBounds = YES;
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.mainTableView.dataSource = self;
     self.mainTableView.delegate = self;

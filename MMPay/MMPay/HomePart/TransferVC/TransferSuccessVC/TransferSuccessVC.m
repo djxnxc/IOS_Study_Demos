@@ -9,7 +9,8 @@
 #import "TransferSuccessVC.h"
 
 @interface TransferSuccessVC ()
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *doneButTop;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *doneButTop;//完成按钮上间距
+
 
 
 @end
@@ -18,10 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initView];
+    // Do any additional setup after loading the view from its nib.
+}
+-(void)initView{
+    
     if (MMP_iPhoneX) {
         self.doneButTop.constant=44;
     }
-    // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)doneButClick:(UIButton *)sender {
     [self dismissViewControllerAnimated:NO completion:^{

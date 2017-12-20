@@ -28,6 +28,7 @@
 /**********工具类**************/
 #import "MMPHeader.h"//宏定义头文件
 #import "MMPPassWordView.h"//密码框支付页面
+#import "MMPPaymentDetailsView.h"//支付账单确认界面
 #import <AFNetworking.h>//网络请求
 #import "MMPRequestTool.h"//自定义封装的post请求
 #import "JXButton.h"//文字在下图片在上的按钮

@@ -23,8 +23,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.nextBut.layer.masksToBounds = YES;
     self.nextBut.layer.cornerRadius = 4;
+    self.nextBut.layer.masksToBounds = YES;
     self.nextBut.enabled = NO;
     self.nameTextField.delegate = self;
     self.cardNoTextField.delegate = self;

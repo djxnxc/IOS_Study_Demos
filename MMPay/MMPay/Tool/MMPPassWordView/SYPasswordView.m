@@ -122,8 +122,8 @@
         _textField.keyboardType = UIKeyboardTypeNumberPad;
         _textField.layer.borderColor = [MMP_CUSTOM_COLOR(236, 236, 236, 1) CGColor];
         _textField.layer.borderWidth = 1;
-        _textField.layer.masksToBounds = YES;
         _textField.layer.cornerRadius=4;
+        _textField.layer.masksToBounds = YES;
         [_textField becomeFirstResponder];
         [_textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [self addSubview:_textField];

@@ -23,8 +23,8 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.logOutBut.layer.masksToBounds = YES;
     self.logOutBut.layer.cornerRadius = 4;
+    self.logOutBut.layer.masksToBounds = YES;
     // Initialization code
 }
 //点击注销登录

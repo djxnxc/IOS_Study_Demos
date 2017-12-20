@@ -27,8 +27,8 @@
 }
 -(void)initView{
     self.navStateBarHeight.constant = MMP_NAV_STATESBAR_HEIGHT;
-    self.searchTextView.layer.masksToBounds = YES;
     self.searchTextView.layer.cornerRadius = 15;
+    self.searchTextView.layer.masksToBounds = YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

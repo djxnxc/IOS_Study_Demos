@@ -8,6 +8,7 @@
 
 #import "TransferMoneyVC.h"
 #import "TransferMoneyCell.h"
+#import "TransferMobileMoneyCell.h"
 #import "TransferSuccessVC.h"
 @interface TransferMoneyVC ()
 
@@ -45,23 +46,56 @@
     return 330;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    TransferMoneyCell *cell = [TransferMoneyCell cellWithTableView:tableView];
-    __weak typeof(self) weakSelf = self;
-    cell.block = ^(NSString *str) {
-        MMPPassWordView *passwordV = [MMPPassWordView initPassWordViewWithFrame:CGRectMake(0, 0, MMP_ScreenW, MMP_ScreenH) superView:[UIApplication sharedApplication].keyWindow];
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        passwordV.block = ^(NSString *Str) {
-            [strongSelf.navigationController popViewControllerAnimated:YES];
-        };
-        passwordV.successBlock = ^(NSString *str) {
-            TransferSuccessVC *vc = [[TransferSuccessVC alloc]initWithNibName:@"TransferSuccessVC" bundle:nil];
-            vc.finishlock = ^(NSString *str) {
-                [strongSelf.navigationController popToRootViewControllerAnimated:NO];
+    if([self.type isEqualToString:@"1"]){//银行卡转账
+        TransferMoneyCell *cell = [TransferMoneyCell cellWithTableView:tableView];
+        __weak typeof(self) weakSelf = self;
+        cell.block = ^(NSString *str) {
+            MMPPassWordView *passwordV = [MMPPassWordView initPassWordViewWithFrame:CGRectMake(0, 0, MMP_ScreenW, MMP_ScreenH) superView:[UIApplication sharedApplication].keyWindow];
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            passwordV.block = ^(NSString *Str) {
+                [strongSelf.navigationController popViewControllerAnimated:YES];
             };
-            [strongSelf presentViewController:vc animated:YES completion:nil];
+            passwordV.successBlock = ^(NSString *str) {
+                TransferSuccessVC *vc = [[TransferSuccessVC alloc]initWithNibName:@"TransferSuccessVC" bundle:nil];
+                vc.finishlock = ^(NSString *str) {
+                    [strongSelf.navigationController popToRootViewControllerAnimated:NO];
+                };
+                [strongSelf presentViewController:vc animated:YES completion:nil];
+            };
         };
-    };
-    return cell;
+        return cell;
+    }
+    else{//type=2 个人账户转账
+        TransferMobileMoneyCell *cell = [TransferMobileMoneyCell cellWithTableView:tableView];
+        __weak typeof(self) weakSelf = self;
+        cell.block = ^(NSString *str) {
+            MMPPaymentDetailsView *paymentDetailV = [MMPPaymentDetailsView initPaymentDetailsViewWithFrame:CGRectMake(0, 0, MMP_ScreenW, MMP_ScreenH) superView:[UIApplication sharedApplication].keyWindow];
+            __weak typeof(paymentDetailV)  weakPaymentDetailV= paymentDetailV;
+            paymentDetailV.backBlock = ^(NSString *Str) {
+                [weakPaymentDetailV removeFromSuperview];
+            };
+            paymentDetailV.payBlock = ^(NSString *str) {
+                MMPPassWordView *passwordV = [MMPPassWordView initPassWordViewWithFrame:CGRectMake(0, 0, MMP_ScreenW, MMP_ScreenH) superView:[UIApplication sharedApplication].keyWindow];
+                __weak typeof(passwordV)  weakPasswordV= passwordV;
+                passwordV.block = ^(NSString *Str) {
+                    [weakPasswordV removeFromSuperview];
+                };
+                __strong typeof(weakSelf) strongSelf = weakSelf;
+                passwordV.successBlock = ^(NSString *str) {
+                    [weakPaymentDetailV removeFromSuperview];
+                    TransferSuccessVC *vc = [[TransferSuccessVC alloc]initWithNibName:@"TransferSuccessVC" bundle:nil];
+                    vc.itemLabel.text = @"To Mobile Money account";
+                    vc.amountLabel.text = @"TZS  320.00";
+                    vc.finishlock = ^(NSString *str) {
+                        [strongSelf.navigationController popToRootViewControllerAnimated:NO];
+                    };
+                    [strongSelf presentViewController:vc animated:YES completion:nil];
+                };
+            };
+        };
+        return cell;
+    }
+    return nil;
 }
 -(void)backButClick{
     [self.navigationController popViewControllerAnimated:YES];

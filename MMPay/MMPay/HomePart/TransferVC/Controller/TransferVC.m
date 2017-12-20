@@ -9,6 +9,7 @@
 #import "TransferVC.h"
 #import "TransferCell.h"
 #import "TransferToBankCardVC.h"
+#import "TranstoMobileMoneyAccountVC.h"
 @interface TransferVC ()
 @property(nonatomic,strong)NSArray *cellDataArr;//列表数据
 @end
@@ -67,7 +68,9 @@
     switch (indexPath.row) {
         case 0:
             {
-                
+                TranstoMobileMoneyAccountVC *vc = [[TranstoMobileMoneyAccountVC alloc]initWithNibName:@"TranstoMobileMoneyAccountVC" bundle:nil];
+                vc.title = @"To Mobile Money account";
+                [self.navigationController pushViewController:vc animated:YES];
             }
             break;
         case 1:

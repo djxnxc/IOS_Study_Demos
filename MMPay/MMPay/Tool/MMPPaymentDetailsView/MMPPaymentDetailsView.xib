@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="微软雅黑.ttf">
+            <string>MicrosoftYaHei</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MMPPaymentDetailsView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KmY-yg-Z6B">
+                    <rect key="frame" x="0.0" y="236" width="375" height="431"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pt-QC-ewy">
+                            <rect key="frame" x="0.0" y="0.0" width="35" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="5Si-np-S8G"/>
+                                <constraint firstAttribute="height" constant="44" id="QrL-kz-7GH"/>
+                            </constraints>
+                            <state key="normal" image="icon_quxiao"/>
+                            <connections>
+                                <action selector="backButClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="2rO-TC-hLT"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uup-Zq-7wk">
+                            <rect key="frame" x="0.0" y="44" width="375" height="1"/>
+                            <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="w4w-Bj-saC"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMpay pays for the phone call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJV-W8-yxx">
+                            <rect key="frame" x="138.5" y="45" width="221.5" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="Wun-AV-D5W"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMpay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gh4-cd-p3J">
+                            <rect key="frame" x="306.5" y="91" width="54" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="Dxu-LC-ELp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x1-Bz-51k">
+                            <rect key="frame" x="15" y="91" width="55.5" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="bTh-Kr-C7E"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ii-c6-dAV">
+                            <rect key="frame" x="15" y="136" width="345" height="1"/>
+                            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="cK4-yc-5ny"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Rz-Cb-LhS">
+                            <rect key="frame" x="15" y="90" width="345" height="1"/>
+                            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="VRd-tt-KV8"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhp-s1-MB0">
+                            <rect key="frame" x="15" y="45" width="31.5" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="45" id="M8R-qt-tXM"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUj-Wf-yNH">
+                            <rect key="frame" x="15" y="372" width="345" height="44"/>
+                            <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="9bu-m4-jOq"/>
+                                <constraint firstAttribute="height" constant="44" id="sbt-2V-hXU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <state key="normal" title="Pay Now">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="payNowButClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="uJy-jL-Aib"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNO-zy-Ewc">
+                            <rect key="frame" x="130.5" y="13" width="114.5" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="FE2-uA-AM3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5600.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIg-8A-pN2">
+                            <rect key="frame" x="140" y="249" width="119.5" height="38.5"/>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="33"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TZS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg7-uZ-LwE">
+                            <rect key="frame" x="97" y="262.5" width="33" height="21"/>
+                            <fontDescription key="fontDescription" name="MicrosoftYaHei" family="Microsoft YaHei" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="6Rz-Cb-LhS" secondAttribute="trailing" constant="15" id="3re-cx-dig"/>
+                        <constraint firstItem="oIg-8A-pN2" firstAttribute="top" secondItem="6Ii-c6-dAV" secondAttribute="bottom" constant="112" id="6Tq-bh-7t6"/>
+                        <constraint firstItem="oIg-8A-pN2" firstAttribute="bottom" secondItem="vg7-uZ-LwE" secondAttribute="bottom" constant="4" id="81Y-Om-DIR"/>
+                        <constraint firstItem="dJV-W8-yxx" firstAttribute="centerY" secondItem="Zhp-s1-MB0" secondAttribute="centerY" id="92n-KK-M3z"/>
+                        <constraint firstItem="uup-Zq-7wk" firstAttribute="top" secondItem="7Pt-QC-ewy" secondAttribute="bottom" id="DZb-mj-zNF"/>
+                        <constraint firstItem="gh4-cd-p3J" firstAttribute="centerY" secondItem="8x1-Bz-51k" secondAttribute="centerY" id="Efh-eO-o3B"/>
+                        <constraint firstItem="6Rz-Cb-LhS" firstAttribute="leading" secondItem="KmY-yg-Z6B" secondAttribute="leading" constant="15" id="EuR-10-uR3"/>
+                        <constraint firstItem="jUj-Wf-yNH" firstAttribute="leading" secondItem="KmY-yg-Z6B" secondAttribute="leading" constant="15" id="GfC-Do-4lp"/>
+                        <constraint firstItem="6Rz-Cb-LhS" firstAttribute="top" secondItem="Zhp-s1-MB0" secondAttribute="bottom" id="HZX-lP-72W"/>
+                        <constraint firstItem="8x1-Bz-51k" firstAttribute="leading" secondItem="Zhp-s1-MB0" secondAttribute="leading" id="IN5-Rt-yPP"/>
+                        <constraint firstAttribute="trailing" secondItem="6Ii-c6-dAV" secondAttribute="trailing" constant="15" id="Iwt-0F-kzd"/>
+                        <constraint firstAttribute="trailing" secondItem="jUj-Wf-yNH" secondAttribute="trailing" constant="15" id="MOJ-F6-VG3"/>
+                        <constraint firstItem="Zhp-s1-MB0" firstAttribute="top" secondItem="uup-Zq-7wk" secondAttribute="bottom" id="P3a-IW-Gag"/>
+                        <constraint firstAttribute="height" constant="431" id="Pbk-oc-bhX"/>
+                        <constraint firstItem="8x1-Bz-51k" firstAttribute="top" secondItem="6Rz-Cb-LhS" secondAttribute="bottom" id="Rb3-yB-j1H"/>
+                        <constraint firstAttribute="trailing" secondItem="uup-Zq-7wk" secondAttribute="trailing" id="UyI-mj-Qp7"/>
+                        <constraint firstItem="uup-Zq-7wk" firstAttribute="top" secondItem="7Pt-QC-ewy" secondAttribute="bottom" id="VSe-4y-rzB"/>
+                        <constraint firstAttribute="trailing" secondItem="dJV-W8-yxx" secondAttribute="trailing" constant="15" id="Wf3-bZ-b2f"/>
+                        <constraint firstItem="7Pt-QC-ewy" firstAttribute="leading" secondItem="KmY-yg-Z6B" secondAttribute="leading" id="Yqw-DV-ek1"/>
+                        <constraint firstItem="6Ii-c6-dAV" firstAttribute="top" secondItem="8x1-Bz-51k" secondAttribute="bottom" id="cGy-Cw-85D"/>
+                        <constraint firstItem="oIg-8A-pN2" firstAttribute="centerX" secondItem="KmY-yg-Z6B" secondAttribute="centerX" constant="12" id="g4y-XQ-dii"/>
+                        <constraint firstItem="WNO-zy-Ewc" firstAttribute="top" secondItem="KmY-yg-Z6B" secondAttribute="top" constant="13" id="hTR-eX-2YS"/>
+                        <constraint firstAttribute="bottom" secondItem="jUj-Wf-yNH" secondAttribute="bottom" constant="15" id="iyu-zU-rVR"/>
+                        <constraint firstItem="WNO-zy-Ewc" firstAttribute="centerX" secondItem="KmY-yg-Z6B" secondAttribute="centerX" id="jF2-n5-gRd"/>
+                        <constraint firstItem="gh4-cd-p3J" firstAttribute="trailing" secondItem="dJV-W8-yxx" secondAttribute="trailing" id="jyi-Hh-cD9"/>
+                        <constraint firstItem="7Pt-QC-ewy" firstAttribute="top" secondItem="KmY-yg-Z6B" secondAttribute="top" id="o38-bc-17v"/>
+                        <constraint firstItem="6Ii-c6-dAV" firstAttribute="leading" secondItem="KmY-yg-Z6B" secondAttribute="leading" constant="15" id="oa9-0v-eg4"/>
+                        <constraint firstItem="uup-Zq-7wk" firstAttribute="leading" secondItem="KmY-yg-Z6B" secondAttribute="leading" id="svf-Kh-dmV"/>
+                        <constraint firstItem="Zhp-s1-MB0" firstAttribute="leading" secondItem="KmY-yg-Z6B" secondAttribute="leading" constant="15" id="z5Z-Jp-ahc"/>
+                        <constraint firstItem="oIg-8A-pN2" firstAttribute="leading" secondItem="vg7-uZ-LwE" secondAttribute="trailing" constant="10" id="zve-39-cEG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30152398767605632" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="KmY-yg-Z6B" secondAttribute="bottom" id="Wmd-mW-Bew"/>
+                <constraint firstAttribute="trailing" secondItem="KmY-yg-Z6B" secondAttribute="trailing" id="c94-XO-t4g"/>
+                <constraint firstItem="KmY-yg-Z6B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="pmy-27-Jfd"/>
+            </constraints>
+            <connections>
+                <outlet property="amountLabel" destination="oIg-8A-pN2" id="Jrn-PC-2ou"/>
+                <outlet property="amountLabelTop" destination="6Tq-bh-7t6" id="HYF-C9-P0E"/>
+                <outlet property="bgViewHeight" destination="Pbk-oc-bhX" id="PhJ-7v-R8w"/>
+                <outlet property="payNowBut" destination="jUj-Wf-yNH" id="q7M-P1-opQ"/>
+            </connections>
+            <point key="canvasLocation" x="-672" y="-286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_quxiao" width="14" height="14"/>
+    </resources>
+</document>

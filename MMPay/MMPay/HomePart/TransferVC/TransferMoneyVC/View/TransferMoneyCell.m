@@ -26,8 +26,9 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.transferBut.layer.masksToBounds = YES;
     self.transferBut.layer.cornerRadius = 4;
+    self.transferBut.layer.masksToBounds = YES;
+
     // Initialization code
 }
 
