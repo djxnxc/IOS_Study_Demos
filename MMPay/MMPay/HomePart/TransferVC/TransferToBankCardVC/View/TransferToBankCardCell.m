@@ -38,14 +38,14 @@
 
 //点击输入框按钮
 - (IBAction)cellButClick:(UIButton *)sender {
-    if (self.block) {
-        self.block(@"banks");
+    if (self.banksBlock) {
+        self.banksBlock(@"banks");
     }
 }
 //点击下一步按钮
 - (IBAction)nextButClick:(UIButton *)sender {
-    if (self.block) {
-        self.block(@"next");
+    if (self.nextBlock) {
+        self.nextBlock(self.amountTextField.text);
     }
 }
 #pragma mark - UITextFeild代理

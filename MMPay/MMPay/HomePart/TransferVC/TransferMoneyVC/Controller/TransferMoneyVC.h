@@ -13,5 +13,6 @@
  *type 1表示银行卡转账
  *type 2表示个人账户转账
  **/
+@property(nonatomic,strong)NSString *amountStr;//转账金额
 @property(nonatomic,strong)NSString *type;
 @end

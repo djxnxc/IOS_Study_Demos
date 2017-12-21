@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol HomeMenuCellDelegate <NSObject>
--(void)mmpCollectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
+-(void)mmpCollectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath title:(NSString *)title;
 @end
 
 @interface HomeMenuCell : UITableViewCell

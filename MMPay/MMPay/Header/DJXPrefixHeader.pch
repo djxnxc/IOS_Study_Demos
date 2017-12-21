@@ -16,6 +16,7 @@
 #import "HomeVC.h"//首页
 #import "DJXScanViewController.h"//扫一扫
 #import "TransferVC.h"//转账
+#import "TopUpCenterVC.h"//充值
 /**********附近**************/
 #import "NearbyVC.h"//附近
 
@@ -29,6 +30,7 @@
 #import "MMPHeader.h"//宏定义头文件
 #import "MMPPassWordView.h"//密码框支付页面
 #import "MMPPaymentDetailsView.h"//支付账单确认界面
+#import "TransferSuccessVC.h"//支付成功页面
 #import <AFNetworking.h>//网络请求
 #import "MMPRequestTool.h"//自定义封装的post请求
 #import "JXButton.h"//文字在下图片在上的按钮

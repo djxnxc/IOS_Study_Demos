@@ -51,38 +51,38 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TransferToBankCardCell *cell = [TransferToBankCardCell cellWithTableView:tableView];
     __weak typeof(cell) weakCell = cell;
-    cell.block = ^(NSString *str) {
-        if ([str isEqualToString:@"next"]) {
-            //下一步
-            TransferMoneyVC *vc = [[TransferMoneyVC alloc]init];
-            vc.title = @"Transfer money";
-            vc.type =@"1";
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else{
-            //选择银行
-            CardIssuerVC *vc = [[CardIssuerVC alloc]init];
-            vc.title = @"Card Issuer";
-            __strong typeof(weakCell) strongCell= weakCell;
-            vc.selectBlock = ^(NSString *bank) {
-                strongCell.banksTextField.text  = bank;
-                if ([strongCell.nameTextField.text isEqualToString:@""]) {
-                    return ;
-                }
-                if ([strongCell.cardNoTextField.text isEqualToString:@""]) {
-                    return ;
-                }
-                if ([strongCell.banksTextField.text isEqualToString:@""]) {
-                    return ;
-                }
-                if ([strongCell.amountTextField.text isEqualToString:@""]) {
-                    return ;
-                }
-                strongCell.nextBut.enabled = YES;
-                strongCell.nextBut.backgroundColor = MMP_BLUECOLOR;
-            };
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+    /***方法回调***/
+    cell.nextBlock = ^(NSString *amountStr) {
+        TransferMoneyVC *vc = [[TransferMoneyVC alloc]init];
+        vc.title = @"Transfer money";
+        vc.amountStr =amountStr;
+        vc.type =@"1";
+        [self.navigationController pushViewController:vc animated:YES];
+    };
+    cell.banksBlock = ^(NSString *str) {
+        //选择银行
+        CardIssuerVC *vc = [[CardIssuerVC alloc]init];
+        vc.title = @"Card Issuer";
+        __strong typeof(weakCell) strongCell= weakCell;
+        /***选中银行回调传值***/
+        vc.selectBlock = ^(NSString *bank) {
+            strongCell.banksTextField.text  = bank;
+            if ([strongCell.nameTextField.text isEqualToString:@""]) {
+                return ;
+            }
+            if ([strongCell.cardNoTextField.text isEqualToString:@""]) {
+                return ;
+            }
+            if ([strongCell.banksTextField.text isEqualToString:@""]) {
+                return ;
+            }
+            if ([strongCell.amountTextField.text isEqualToString:@""]) {
+                return ;
+            }
+            strongCell.nextBut.enabled = YES;
+            strongCell.nextBut.backgroundColor = MMP_BLUECOLOR;
+        };
+        [self.navigationController pushViewController:vc animated:YES];
     };
     return cell;
 }

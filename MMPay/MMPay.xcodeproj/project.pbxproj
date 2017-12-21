@@ -48,6 +48,12 @@
 		132F648C1FE0C61800275F3B /* HomeSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 132F648B1FE0C61800275F3B /* HomeSearchVC.m */; };
 		1337776D1FC27ADC00E7E9B8 /* NearbyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1337776B1FC27ADC00E7E9B8 /* NearbyListCell.m */; };
 		1337776E1FC27ADC00E7E9B8 /* NearbyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1337776C1FC27ADC00E7E9B8 /* NearbyListCell.xib */; };
+		13652A4F1FEB470B00C68D86 /* TopUpCenterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13652A4D1FEB470B00C68D86 /* TopUpCenterVC.m */; };
+		13652A501FEB470B00C68D86 /* TopUpCenterVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13652A4E1FEB470B00C68D86 /* TopUpCenterVC.xib */; };
+		13652A541FEB4C7E00C68D86 /* TopUpCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13652A521FEB4C7E00C68D86 /* TopUpCell.m */; };
+		13652A551FEB4C7E00C68D86 /* TopUpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13652A531FEB4C7E00C68D86 /* TopUpCell.xib */; };
+		13652A591FEB4C8C00C68D86 /* DataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13652A571FEB4C8C00C68D86 /* DataCell.m */; };
+		13652A5A1FEB4C8C00C68D86 /* DataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13652A581FEB4C8C00C68D86 /* DataCell.xib */; };
 		136F5A421FD635D200AC1717 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 136F5A441FD635D200AC1717 /* InfoPlist.strings */; };
 		136F5A481FD6373F00AC1717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 136F5A4A1FD6373F00AC1717 /* Localizable.strings */; };
 		137126871FE8A982001C783D /* TransferCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 137126851FE8A982001C783D /* TransferCell.m */; };
@@ -73,6 +79,8 @@
 		138AC31B1FC65D4E00AAC3D2 /* HomeMenuCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 138AC3191FC65D4E00AAC3D2 /* HomeMenuCollectionViewCell.m */; };
 		138AC31C1FC65D4E00AAC3D2 /* HomeMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138AC31A1FC65D4E00AAC3D2 /* HomeMenuCollectionViewCell.xib */; };
 		13A7AB4F1FCBD9E500A9F5B7 /* DJXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A7AB4E1FCBD9E500A9F5B7 /* DJXScanViewController.m */; };
+		13AAA6721FEB5CF700A4A16C /* TopUpCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13AAA6701FEB5CF700A4A16C /* TopUpCollectionViewCell.m */; };
+		13AAA6731FEB5CF700A4A16C /* TopUpCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13AAA6711FEB5CF700A4A16C /* TopUpCollectionViewCell.xib */; };
 		13F914E21FBD272E00411A67 /* MeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F914E11FBD272E00411A67 /* MeModel.m */; };
 		13F914E61FBD275400411A67 /* MeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F914E41FBD275400411A67 /* MeListCell.m */; };
 		13F914E71FBD275400411A67 /* MeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F914E51FBD275400411A67 /* MeListCell.xib */; };
@@ -165,6 +173,15 @@
 		1337776A1FC27ADC00E7E9B8 /* NearbyListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NearbyListCell.h; sourceTree = "<group>"; };
 		1337776B1FC27ADC00E7E9B8 /* NearbyListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NearbyListCell.m; sourceTree = "<group>"; };
 		1337776C1FC27ADC00E7E9B8 /* NearbyListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NearbyListCell.xib; sourceTree = "<group>"; };
+		13652A4C1FEB470B00C68D86 /* TopUpCenterVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopUpCenterVC.h; sourceTree = "<group>"; };
+		13652A4D1FEB470B00C68D86 /* TopUpCenterVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopUpCenterVC.m; sourceTree = "<group>"; };
+		13652A4E1FEB470B00C68D86 /* TopUpCenterVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopUpCenterVC.xib; sourceTree = "<group>"; };
+		13652A511FEB4C7E00C68D86 /* TopUpCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopUpCell.h; sourceTree = "<group>"; };
+		13652A521FEB4C7E00C68D86 /* TopUpCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopUpCell.m; sourceTree = "<group>"; };
+		13652A531FEB4C7E00C68D86 /* TopUpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopUpCell.xib; sourceTree = "<group>"; };
+		13652A561FEB4C8C00C68D86 /* DataCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataCell.h; sourceTree = "<group>"; };
+		13652A571FEB4C8C00C68D86 /* DataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataCell.m; sourceTree = "<group>"; };
+		13652A581FEB4C8C00C68D86 /* DataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataCell.xib; sourceTree = "<group>"; };
 		136F5A3F1FD6336700AC1717 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		136F5A431FD635D200AC1717 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		136F5A451FD635E700AC1717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -209,6 +226,9 @@
 		138AC31A1FC65D4E00AAC3D2 /* HomeMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		13A7AB4D1FCBD9E500A9F5B7 /* DJXScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJXScanViewController.h; path = "../../../../扫一扫/扫一扫/DJXScanViewController.h"; sourceTree = "<group>"; };
 		13A7AB4E1FCBD9E500A9F5B7 /* DJXScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DJXScanViewController.m; path = "../../../../扫一扫/扫一扫/DJXScanViewController.m"; sourceTree = "<group>"; };
+		13AAA66F1FEB5CF700A4A16C /* TopUpCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopUpCollectionViewCell.h; sourceTree = "<group>"; };
+		13AAA6701FEB5CF700A4A16C /* TopUpCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopUpCollectionViewCell.m; sourceTree = "<group>"; };
+		13AAA6711FEB5CF700A4A16C /* TopUpCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopUpCollectionViewCell.xib; sourceTree = "<group>"; };
 		13F914E01FBD272E00411A67 /* MeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeModel.h; sourceTree = "<group>"; };
 		13F914E11FBD272E00411A67 /* MeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeModel.m; sourceTree = "<group>"; };
 		13F914E31FBD275400411A67 /* MeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeListCell.h; sourceTree = "<group>"; };
@@ -387,6 +407,7 @@
 		132CBD1C1FBA844E00DDF35A /* HomePart */ = {
 			isa = PBXGroup;
 			children = (
+				13652A491FEB46CC00C68D86 /* TopUpCenterVC */,
 				1371267E1FE8A6A8001C783D /* TransferVC */,
 				132F64861FE0C5C100275F3B /* HomeSearchVC */,
 				13A7AB4C1FCBD9CC00A9F5B7 /* ScanVC */,
@@ -599,6 +620,41 @@
 				132F648B1FE0C61800275F3B /* HomeSearchVC.m */,
 			);
 			path = HomeSearchVC;
+			sourceTree = "<group>";
+		};
+		13652A491FEB46CC00C68D86 /* TopUpCenterVC */ = {
+			isa = PBXGroup;
+			children = (
+				13652A4B1FEB46F800C68D86 /* View */,
+				13652A4A1FEB46F100C68D86 /* Controller */,
+			);
+			path = TopUpCenterVC;
+			sourceTree = "<group>";
+		};
+		13652A4A1FEB46F100C68D86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				13652A4C1FEB470B00C68D86 /* TopUpCenterVC.h */,
+				13652A4D1FEB470B00C68D86 /* TopUpCenterVC.m */,
+				13652A4E1FEB470B00C68D86 /* TopUpCenterVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		13652A4B1FEB46F800C68D86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				13652A511FEB4C7E00C68D86 /* TopUpCell.h */,
+				13652A521FEB4C7E00C68D86 /* TopUpCell.m */,
+				13652A531FEB4C7E00C68D86 /* TopUpCell.xib */,
+				13652A561FEB4C8C00C68D86 /* DataCell.h */,
+				13652A571FEB4C8C00C68D86 /* DataCell.m */,
+				13652A581FEB4C8C00C68D86 /* DataCell.xib */,
+				13AAA66F1FEB5CF700A4A16C /* TopUpCollectionViewCell.h */,
+				13AAA6701FEB5CF700A4A16C /* TopUpCollectionViewCell.m */,
+				13AAA6711FEB5CF700A4A16C /* TopUpCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1371267E1FE8A6A8001C783D /* TransferVC */ = {
@@ -840,8 +896,10 @@
 				1375BCE81FE9F92D006B0DB4 /* TransferMoneyCell.xib in Resources */,
 				132CBCEB1FBA832000DDF35A /* Assets.xcassets in Resources */,
 				1375BCF81FEA3D43006B0DB4 /* TranstoMobileMoneyAccountVC.xib in Resources */,
+				13652A5A1FEB4C8C00C68D86 /* DataCell.xib in Resources */,
 				132CBE131FBAF31000DDF35A /* 1.tiff in Resources */,
 				132CBD481FBA864200DDF35A /* MeVC.xib in Resources */,
+				13652A551FEB4C7E00C68D86 /* TopUpCell.xib in Resources */,
 				1375BD051FEA487F006B0DB4 /* MMPPaymentDetailsView.xib in Resources */,
 				130A52031FE8FE24004AC8F8 /* CardIssuerCell.xib in Resources */,
 				130A520A1FE91A0F004AC8F8 /* MMPPassWordView.xib in Resources */,
@@ -849,6 +907,7 @@
 				136F5A421FD635D200AC1717 /* InfoPlist.strings in Resources */,
 				132CBE101FBAF31000DDF35A /* 5.tiff in Resources */,
 				132CBE0F1FBAF31000DDF35A /* 3.tiff in Resources */,
+				13652A501FEB470B00C68D86 /* TopUpCenterVC.xib in Resources */,
 				138AC31C1FC65D4E00AAC3D2 /* HomeMenuCollectionViewCell.xib in Resources */,
 				132CBE121FBAF31000DDF35A /* 8.tiff in Resources */,
 				1375BCFD1FEA43A9006B0DB4 /* TransferMobileMoneyCell.xib in Resources */,
@@ -859,6 +918,7 @@
 				13F914E71FBD275400411A67 /* MeListCell.xib in Resources */,
 				1375BCF11FEA2AD2006B0DB4 /* TransferSuccessVC.xib in Resources */,
 				132CBD3E1FBA861D00DDF35A /* NearbyVC.xib in Resources */,
+				13AAA6731FEB5CF700A4A16C /* TopUpCollectionViewCell.xib in Resources */,
 				132CBE0D1FBAF31000DDF35A /* 7.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,8 +1001,10 @@
 				1376E2FB1FD783E4000C1AAB /* MMPRequestTool.m in Sources */,
 				132CBCE61FBA832000DDF35A /* ViewController.m in Sources */,
 				132CBCF11FBA832000DDF35A /* main.m in Sources */,
+				13AAA6721FEB5CF700A4A16C /* TopUpCollectionViewCell.m in Sources */,
 				1376599E1FE7B8310038FC3C /* MeLogOutCell.m in Sources */,
 				132CBD421FBA863100DDF35A /* FriendsVC.m in Sources */,
+				13652A4F1FEB470B00C68D86 /* TopUpCenterVC.m in Sources */,
 				1375BCEB1FEA0E9C006B0DB4 /* SYPasswordView.m in Sources */,
 				132CBD181FBA83B100DDF35A /* DJXNavigationController.m in Sources */,
 				130A51FE1FE8FDE9004AC8F8 /* CardIssuerVC.m in Sources */,
@@ -969,6 +1031,8 @@
 				13F914E61FBD275400411A67 /* MeListCell.m in Sources */,
 				1375BCE71FE9F92D006B0DB4 /* TransferMoneyCell.m in Sources */,
 				1375BCE31FE9F8F3006B0DB4 /* TransferMoneyVC.m in Sources */,
+				13652A541FEB4C7E00C68D86 /* TopUpCell.m in Sources */,
+				13652A591FEB4C8C00C68D86 /* DataCell.m in Sources */,
 				132CBD191FBA83B100DDF35A /* DJXTabBar.m in Sources */,
 				132F648C1FE0C61800275F3B /* HomeSearchVC.m in Sources */,
 				1371268B1FE8AB10001C783D /* TransferVC.m in Sources */,

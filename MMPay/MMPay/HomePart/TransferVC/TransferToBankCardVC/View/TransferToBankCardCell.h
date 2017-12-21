@@ -15,6 +15,8 @@ typedef void  (^butClickBlock)(NSString *str);
 @property (weak, nonatomic) IBOutlet UITextField *amountTextField;//amount金额输入框
 @property (weak, nonatomic) IBOutlet UIButton *nextBut;//下一步按钮
 
-@property(nonatomic,copy)butClickBlock block;
+@property(nonatomic,copy)butClickBlock banksBlock;
+@property(nonatomic,copy)butClickBlock nextBlock;
+
 +(instancetype)cellWithTableView:(UITableView *)tableView;
 @end

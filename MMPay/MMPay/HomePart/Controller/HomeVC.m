@@ -125,19 +125,18 @@
     }
 }
 #pragma mark-HomeMenuCellDelegate
--(void)mmpCollectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
-        case 0: //Transfer
-            {
-                TransferVC *vc = [[TransferVC alloc]init];
-                vc.title = @"Transfer";
-                vc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:vc animated:YES];
-            }
-            break;
-            
-        default:
-            break;
+-(void)mmpCollectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath title:(NSString *)title{
+    if ([title isEqualToString:@"Transfer"]) {
+        TransferVC *vc = [[TransferVC alloc]init];
+        vc.title = @"Transfer";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([title isEqualToString:@"Phone Top up"]){
+        TopUpCenterVC *vc = [[TopUpCenterVC alloc]initWithNibName:@"TopUpCenterVC" bundle:nil];
+        vc.title = @"Top Up Center";
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 - (void)didReceiveMemoryWarning {

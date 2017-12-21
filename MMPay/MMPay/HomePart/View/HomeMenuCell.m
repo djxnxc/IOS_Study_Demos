@@ -62,8 +62,8 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%ld",indexPath.row);
-    if (self.delegate&&[self.delegate respondsToSelector:@selector(mmpCollectionView:didSelectItemAtIndexPath:)]) {
-        [self.delegate mmpCollectionView:collectionView didSelectItemAtIndexPath:indexPath];
+    if (self.delegate&&[self.delegate respondsToSelector:@selector(mmpCollectionView:didSelectItemAtIndexPath:title:)]) {
+        [self.delegate mmpCollectionView:collectionView didSelectItemAtIndexPath:indexPath title:self.collectionData[indexPath.row][@"title"]];
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
