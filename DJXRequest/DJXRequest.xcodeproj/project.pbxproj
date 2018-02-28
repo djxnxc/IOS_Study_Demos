@@ -1,0 +1,651 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1321742C201EFCC1000B3BDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1321742B201EFCC1000B3BDD /* AppDelegate.m */; };
+		1321742F201EFCC1000B3BDD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1321742E201EFCC1000B3BDD /* ViewController.m */; };
+		13217432201EFCC1000B3BDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13217430201EFCC1000B3BDD /* Main.storyboard */; };
+		13217434201EFCC1000B3BDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13217433201EFCC1000B3BDD /* Assets.xcassets */; };
+		13217437201EFCC1000B3BDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13217435201EFCC1000B3BDD /* LaunchScreen.storyboard */; };
+		1321743A201EFCC1000B3BDD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13217439201EFCC1000B3BDD /* main.m */; };
+		13217444201EFCC1000B3BDD /* DJXRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13217443201EFCC1000B3BDD /* DJXRequestTests.m */; };
+		1321744F201EFCC1000B3BDD /* DJXRequestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1321744E201EFCC1000B3BDD /* DJXRequestUITests.m */; };
+		1321745F201EFDD3000B3BDD /* DJXRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1321745E201EFDD3000B3BDD /* DJXRequestManager.m */; };
+		B0E0B79B4C41556E1DD57D72 /* libPods-DJXRequest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E80A40D5BFF96BA081BA28C /* libPods-DJXRequest.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		13217440201EFCC1000B3BDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1321741F201EFCC1000B3BDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13217426201EFCC1000B3BDD;
+			remoteInfo = DJXRequest;
+		};
+		1321744B201EFCC1000B3BDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1321741F201EFCC1000B3BDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13217426201EFCC1000B3BDD;
+			remoteInfo = DJXRequest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13217427201EFCC1000B3BDD /* DJXRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DJXRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1321742A201EFCC1000B3BDD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1321742B201EFCC1000B3BDD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1321742D201EFCC1000B3BDD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		1321742E201EFCC1000B3BDD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		13217431201EFCC1000B3BDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13217433201EFCC1000B3BDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13217436201EFCC1000B3BDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		13217438201EFCC1000B3BDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13217439201EFCC1000B3BDD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1321743F201EFCC1000B3BDD /* DJXRequestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DJXRequestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13217443201EFCC1000B3BDD /* DJXRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXRequestTests.m; sourceTree = "<group>"; };
+		13217445201EFCC1000B3BDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1321744A201EFCC1000B3BDD /* DJXRequestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DJXRequestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1321744E201EFCC1000B3BDD /* DJXRequestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXRequestUITests.m; sourceTree = "<group>"; };
+		13217450201EFCC1000B3BDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1321745D201EFDD3000B3BDD /* DJXRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DJXRequestManager.h; sourceTree = "<group>"; };
+		1321745E201EFDD3000B3BDD /* DJXRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXRequestManager.m; sourceTree = "<group>"; };
+		1E80A40D5BFF96BA081BA28C /* libPods-DJXRequest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DJXRequest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D29FA5850F516FF05C96D48 /* Pods-DJXRequest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJXRequest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DJXRequest/Pods-DJXRequest.debug.xcconfig"; sourceTree = "<group>"; };
+		BBF18FA6713CDBD8D65C586F /* Pods-DJXRequest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DJXRequest.release.xcconfig"; path = "Pods/Target Support Files/Pods-DJXRequest/Pods-DJXRequest.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13217424201EFCC1000B3BDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0E0B79B4C41556E1DD57D72 /* libPods-DJXRequest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1321743C201EFCC1000B3BDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13217447201EFCC1000B3BDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0F1FFB81445FEFCD7AA3D027 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D29FA5850F516FF05C96D48 /* Pods-DJXRequest.debug.xcconfig */,
+				BBF18FA6713CDBD8D65C586F /* Pods-DJXRequest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1321741E201EFCC1000B3BDD = {
+			isa = PBXGroup;
+			children = (
+				13217429201EFCC1000B3BDD /* DJXRequest */,
+				13217442201EFCC1000B3BDD /* DJXRequestTests */,
+				1321744D201EFCC1000B3BDD /* DJXRequestUITests */,
+				13217428201EFCC1000B3BDD /* Products */,
+				0F1FFB81445FEFCD7AA3D027 /* Pods */,
+				81E31A5CF4AF17782ABF7030 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		13217428201EFCC1000B3BDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13217427201EFCC1000B3BDD /* DJXRequest.app */,
+				1321743F201EFCC1000B3BDD /* DJXRequestTests.xctest */,
+				1321744A201EFCC1000B3BDD /* DJXRequestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13217429201EFCC1000B3BDD /* DJXRequest */ = {
+			isa = PBXGroup;
+			children = (
+				1321745C201EFDB2000B3BDD /* DJXRequestManager */,
+				1321742A201EFCC1000B3BDD /* AppDelegate.h */,
+				1321742B201EFCC1000B3BDD /* AppDelegate.m */,
+				1321742D201EFCC1000B3BDD /* ViewController.h */,
+				1321742E201EFCC1000B3BDD /* ViewController.m */,
+				13217430201EFCC1000B3BDD /* Main.storyboard */,
+				13217433201EFCC1000B3BDD /* Assets.xcassets */,
+				13217435201EFCC1000B3BDD /* LaunchScreen.storyboard */,
+				13217438201EFCC1000B3BDD /* Info.plist */,
+				13217439201EFCC1000B3BDD /* main.m */,
+			);
+			path = DJXRequest;
+			sourceTree = "<group>";
+		};
+		13217442201EFCC1000B3BDD /* DJXRequestTests */ = {
+			isa = PBXGroup;
+			children = (
+				13217443201EFCC1000B3BDD /* DJXRequestTests.m */,
+				13217445201EFCC1000B3BDD /* Info.plist */,
+			);
+			path = DJXRequestTests;
+			sourceTree = "<group>";
+		};
+		1321744D201EFCC1000B3BDD /* DJXRequestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1321744E201EFCC1000B3BDD /* DJXRequestUITests.m */,
+				13217450201EFCC1000B3BDD /* Info.plist */,
+			);
+			path = DJXRequestUITests;
+			sourceTree = "<group>";
+		};
+		1321745C201EFDB2000B3BDD /* DJXRequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				1321745D201EFDD3000B3BDD /* DJXRequestManager.h */,
+				1321745E201EFDD3000B3BDD /* DJXRequestManager.m */,
+			);
+			path = DJXRequestManager;
+			sourceTree = "<group>";
+		};
+		81E31A5CF4AF17782ABF7030 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E80A40D5BFF96BA081BA28C /* libPods-DJXRequest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13217426201EFCC1000B3BDD /* DJXRequest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13217453201EFCC1000B3BDD /* Build configuration list for PBXNativeTarget "DJXRequest" */;
+			buildPhases = (
+				8B329EE0F17D597CCF9A6B25 /* [CP] Check Pods Manifest.lock */,
+				13217423201EFCC1000B3BDD /* Sources */,
+				13217424201EFCC1000B3BDD /* Frameworks */,
+				13217425201EFCC1000B3BDD /* Resources */,
+				0F758E4BA15CEC2614DC0330 /* [CP] Embed Pods Frameworks */,
+				CB662F74A36F06E1DFD67C77 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DJXRequest;
+			productName = DJXRequest;
+			productReference = 13217427201EFCC1000B3BDD /* DJXRequest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1321743E201EFCC1000B3BDD /* DJXRequestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13217456201EFCC1000B3BDD /* Build configuration list for PBXNativeTarget "DJXRequestTests" */;
+			buildPhases = (
+				1321743B201EFCC1000B3BDD /* Sources */,
+				1321743C201EFCC1000B3BDD /* Frameworks */,
+				1321743D201EFCC1000B3BDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13217441201EFCC1000B3BDD /* PBXTargetDependency */,
+			);
+			name = DJXRequestTests;
+			productName = DJXRequestTests;
+			productReference = 1321743F201EFCC1000B3BDD /* DJXRequestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13217449201EFCC1000B3BDD /* DJXRequestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13217459201EFCC1000B3BDD /* Build configuration list for PBXNativeTarget "DJXRequestUITests" */;
+			buildPhases = (
+				13217446201EFCC1000B3BDD /* Sources */,
+				13217447201EFCC1000B3BDD /* Frameworks */,
+				13217448201EFCC1000B3BDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1321744C201EFCC1000B3BDD /* PBXTargetDependency */,
+			);
+			name = DJXRequestUITests;
+			productName = DJXRequestUITests;
+			productReference = 1321744A201EFCC1000B3BDD /* DJXRequestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1321741F201EFCC1000B3BDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = djx;
+				TargetAttributes = {
+					13217426201EFCC1000B3BDD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					1321743E201EFCC1000B3BDD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13217426201EFCC1000B3BDD;
+					};
+					13217449201EFCC1000B3BDD = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 13217426201EFCC1000B3BDD;
+					};
+				};
+			};
+			buildConfigurationList = 13217422201EFCC1000B3BDD /* Build configuration list for PBXProject "DJXRequest" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1321741E201EFCC1000B3BDD;
+			productRefGroup = 13217428201EFCC1000B3BDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13217426201EFCC1000B3BDD /* DJXRequest */,
+				1321743E201EFCC1000B3BDD /* DJXRequestTests */,
+				13217449201EFCC1000B3BDD /* DJXRequestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13217425201EFCC1000B3BDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13217437201EFCC1000B3BDD /* LaunchScreen.storyboard in Resources */,
+				13217434201EFCC1000B3BDD /* Assets.xcassets in Resources */,
+				13217432201EFCC1000B3BDD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1321743D201EFCC1000B3BDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13217448201EFCC1000B3BDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F758E4BA15CEC2614DC0330 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DJXRequest/Pods-DJXRequest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B329EE0F17D597CCF9A6B25 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DJXRequest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB662F74A36F06E1DFD67C77 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DJXRequest/Pods-DJXRequest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13217423201EFCC1000B3BDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1321745F201EFDD3000B3BDD /* DJXRequestManager.m in Sources */,
+				1321742F201EFCC1000B3BDD /* ViewController.m in Sources */,
+				1321743A201EFCC1000B3BDD /* main.m in Sources */,
+				1321742C201EFCC1000B3BDD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1321743B201EFCC1000B3BDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13217444201EFCC1000B3BDD /* DJXRequestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13217446201EFCC1000B3BDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1321744F201EFCC1000B3BDD /* DJXRequestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13217441201EFCC1000B3BDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13217426201EFCC1000B3BDD /* DJXRequest */;
+			targetProxy = 13217440201EFCC1000B3BDD /* PBXContainerItemProxy */;
+		};
+		1321744C201EFCC1000B3BDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13217426201EFCC1000B3BDD /* DJXRequest */;
+			targetProxy = 1321744B201EFCC1000B3BDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		13217430201EFCC1000B3BDD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13217431201EFCC1000B3BDD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		13217435201EFCC1000B3BDD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13217436201EFCC1000B3BDD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		13217451201EFCC1000B3BDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		13217452201EFCC1000B3BDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13217454201EFCC1000B3BDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D29FA5850F516FF05C96D48 /* Pods-DJXRequest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EX464M26XB;
+				INFOPLIST_FILE = DJXRequest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.djxDemo.DJXRequest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13217455201EFCC1000B3BDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBF18FA6713CDBD8D65C586F /* Pods-DJXRequest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EX464M26XB;
+				INFOPLIST_FILE = DJXRequest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.djxDemo.DJXRequest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		13217457201EFCC1000B3BDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EX464M26XB;
+				INFOPLIST_FILE = DJXRequestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.djxDemo.DJXRequestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DJXRequest.app/DJXRequest";
+			};
+			name = Debug;
+		};
+		13217458201EFCC1000B3BDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EX464M26XB;
+				INFOPLIST_FILE = DJXRequestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.djxDemo.DJXRequestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DJXRequest.app/DJXRequest";
+			};
+			name = Release;
+		};
+		1321745A201EFCC1000B3BDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EX464M26XB;
+				INFOPLIST_FILE = DJXRequestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.djxDemo.DJXRequestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DJXRequest;
+			};
+			name = Debug;
+		};
+		1321745B201EFCC1000B3BDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = EX464M26XB;
+				INFOPLIST_FILE = DJXRequestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = www.djxDemo.DJXRequestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DJXRequest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13217422201EFCC1000B3BDD /* Build configuration list for PBXProject "DJXRequest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13217451201EFCC1000B3BDD /* Debug */,
+				13217452201EFCC1000B3BDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13217453201EFCC1000B3BDD /* Build configuration list for PBXNativeTarget "DJXRequest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13217454201EFCC1000B3BDD /* Debug */,
+				13217455201EFCC1000B3BDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13217456201EFCC1000B3BDD /* Build configuration list for PBXNativeTarget "DJXRequestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13217457201EFCC1000B3BDD /* Debug */,
+				13217458201EFCC1000B3BDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13217459201EFCC1000B3BDD /* Build configuration list for PBXNativeTarget "DJXRequestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1321745A201EFCC1000B3BDD /* Debug */,
+				1321745B201EFCC1000B3BDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1321741F201EFCC1000B3BDD /* Project object */;
+}
