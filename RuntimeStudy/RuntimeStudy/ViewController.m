@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIImage+Image.h"
 #import "TestModel.h"
+#import "Person.h"
 @interface ViewController ()
 
 @end
@@ -36,7 +37,15 @@
     NSDictionary *dict = @{@"name":@"张三",@"age":@"18",@"sex":@"男"};
     TestModel *model = [TestModel modelWithDict:dict];
     NSLog(@"runtime字典装模型----%@",model);
-    
+/**
+    runtime 给类动态的添加方法
+ **/
+    Person *p = [[Person alloc] init];
+    //对象方法
+    [p performSelector:@selector(run:) withObject:@10];
+    [p performSelector:@selector(eat:) withObject:@"米饭" withObject:@3];
+    //类方法
+    [Person performSelector:@selector(read:) withObject:@"英语书" withObject:@1];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

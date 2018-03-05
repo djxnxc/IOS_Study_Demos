@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		137D28D5204CEC17000E43E9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 137D28D4204CEC17000E43E9 /* Person.m */; };
 		137DABA12048E81C0042F456 /* RModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137DABA02048E81C0042F456 /* RModel.m */; };
 		137DABA42048EF020042F456 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137DABA32048EF020042F456 /* TestModel.m */; };
 		13CDEE20204796E1007B93EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CDEE1F204796E1007B93EC /* AppDelegate.m */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		137D28D3204CEC17000E43E9 /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		137D28D4204CEC17000E43E9 /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		137DAB9F2048E81C0042F456 /* RModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RModel.h; sourceTree = "<group>"; };
 		137DABA02048E81C0042F456 /* RModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RModel.m; sourceTree = "<group>"; };
 		137DABA22048EF020042F456 /* TestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				137DABA02048E81C0042F456 /* RModel.m */,
 				137DABA22048EF020042F456 /* TestModel.h */,
 				137DABA32048EF020042F456 /* TestModel.m */,
+				137D28D3204CEC17000E43E9 /* Person.h */,
+				137D28D4204CEC17000E43E9 /* Person.m */,
 			);
 			path = RuntimeStudy;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			files = (
 				13CDEE23204796E1007B93EC /* ViewController.m in Sources */,
 				137DABA12048E81C0042F456 /* RModel.m in Sources */,
+				137D28D5204CEC17000E43E9 /* Person.m in Sources */,
 				13CDEE52204797A3007B93EC /* UIImage+Image.m in Sources */,
 				137DABA42048EF020042F456 /* TestModel.m in Sources */,
 				13CDEE2E204796E1007B93EC /* main.m in Sources */,
