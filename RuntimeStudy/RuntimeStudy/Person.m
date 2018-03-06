@@ -8,6 +8,12 @@
 
 #import "Person.h"
 #import <objc/message.h>
+@interface Person()
+{
+    NSString *_name;
+}
+@property(nonatomic,copy)NSString *position;
+@end
 @implementation Person
 
 /**
