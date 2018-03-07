@@ -53,6 +53,7 @@
     [Person performSelector:@selector(read:) withObject:@"英语书" withObject:@1];
 /**
     runtime强制修改变量值(即使是私有变量也可以修改)
+ 
  **/
     NSLog(@"-----runtime动态修改变量------");
   
@@ -61,9 +62,12 @@
     objc_property_t *propertyList = class_copyPropertyList(objc_getClass("Person"), &count1);
     for (int i = 0; i<count1; i++) {
         objc_property_t property = propertyList[i];
+        //将属性的名称转成字符串类型
         NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
+        //property_getAttributes获取属性类型
         NSString *propertyType = [NSString stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
         if([propertyName isEqualToString:@"position"]){
+            //给属性赋值（使用key-value）
             [p setValue:@"学生"forKey:@"position"];
         }
         NSLog(@"runtime获取属性---%d---%@---%@",i,propertyName,propertyType);
@@ -76,6 +80,8 @@
         d表示double类型
         @表示一个对象类型（字符串类型）
         B表示枚举类型
+     object_setIvar(p, var, @"李四")给成员变量var赋值
+     object_getIvar(p, var)获取成员变量的值
      **/
         
         NSLog(@"*****runtime获取所有成员变量*****");
@@ -83,7 +89,9 @@
         Ivar *varList = class_copyIvarList([Person class], &count);
         for (int i = 0; i<count; i++) {
             Ivar var = varList[i];
+            //将成员变量的名称转成字符串类型
             NSString *varName = [NSString stringWithUTF8String:ivar_getName(var)];
+            //ivar_getTypeEncoding获取成员变量类型
             NSString *varType = [NSString stringWithUTF8String:ivar_getTypeEncoding(var)];
             if ([varName isEqualToString:@"_name"]) {
                 object_setIvar(p, var, @"李四");
