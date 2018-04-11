@@ -1,0 +1,604 @@
+//
+//  HomePageVC.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/11.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "HomePageVC.h"
+#import "JCycleScrollView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CCProgressView.h"
+#import "HLightBtn.h"
+#import "UIButton+Extension.h"
+#import "HtmlZP.h"
+#import "HtmlHB.h"
+#import "ImgModel.h"
+#import "BuyOne.h"
+#import <CoreMotion/CoreMotion.h>
+#import "UICountingLabel.h"
+#import "PICircularProgressView.h"
+#import "UIDevice+ProcessesAdditions.h"
+#define EPSILON     1e-6
+#define kDuration 1.0   // 动画持续时间(秒)
+
+#import "DetailVC.h"
+//半径为 10；
+@interface HomePageVC ()<JCycleScrollViewDelegate,HZMAPIManagerDelegate>
+
+{
+    UICountingLabel *_gradeLabel;
+    UICountingLabel *_titleLabel;
+    float _x ;
+    JCycleScrollView *_j;
+    NSMutableArray *_JArr;
+//    NSMutableArray *_BuyArr;
+}
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnH;
+//顶部的scrollowview
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+//点菜好礼的view
+@property (weak, nonatomic) IBOutlet UIView *mindupview;
+//圆下方3个view
+@property (weak, nonatomic) IBOutlet UIView *threeBtnView;
+//圆上方的view
+@property (weak, nonatomic) IBOutlet UIView *upView;
+
+@property (weak, nonatomic) IBOutlet UILabel *kegoufene;
+@property (weak, nonatomic) IBOutlet UIButton *lijiqianggou;
+- (IBAction)jiliqianggou;
+//资金由。。公司承保
+@property (weak, nonatomic) IBOutlet UIButton *zijinanquan;
+
+//圆 所在的view
+@property (weak, nonatomic) IBOutlet UIView *dropview;
+@property (weak, nonatomic) IBOutlet UIButton *hongbaoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *zhuanpanBtn;
+- (IBAction)hongbaoClicked;
+- (IBAction)zhuanpanClicked;
+//适配
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropViewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnBoomH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *midView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *threeBtnViewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kegouH;
+
+
+
+@property (nonatomic, strong) CMMotionManager* motionManager;
+@property (nonatomic, strong) CADisplayLink* motionDisplayLink;
+@property (nonatomic) float motionLastYaw;
+
+@property (nonatomic, strong) NSMutableArray *productData;
+//资金安全的宽度 160
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *boomLabelW;
+
+@end
+
+@implementation HomePageVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"首页";
+    
+    [self configUI];
+//    [self configDropView];
+    self.dropview.frame = CGRectMake(0, 0, JSCREEN_W, 140);
+    
+    
+    
+    self.midView.constant = self.midView.constant*ratioH;
+    self.threeBtnViewH.constant = self.threeBtnViewH.constant*ratioH;
+//    self.kegouH.constant = self.kegouH.constant*ratioH;
+    
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *item =[[UIBarButtonItem alloc] init];
+    item.title = @"";
+    [item setTintColor:RGB_gray];
+    self.navigationItem.backBarButtonItem = item;
+    
+    _productData = [NSMutableArray array];
+    _JArr = [NSMutableArray array];
+    
+    
+}
+#pragma mark 起始
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self getImg];
+    [self getProduct];
+    [self configUI];
+//    [self configDropView];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    self.navigationController.navigationBar.translucent = NO;
+    
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [self.progressView  removeFromSuperview];
+    
+}
+#pragma - UI
+- (void)configUI {
+    
+    [self.hongbaoBtn setTitleColor:RGB_red forState:UIControlStateNormal];
+    [self.zhuanpanBtn setTitleColor:RGB_red forState:UIControlStateNormal];
+   
+    
+    self.navigationController.navigationBar.translucent = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    NSMutableArray *marr = [NSMutableArray array];
+//    for (int i=0; i<4; i++) {
+//        ImgModel *model = [[ImgModel alloc]init];
+//        model.iconID = [NSString stringWithFormat:@"%d",i];
+//        model.iconName = @"homePage_ad1";
+////        model.iconUrl
+//        [marr addObject:model];
+//    }
+    if (iPhone4s){
+        self.BtnH.constant = highti4_30;
+        self.lijiqianggou.layer.cornerRadius = highti4_30/2;
+        _j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 80) duration:2.0f slideImages:_JArr];
+    }if (iPhone5) {
+            self.BtnH.constant = highti5_35;
+            self.lijiqianggou.layer.cornerRadius = highti5_35/2;
+            _j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 100) duration:2.0f slideImages:_JArr];
+            
+        } else if(iPhone6) {
+            self.BtnH.constant = highti6_40;
+            self.lijiqianggou.layer.cornerRadius = highti6_40/2;
+            self.scrollviewH.constant = 140;
+            _kegoufene.font = JFont11;
+            _zijinanquan.titleLabel.font = JFont10;
+            _j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 140) duration:2.0f slideImages:_JArr];
+            
+        }else if(iPhone6P) {
+            self.BtnH.constant = highti6_40;
+            self.lijiqianggou.layer.cornerRadius = highti6_40/2;
+            self.scrollviewH.constant = 150;
+            _kegoufene.font = JFont11;
+            self.boomLabelW.constant = 170;
+            _zijinanquan.titleLabel.font = JFont10;
+            _j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 150) duration:2.0f slideImages:_JArr];
+            
+        }else{
+            self.BtnH.constant =highti5_35;
+            self.lijiqianggou.layer.cornerRadius = highti5_35/2;
+            _j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 100) duration:2.0f slideImages:_JArr];
+            
+        }
+    _j.sdelegate = self;
+    [self.view addSubview:_j];
+ 
+//    界面的UI
+//    颜色
+    self.dropview.backgroundColor = RGB_gray;
+    self.upView.backgroundColor = RGB_gray;
+    self.threeBtnView.backgroundColor = RGB_gray;
+    
+    
+    self.lijiqianggou.layer.masksToBounds = YES;
+    [self.lijiqianggou setBackgroundColor:RGB_red];
+    self.lijiqianggou.titleLabel.font = JFont(fontBtn);
+    [self.lijiqianggou setTitleColor:[UIColor whiteColor]];
+}
+- (UIButton *)createButtonWithTitle:(NSString *)title backImgName:(NSString *)imgName frame:(CGRect)frame titleColor:(UIColor *)color{
+    UIButton *Btn = [ UIButton buttonWithType:UIButtonTypeCustom];
+    [Btn setTitleColor:color forState:UIControlStateNormal];
+    [Btn setTitle:title forState:UIControlStateNormal];
+    [Btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
+    Btn.frame = frame;
+    return Btn;
+}
+#pragma mark - 网络
+#pragma mark 获取轮播图片
+- (void)getImg {
+    NSDictionary *dicParams =[NSDictionary dictionaryWithObjectsAndKeys:
+                              @"2",@"type",nil];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HZMAPImanager shareMAPImanager] addDelegate:self];
+    HZMRequest *request =[[HZMRequest alloc] init];
+    request.requsetId = HomePageTopImg_NetWoring ;
+    request.requestParamDic = dicParams;
+    request.callBackDelegate = self;
+    request.tag = 0;
+    [[HZMAPImanager shareMAPImanager] postWithWSRequest:request];
+}
+#pragma mark 获取产品信息
+#warning 请求数据待确认
+- (void)getProduct {
+    NSDictionary *dicParams =[NSDictionary dictionaryWithObjectsAndKeys:
+                              @"1",@"type",
+                              @"",@"cycle",
+                              @"3",@"cycleType",nil];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[HZMAPImanager shareMAPImanager] addDelegate:self];
+    HZMRequest *request =[[HZMRequest alloc] init];
+    request.requsetId = HomePageCPGYdetail_NetWoring;
+    request.requestParamDic = dicParams;
+    request.callBackDelegate = self;
+    request.tag = 0;
+    [[HZMAPImanager shareMAPImanager] postWithWSRequest:request];
+}
+
+- (void)transactionFinished:(HZMResponse *)response {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [[HZMAPImanager shareMAPImanager] removeDelegate:self];
+    if ([response.requestId isEqualToString:HomePageTopImg_NetWoring]) {//首页图片
+        if ([response.responseCodeOriginal isEqualToString:@"1"]) {
+            NSDictionary *dictt = [response.responseData objectForKey:@"data"];
+             NSArray *arr = [dictt objectForKey:@"fileList"];
+            for (NSDictionary *d in arr) {
+                ImgModel *model = [[ImgModel alloc] init];
+                model.iconUrl =  [HomePagePICTUER_NetWoring stringByAppendingString:[d objectForKey:@"filePath"]];
+                model.iconID =   [d objectForKey:@"id"];
+                [_JArr addObject:model];
+            }
+            [_j reloadImg:_JArr];
+        }
+    }else if ([response.requestId isEqualToString:HomePageCPGYdetail_NetWoring]) {//首页的产品
+        if ([response.responseCodeOriginal isEqualToString:@"1"]) {
+            [self.productData removeAllObjects];
+            NSArray *arr = [response.responseData objectForKey:@"data"];
+            NSDictionary *dic = [arr objectAtIndex:0];
+            BuyModel *m =[[BuyModel alloc] init];
+            [m setValuesForKeysWithDictionary:dic];
+            [self.productData addObject:m];
+            [self configDropView];
+            
+            [self donghua];
+        }
+    }
+}
+- (void)transactionFailed:(HZMResponse *)response {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if ([response.responseCodeOriginal isEqualToString:@"-1"]|[response.responseCodeOriginal isEqualToString:@"-2"]|[response.responseCodeOriginal isEqualToString:@"-3"]|[response.responseCodeOriginal isEqualToString:@"-4"]|[response.responseCodeOriginal isEqualToString:@"-5"]|[response.responseCodeOriginal isEqualToString:@"-6"]|[response.responseCodeOriginal isEqualToString:@"-99"]) {
+        [self.view makeToast:[response.responseData objectForKey:@"message"] duration:1.5 position:@"center"];
+    }else
+        [self.view makeToast:response.responseMsg duration:1.5 position:@"center"];
+    
+    [[HZMAPImanager shareMAPImanager] removeDelegate:self];
+}
+
+
+
+
+#pragma mark - 交互
+#pragma mark  立即抢购
+- (IBAction)jiliqianggou {
+    if ([[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"]) {
+        BuyOne *b = [[BuyOne alloc]  init];
+        b.data = self.productData;
+        b.hidesBottomBarWhenPushed= YES;
+        [self.navigationController pushViewController:b animated:YES];
+        
+    }else{
+        LoginVC *l = [[LoginVC alloc] init];
+        l.hidesBottomBarWhenPushed = YES;
+        l.isFrom = 88;
+        [self.navigationController pushViewController:l animated:YES];
+    }
+}
+#pragma mark  红包
+- (IBAction)hongbaoClicked {
+    if ([[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"]) {
+        HtmlHB *l = [[HtmlHB alloc] init];
+        l.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:l animated:YES];
+        
+    }else{
+        LoginVC *l = [[LoginVC alloc] init];
+        l.some =self;
+        l.isFrom = 88;
+        l.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:l animated:YES];
+    }
+}
+#pragma mark  转盘
+- (IBAction)zhuanpanClicked {
+    
+    if ([[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"]) {
+        HtmlZP *l = [[HtmlZP alloc] init];
+        l.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:l animated:YES];
+    }else
+    {
+        LoginVC *l = [[LoginVC alloc] init];
+        l.some =self;
+        l.isFrom = 88;
+        l.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:l animated:YES];
+    }
+}
+#pragma mark  点击查看详情
+- (void)clickedBtnDetail{
+    BuyModel *m = [_productData objectAtIndex:0];
+    DetailVC *d = [[DetailVC alloc] init];
+    d.productId = [NSString stringWithFormat:@"%lld",m.productId];
+    d.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController: d animated:YES];//点击头部的滚动视图
+}
+
+- (void)didClickedScrollView:(UIGestureRecognizer *)img{
+    UIImageView *imgg = [img view];
+    UIImage *gg = imgg.image;
+    if (imgg.tag == 1) {
+        
+    }
+    UIViewController *v = [[UIViewController alloc] init];
+    v.view.frame = CGRectMake(0, 64, JSCREEN_W, JSCREEN_H);
+    UIImageView *im = [[UIImageView alloc] initWithImage:gg];
+    im.frame = v.view.frame;
+    [v.view addSubview:im];
+    v.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:v animated:YES];
+    
+}
+// 3个小按钮
+- (IBAction)clickedThreeBtn:(UIButton *)sender {
+    switch (sender.tag) {
+        case 21:{//银行托管
+            DetailVC *d = [[DetailVC alloc] init];
+            d.scrollNum = 1;
+            d.pageNum = 1;
+            d.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController: d animated:YES];
+            break;}
+        case 22:{//分险备付金
+            DetailVC *d = [[DetailVC alloc] init];
+            d.scrollNum = 1;
+            d.pageNum = 1;
+            d.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController: d animated:YES];
+            break;}
+        case 23:{//本息保障
+            DetailVC *d = [[DetailVC alloc] init];
+            d.scrollNum = 1;
+            d.pageNum = 1;
+            d.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController: d animated:YES];
+            break;}
+        default:
+            break;
+    }
+}
+
+#pragma mark - 创建中间的水球
+- (void)configDropView {
+//    self.dropview. 140*radio
+    BuyModel *modell ;
+    
+    if (self.productData.count) {
+       modell = [self.productData objectAtIndex:0];
+    }
+    
+    CGFloat w = JSCREEN_W;
+    CGFloat h ;
+    CGFloat l = 35*ratioH;
+    if (iPhone4s) {
+        self.dropViewH.constant = 120;
+        h = 120;
+    }
+    if (iPhone6) {
+        self.dropViewH.constant = 140*1.3;
+        h = 140*1.3;
+    } else if(iPhone6P) {
+        self.dropViewH.constant = 140*1.5;
+        h = 140*1.5;
+    }else if(iPhone5){
+        h = 140;
+    }
+    
+    
+    self.view.userInteractionEnabled=YES;
+    _circleChart = [[CCProgressView alloc] initWithFrame:CGRectMake(w/2-h/2, 0,  h, h)];
+    _circleChart.userInteractionEnabled = YES;
+    _circleChart.backgroundColor = [UIColor clearColor];
+    
+    [self.dropview addSubview:_circleChart];
+    
+    r=_circleChart.frame.size.height;
+    
+    //活期
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(w/2-30, h/2-10-l, 60.0, 20.0)];
+    [lab setTextAlignment:NSTextAlignmentCenter];
+    [self.dropview addSubview:lab];
+    lab.text = modell.title;
+    lab.font = JFont13;
+    
+    //按钮
+    self.dropview.userInteractionEnabled = YES;
+    UIButton *btn =  [self createButtonWithTitle:@"查看详情>" backImgName:@"" frame:CGRectMake(w/2-35, h/2+5+l, 70.0, 20) titleColor:[UIColor blackColor]];
+    btn.enabled =YES;
+    btn.userInteractionEnabled = YES;
+    [btn addTarget:self action:@selector(clickedBtnDetail) forControlEvents:UIControlEventTouchUpInside];
+    [btn.titleLabel setTextAlignment:1];
+    [btn.titleLabel setFont:JFont11];
+    [btn setTitleColor:[UIColor whiteColor]];
+    [self.dropview addSubview:btn];
+    [self.view bringSubviewToFront:btn];
+    
+  
+    
+    //利率
+    _titleLabel=[[UICountingLabel alloc]initWithFrame:CGRectMake(w/2-60, h/2-15, 120.0, 30)];
+    [_titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_titleLabel setFont:[UIFont boldSystemFontOfSize:25.0f]];
+    [_titleLabel setTextColor:[UIColor whiteColor]];
+    _titleLabel.method = UILabelCountingMethodEaseInOut;
+    [self.dropview addSubview:_titleLabel];
+    NSString *min = [NSString stringWithFormat:@"%.2lf",modell.minRate];
+    min = [min stringByAppendingString:@"%"];
+    NSString *max = [NSString stringWithFormat:@"%.2lf",modell.maxRate];
+    max = [max stringByAppendingString:@"%"];
+    _titleLabel.text=[NSString stringWithFormat:@"%@~%@",min,max];
+    _titleLabel.textColor = RGB(229, 60, 59, 1);
+    _titleLabel.font = [UIFont systemFontOfSize:15.0f];
+    int a = (int)_titleLabel.text.length;
+    a--;
+    NSRange r1 = [min rangeOfString:@"."];
+    NSString *rs1 = [min substringToIndex:r1.location];
+    NSRange r2 = [max rangeOfString:@"."];
+    NSString *rs2 = [max substringToIndex:r2.location];
+    [self setFontColorLabel:_titleLabel :0 :rs1.length];
+    [self setFontColorLabel:_titleLabel :a-max.length+1 :rs2.length];
+#warning 数据需要重设文字大小
+    
+    [_circleChart setProgress:0.35 animated:YES];
+    [self startGravity];
+    currentTransform=_circleChart.transform;
+    
+    //可购份额
+    NSString *ss = [NSString stringWithFormat:@"%lld",modell.amount];
+     ss = [NSString countNumAndChangeformat:ss];
+    _kegoufene.text = [NSString stringWithFormat:@"可够份额:%@",ss];
+    
+}
+
+#pragma mark 动画
+- (void)donghua {
+    //    外侧的进度条
+    self.progressView = [[PICircularProgressView alloc]init];
+    self.progressView.userInteractionEnabled = YES;
+    
+    CGFloat w = JSCREEN_W;
+    CGFloat h ;
+    if (iPhone6) {
+        h = 140*1.3;
+    } else if(iPhone6P) {
+        h = 140*1.5;
+    }else {
+        h = 140;
+    }
+    
+    
+    self.progressView.frame = CGRectMake(w/2-h/2, 0,  h, h);
+    
+    [self.dropview addSubview:self.progressView];
+    _x = 0;
+    //   进度条
+    [NSTimer scheduledTimerWithTimeInterval:0.1f target:self selector:@selector(z) userInfo:nil repeats:YES];
+    //    粗细
+    self.progressView.thicknessRatio = Jradius;
+    self.progressView.showText = 0;
+    //    颜色
+    self.progressView.progressTopGradientColor = [UIColor colorWithRed:233.0/255.0 green:63.0/255.0 blue:74/255.0 alpha:1.0];
+    self.progressView.progressBottomGradientColor = RGB(253, 200, 183, 1);
+    self.progressView.roundedHead = YES;
+    
+    
+    for (UIView * v  in self.dropview.subviews) {
+        if ([v isKindOfClass:[UIButton class]]) {
+            [self.dropview bringSubviewToFront:v];
+        }
+    }
+}
+- (void)z {
+    if (_x>=0.75) {
+        return;
+    }
+    _x +=0.02;
+    self.progressView.progress = _x;
+}
+- (BOOL)isGravityActive {
+    return self.motionDisplayLink != nil;
+}
+- (void)startGravity {
+    if ( ! [self isGravityActive]) {
+        self.motionManager = [[CMMotionManager alloc] init];
+        self.motionManager.deviceMotionUpdateInterval =0.1;// 0.02; // 50 Hz
+        self.motionLastYaw = 0;
+        _theTimer= [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(motionRefresh:) userInfo:nil repeats:YES];
+    }
+    if ([self.motionManager isDeviceMotionAvailable]) {
+        
+        [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryZVertical];
+    }
+}
+- (void)motionRefresh:(id)sender {
+    CMQuaternion quat = self.motionManager.deviceMotion.attitude.quaternion;
+    double yaw = asin(2*(quat.x*quat.z - quat.w*quat.y));
+    
+    yaw *= -1;
+    
+    if (self.motionLastYaw == 0) {
+        self.motionLastYaw = yaw;
+    }
+    
+    // kalman filtering
+    static float q = 0.1;   // process noise
+    static float s = 0.1;   // sensor noise
+    static float p = 0.1;   // estimated error
+    static float k = 0.5;   // kalman filter gain
+    
+    float x = self.motionLastYaw;
+    p = p + q;
+    k = p / (p + s);
+    x = x + k*(yaw - x);
+    p = (1 - k)*p;
+    
+    
+    newTransform=CGAffineTransformRotate(currentTransform,-x);
+    _circleChart.transform=newTransform;
+    // }
+    //[self stopGravity];
+    self.motionLastYaw = x;
+}
+
+- (void)stopGravity
+{
+    if ([self isGravityActive]) {
+        [self.motionDisplayLink invalidate];
+        self.motionDisplayLink = nil;
+        self.motionLastYaw = 0;
+        [_theTimer invalidate];
+        _theTimer=nil;
+        
+        self.motionManager = nil;   // release the motion manager memory
+    }
+    if ([self.motionManager isDeviceMotionActive])
+        [self.motionManager stopDeviceMotionUpdates];
+}
+
+
+
+
+#pragma mark - 其他
+-(void)setFontColorLabel:(UILabel *)label :(int)a :(int)b {
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithAttributedString:label.attributedText];
+    NSRange r =  NSMakeRange(a, b);
+    [att addAttributes:@{NSForegroundColorAttributeName:RGB_red,NSFontAttributeName:[UIFont systemFontOfSize:25]} range:NSMakeRange(a, b)];
+//    [att addAttributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),NSUnderlineColorAttributeName:RGB_red} range:NSMakeRange(a, b)];
+    label.attributedText = att;
+}
+
+-(void)dealloc
+{
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+
+
+@end

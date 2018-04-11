@@ -1,0 +1,473 @@
+//
+//  AccountHQShuhui.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/21.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "ChongZhi.h"
+#import "XianEVC.h"
+#import "MainTabbarController.h"
+#import "PublicString.h"
+#import "NameSure.h"
+@interface ChongZhi ()<LLPaySdkDelegate,UITextFieldDelegate,HZMAPIManagerDelegate,UIAlertViewDelegate>
+{
+    LLPaySdk *LLPayVC;
+    BOOL isTrue;
+    double startGet;
+}
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UILabel *card;
+@property (weak, nonatomic) IBOutlet UILabel *carddetail;
+@property (weak, nonatomic) IBOutlet UITextField *textfield;
+@property (strong, nonatomic) IBOutlet UITextField *cardNo;
+@property (strong, nonatomic) IBOutlet UILabel *bankName;
+@property (strong, nonatomic) IBOutlet UILabel *handCharge;
+
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *CELLH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bh;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+- (IBAction)nextClicked;
+
+@end
+
+@implementation ChongZhi
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"充值";
+    //返回按钮
+    startGet=0;
+    self.navigationController.navigationBar.translucent = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBarHidden = NO;
+    [[PublicString shareSDK] checkInfo];
+    
+    
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *item =[[UIBarButtonItem alloc] init];
+    item.title = @"";
+    [item setTintColor:RGB_gray];
+    self.navigationItem.backBarButtonItem = item;
+    
+    if (iPhone6P|iPhone6) {
+        
+        _bh.constant = 40;
+        self.nextBtn.layer.cornerRadius = 40.0/2;
+    } else {
+        
+        _bh.constant = 35;
+        self.nextBtn.layer.cornerRadius = 35.0/2;
+    }
+    self.nextBtn.layer.masksToBounds = YES;
+    [self.nextBtn setBackgroundColor:RGB_red];
+    self.nextBtn.titleLabel.font = JFont(fontBtn);
+    [self.nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    self.cardNo.delegate=self;
+    self.cardNo.keyboardType=UIKeyboardTypeNumberPad;
+    self.cardNo.tag=0x1001;
+    //self.textfield.keyboardType=UIKeyboardTypeNumberPad;
+    
+//    self.textfield.delegate=self;
+//    UIImage *stretchableButtonImage = [buttonImage  stretchableImageWithLeftCapWidth:12  topCapHeight:0];
+//    [self.detail  setImage:buttonImage  forState:UIControlStateNormal];
+    UITapGestureRecognizer* tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(backViewClick)];
+    [self.view addGestureRecognizer:tap];
+    //获取卡信息
+    WDCAccount *a = [WDCUserManage getLastUserInfo];
+    NSDictionary* dict=@{@"userId":a.userId};
+    
+    [[HZMAPImanager shareMAPImanager]addDelegate:self];
+    HZMRequest* requset=[[HZMRequest alloc]init];
+    requset.requsetId=AccountChongZhi_Jump;
+    requset.requestParamDic=dict;
+    requset.callBackDelegate=self;
+    requset.tag=0x203;
+    [[HZMAPImanager shareMAPImanager] postWithWSRequest:requset];
+    
+    
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (From1(self)|From2(self)) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backBtn.frame = CGRectMake(-2, 0, 12, 20);
+        UIImage *buttonImage = [UIImage  imageNamed:@"back"];
+        buttonImage = [buttonImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [backBtn setImage:buttonImage forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(backa) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        self.navigationItem.leftBarButtonItem = backItem;
+    }
+    self.textfield.delegate=self;
+    self.textfield.tag=206;
+}
+- (void)layoutSublayersOfLayer:(CALayer *)layer {
+//    if (iPhone6P) {
+//        _CELLH.constant = 50;
+//        _labelH.constant = 35;
+//        _bh.constant =40;
+//        self.nextBtn.layer.cornerRadius = 40/2;
+//    } else if (iPhone6) {
+//        _CELLH.constant = 50;
+//        _labelH.constant = 35;
+//        _bh.constant =40;
+//        self.nextBtn.layer.cornerRadius = 40/2;
+//    } else if (iPhone5) {
+//        _CELLH.constant = 50;
+//        _labelH.constant = 35;
+//        _bh.constant =35;
+//        self.nextBtn.layer.cornerRadius = 35.0/2;
+//    }
+    self.nextBtn.layer.cornerRadius = 35/2;
+    self.nextBtn.layer.masksToBounds = YES;
+    [self.nextBtn setBackgroundColor:RGB_red];
+    self.nextBtn.titleLabel.font = JFont(fontBtn);
+    [self.nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
+- (IBAction)nextClicked{
+    /*
+    ZendaiAlertView *alert = [[ZendaiAlertView alloc]initWithTitle:@"温馨提示" contentText:@"您已成功充值。" leftButtonTitle:@"立即购买" rightButtonTitle:@"查看账户"];
+//    [self.view addSubview:alert];
+    [alert show];
+    alert.leftColor = RGB_yellow;
+    alert.rightColor = RGB_red;
+    MainTabbarController *t = [[MainTabbarController alloc] init];
+    __weak ZendaiAlertView *alertt = alert;
+    __weak ChongZhi *sel = self;
+    alert.leftBlock  =^(){
+        t.isfrom = 2;
+        [sel presentViewController:t  animated:YES completion:nil];
+        [alertt removeFromSuperviewi];
+    };
+    alert.rightBlock = ^(){
+#warning 保留了NAV中每个VC的地址，注意是佛安全。
+        t.isfrom = 3;
+        [sel presentViewController:t  animated:YES completion:nil];
+        [alertt removeFromSuperviewi];
+    };*/
+    //下一步
+    if (![Tool boolForKey:JIsNamesure] ) {
+       // [self.view makeToast:@"请先进行实名认证！" duration:1.5];
+        ZendaiAlertView *alert = [[ZendaiAlertView alloc]initWithTitle:@"温馨提示" contentText:@"请先进行实名认证！" leftButtonTitle:@"暂不认证" rightButtonTitle:@"实名认证"];
+        __weak ZendaiAlertView *alertt = alert;
+        
+        alert.cha.hidden=YES;
+        alert.leftBlock  =^(){
+            
+            [alertt removeFromSuperviewi];
+        };
+        alert.rightBlock = ^(){
+            NameSure *n = [[NameSure alloc] init];
+            n.isform = 1;
+            n.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:n  animated:YES];
+            
+            [alertt removeFromSuperviewi];
+        };
+        alert.leftColor=RGB_red;
+        alert.rightColor = RGB_red;
+        [alert show];
+        return;
+    }
+//    if(![Tool boolForKey:JSaveSecretShoushi])
+//    {
+//        [self.view makeToast:@"请先设置交易密码！" duration:JDuration position:@"center"];
+//        return;
+//    }
+
+    if (self.cardNo.text.length<14) {
+        [self.view makeToast:@"请输入银行卡卡号！" duration:1.5];
+        return;
+    }
+    if ([self.textfield.text floatValue]<=0) {
+    
+        [self.view makeToast:@"用户充值金额必须大于0元。" duration:1.5];
+        return;
+    }
+    if ([self.textfield.text doubleValue]<startGet) {
+        
+        [self.view makeToast:[NSString stringWithFormat:@"充值金额不能小于%f元。",startGet] duration:1.5];
+        return;
+    }
+    
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    WDCAccount *a = [WDCUserManage getLastUserInfo];
+   // NSDictionary* dict=@{@"amount":@(1),@"type":@(2),@"userId":a.userId,@"cardNum":self.cardNo.text};
+    NSMutableDictionary* dict=[[NSMutableDictionary alloc]init];
+    [dict setObject:self.textfield.text forKey:@"amount"];
+    [dict setObject:@(2) forKey:@"type"];
+    [dict setObject:@([a.userId intValue]) forKey:@"userId"];
+    [dict setObject:self.cardNo.text forKey:@"cardNum"];
+    [[HZMAPImanager shareMAPImanager]addDelegate:self];
+    HZMRequest* requset=[[HZMRequest alloc]init];
+    requset.requsetId=Account_ThirdMD5;
+    requset.requestParamDic=dict;
+    requset.callBackDelegate=self;
+    requset.tag=0x202;
+    [[HZMAPImanager shareMAPImanager] postWithWSRequest:requset];
+    
+    
+}
+
+#pragma mark 限额说明
+- (IBAction)next {
+    XianEVC *x = [[XianEVC alloc]init];
+    [self.navigationController pushViewController:x animated:YES];
+    
+    
+    LLPayVC=[[LLPaySdk alloc]init];
+    LLPayVC.sdkDelegate=self;
+//    NSDictionary* signedDic = contentDic;// 加过签名的订单字典
+//    UIViewController *topVC = [self appRootViewController];
+//    [LLPayVC presentPaySdkInViewController:topVC withTraderInfo:signedDic];
+    
+    
+}
+
+#pragma -mark 支付结果 LLPaySdkDelegate
+// 订单支付结果返回，主要是异常和成功的不同状态
+- (void)paymentEnd:(LLPayResult)resultCode withResultDic:(NSDictionary *)dic
+{
+    NSString *msg = @"支付异常";
+   
+    switch (resultCode) {
+        case kLLPayResultSuccess:
+        {
+            msg = @"支付成功";
+            
+            NSString* result_pay = dic[@"result_pay"];
+            if ([result_pay isEqualToString:@"SUCCESS"])
+            {
+                //
+                //NSString *payBackAgreeNo = dic[@"agreementno"];
+                // TODO: 协议号
+                [self.navigationController popViewControllerAnimated:YES];
+                return;
+                
+            }
+            else if ([result_pay isEqualToString:@"PROCESSING"])
+            {
+                msg = @"支付单处理中";
+            }
+            else if ([result_pay isEqualToString:@"FAILURE"])
+            {
+                msg = @"支付单失败";
+            }
+            else if ([result_pay isEqualToString:@"REFUND"])
+            {
+                msg = @"支付单已退款";
+            }
+        }
+            break;
+        case kLLPayResultFail:
+        {
+            msg = @"支付失败";
+        }
+            break;
+        case kLLPayResultCancel:
+        {
+            msg = @"支付取消";
+        }
+            break;
+        case kLLPayResultInitError:
+        {
+            msg = @"sdk初始化异常";
+        }
+            break;
+        case kLLPayResultInitParamError:
+        {
+            msg = dic[@"ret_msg"];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    [self.view makeToast:msg duration:1.5];
+
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+-(void)backViewClick
+{
+    [self.textfield resignFirstResponder];
+    [self.cardNo resignFirstResponder];
+}
+#pragma mark  返回
+- (void)backa{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark - UITextFieldDelegate
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if (textField.tag==0x1001) {
+        if (textField.text.length>14) {
+            //
+            [[HZMAPImanager shareMAPImanager]addDelegate:self];
+            HZMRequest* requset=[[HZMRequest alloc]init];
+            requset.requsetId=AccounBDcard_NetWoring;
+            WDCAccount *a = [WDCUserManage getLastUserInfo];
+            NSDictionary* dict=@{@"cardNum":textField.text,@"userId":a.userId};
+            requset.requestParamDic=dict;
+            requset.callBackDelegate=self;
+            requset.tag=0x201;
+            [[HZMAPImanager shareMAPImanager] postWithWSRequest:requset];
+        }
+    }
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.view endEditing:YES];
+    //    [self clickedSure];
+    return YES;
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+if (textField.tag==206) {
+    
+    NSArray* thArr=[textField.text componentsSeparatedByString:@"."];
+    if (thArr.count==2) {
+        NSString* subS=[thArr objectAtIndex:1];
+        if (subS) {
+            if (subS.length>=2 && string.length>0) {
+                return NO;
+            }
+        }
+    }
+    if ([string isEqualToString:@"."]&&textField.text.length==0) {
+        textField.text=@"0";
+    }
+}
+    return YES;
+}
+
+#pragma mark - HZMAPIManagerDelegate
+-(void)transactionFinished:(HZMResponse *)response
+{
+    if ([response.requestId isEqualToString:AccounBDcard_NetWoring]) {
+        if ([response.responseData objectForKey:@"data"]) {
+            NSDictionary* data=[response.responseData objectForKey:@"data"];
+            //NSDictionary* card=[data objectForKey:@"cardbin"];
+            self.bankName.text=[data objectForKey:@"bankName"];
+            self.bankName.enabled=NO;
+        }
+    }
+    if ([response.requestId isEqualToString:Account_ThirdMD5]) { //后台获取连连支付信息
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if ([[response.responseData objectForKey:@"code"] intValue]>0) {
+            [self showPayMoney:[response.responseData objectForKey:@"data"]];
+            
+        }else{
+            [self.view makeToast:[response.responseData objectForKey:@"message"] duration:1.5];
+            
+        }
+    }
+    if ([response.requestId isEqualToString:AccountChongZhi_Jump]) {
+        NSDictionary *dataDict=[response.responseData objectForKey:@"data"];
+        NSString* hand=[NSString stringWithFormat:@"%f",[[dataDict objectForKey:@"fee"] floatValue]];
+        if (hand.length==0) {
+            hand=@"0";
+        }
+        startGet=[[dataDict objectForKey:@"rechargeMin"]doubleValue];
+        self.handCharge.text=[NSString stringWithFormat:@"充值手续费：%@元",[NSString countNumAndChangeformat:hand]];
+        NSArray*cards=[dataDict objectForKey:@"cardList"];
+        if (cards.count>0) {
+            NSDictionary* card=[cards firstObject];
+            self.cardNo.text=[card objectForKey:@"cardNo"];
+            self.bankName.text=[card objectForKey:@"bankName"];
+            self.cardNo.enabled=NO;
+            
+            
+        }
+        [[HZMAPImanager shareMAPImanager]addDelegate:self];
+        HZMRequest* requset1=[[HZMRequest alloc]init];
+        requset1.requsetId=Check_Info;
+        WDCAccount *a1 = [WDCUserManage getLastUserInfo];
+        NSDictionary* dict1=@{@"type":@(1),@"userId":a1.userId};
+        requset1.requestParamDic=dict1;
+        requset1.callBackDelegate=self;
+        requset1.tag=0x9001;
+        [[HZMAPImanager shareMAPImanager] postWithWSRequest:requset1];
+        
+        
+    }
+    if ([response.requestId isEqualToString:Check_Info]) {
+        int result=[[response.responseData objectForKey:@"code"] intValue];
+        if (result==1) {
+            isTrue=YES;
+            [Tool setBool:YES forKey:JIsNamesure];
+        }else{
+            isTrue=NO;
+        }
+    }
+}
+-(void)transactionFailed:(HZMResponse *)response
+{
+    if ([response.requestId isEqualToString:Account_ThirdMD5]) {
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.view makeToast:[response.responseData objectForKey:@"message"]  duration:1.5];
+        return;
+    }
+    if ([response.requestId isEqualToString:AccountChongZhi_Jump]) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.view makeToast:[response.responseData objectForKey:@"message"] duration:1.5];
+        return;
+    }
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if ([response.responseCodeOriginal isEqualToString:@"-1"]|[response.responseCodeOriginal isEqualToString:@"-2"]|[response.responseCodeOriginal isEqualToString:@"-3"]|[response.responseCodeOriginal isEqualToString:@"-4"]|[response.responseCodeOriginal isEqualToString:@"-5"]|[response.responseCodeOriginal isEqualToString:@"-6"]|[response.responseCodeOriginal isEqualToString:@"-99"]) {
+        [self.view makeToast:[response.responseData objectForKey:@"message"] duration:1.5 position:@"center"];
+    }else
+        [self.view makeToast:response.responseMsg duration:1.5 position:@"center"];
+    
+    [[HZMAPImanager shareMAPImanager] removeDelegate:self];
+    if ([response.responseCodeOriginal isEqualToString:@"-99"]) {
+        LoginVC *l = [[LoginVC alloc] init];
+        l.some =self;
+        l.isFrom = 88;
+        [Tool setObject:[response.responseData objectForKey:@"message"] forKey:@"login_msg"];
+        l.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:l animated:YES];
+    }
+}
+-(void)showPayMoney:(NSDictionary*)dictb
+{
+    NSMutableDictionary* createOrder=[NSMutableDictionary dictionaryWithDictionary:dictb];
+    //LLPayUtil* utile=[[LLPayUtil alloc]init];
+   // NSDictionary* signeOrder=[utile signedOrderDic:dictb andSignKey:<#(NSString *)#>]
+    [LLPaySdk sharedSdk].sdkDelegate=self;
+    [[LLPaySdk sharedSdk]presentVerifyPaySdkInViewController:self withTraderInfo:createOrder];
+    
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==0) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+@end

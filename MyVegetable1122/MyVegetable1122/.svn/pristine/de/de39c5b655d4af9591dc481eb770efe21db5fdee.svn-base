@@ -1,0 +1,25 @@
+//
+//  PayOne.h
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/26.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface PayOne : UIViewController
+//投资金额
+@property (nonatomic, assign) long  payNum;
+//用户ID
+@property (nonatomic, copy) NSString* userID;
+//产品ID
+@property (nonatomic, copy) NSString* prodctID;
+//优惠券列表
+@property (nonatomic, copy) NSString* List;
+//优惠券金额
+@property (nonatomic, copy) NSString* ListAmount;
+
+
+
+@end

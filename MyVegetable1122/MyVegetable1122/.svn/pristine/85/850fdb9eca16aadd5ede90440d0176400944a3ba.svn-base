@@ -1,0 +1,68 @@
+//
+//  LoseLoginOne.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/20.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "LoseLoginOne.h"
+#import "LoseLoginTwo.h"
+#import "LoseLoginThree.h"
+@interface LoseLoginOne ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *h1;
+
+@end
+
+@implementation LoseLoginOne
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"修改交易密码";
+    self.view.backgroundColor = RGB_gray;
+    UIBarButtonItem *leftItem =[[UIBarButtonItem alloc] init];
+    leftItem.title = @"";
+    self.navigationItem.backBarButtonItem =leftItem;
+    self.h1.constant = 50*ratioH;
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (From1(self)|From2(self)) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backBtn.frame = CGRectMake(-2, 0, 12, 20);
+        UIImage *buttonImage = [UIImage  imageNamed:@"back"];
+        buttonImage = [buttonImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [backBtn setImage:buttonImage forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(backa) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        self.navigationItem.leftBarButtonItem = backItem;
+    }
+}
+- (IBAction)remember {
+    LoseLoginTwo *t = [[LoseLoginTwo alloc]init];
+    [self.navigationController pushViewController:t animated:YES];
+}
+- (IBAction)lose {
+    LoseLoginThree *tt = [[LoseLoginThree alloc]init];
+    [self.navigationController pushViewController:tt animated:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark  返回
+- (void)backa{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

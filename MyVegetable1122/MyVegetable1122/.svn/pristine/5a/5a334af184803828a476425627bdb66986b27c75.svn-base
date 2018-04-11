@@ -1,0 +1,20 @@
+//
+//  BuyModel.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/12/10.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "BuyModel.h"
+
+@implementation BuyModel
+-(void)setValue:(id)value forUndefinedKey:(NSString *)key{}
+- (id)initWithDic:(NSDictionary *)dic{
+//    self.minInterest = [dic objectForKey:@"minInterest"];
+    
+    
+    return self;
+}
+
+@end

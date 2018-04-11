@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountHQCellModel" id="FQm-gZ-gBC" customClass="AccountHQCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FQm-gZ-gBC" id="Miq-KN-PTc">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKd-kS-cig">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="42.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="Sq9-Mf-xUT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBY-64-El0">
+                        <rect key="frame" x="80" y="0.5" width="80" height="42.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9b-ug-rmf">
+                        <rect key="frame" x="160" y="0.0" width="80" height="42.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHQ-BM-JAR">
+                        <rect key="frame" x="240" y="0.0" width="80" height="42.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.98039215686274506" green="0.44313725490196076" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kav-1g-Duf">
+                        <rect key="frame" x="15" y="42.5" width="290" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.69999999999999996" id="Tj9-w7-PPa"/>
+                            <constraint firstAttribute="height" constant="1" id="iZH-Y1-acR"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="iZH-Y1-acR"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="jKd-kS-cig" firstAttribute="leading" secondItem="Miq-KN-PTc" secondAttribute="leadingMargin" id="2DX-IY-jvr"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="jKd-kS-cig" secondAttribute="bottom" id="4dV-Od-mlb"/>
+                    <constraint firstAttribute="bottom" secondItem="kav-1g-Duf" secondAttribute="bottom" id="60B-2G-rDl"/>
+                    <constraint firstItem="eHQ-BM-JAR" firstAttribute="leading" secondItem="d9b-ug-rmf" secondAttribute="trailing" id="6Wg-ND-eEB"/>
+                    <constraint firstItem="jKd-kS-cig" firstAttribute="leading" secondItem="Miq-KN-PTc" secondAttribute="leading" id="8mS-BQ-Wdt"/>
+                    <constraint firstItem="d9b-ug-rmf" firstAttribute="leading" secondItem="bBY-64-El0" secondAttribute="trailing" id="AdE-IC-JoE"/>
+                    <constraint firstItem="kav-1g-Duf" firstAttribute="top" secondItem="jKd-kS-cig" secondAttribute="bottom" id="BBM-Lz-40W"/>
+                    <constraint firstItem="eHQ-BM-JAR" firstAttribute="top" secondItem="jKd-kS-cig" secondAttribute="top" id="DTn-Qw-SDg"/>
+                    <constraint firstItem="bBY-64-El0" firstAttribute="leading" secondItem="jKd-kS-cig" secondAttribute="trailing" id="EDk-Vm-IfZ"/>
+                    <constraint firstItem="eHQ-BM-JAR" firstAttribute="width" secondItem="jKd-kS-cig" secondAttribute="width" id="IoI-x6-chq"/>
+                    <constraint firstItem="jKd-kS-cig" firstAttribute="top" secondItem="Miq-KN-PTc" secondAttribute="topMargin" id="M4Z-oR-kc5"/>
+                    <constraint firstItem="kav-1g-Duf" firstAttribute="leading" secondItem="Miq-KN-PTc" secondAttribute="leading" constant="15" id="Ove-tv-Mir"/>
+                    <constraint firstAttribute="trailing" secondItem="kav-1g-Duf" secondAttribute="trailing" constant="15" id="PDD-rP-TMj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eHQ-BM-JAR" secondAttribute="trailing" id="R0I-N8-MAO"/>
+                    <constraint firstItem="jKd-kS-cig" firstAttribute="top" secondItem="Miq-KN-PTc" secondAttribute="top" id="R8Q-DU-Mmg"/>
+                    <constraint firstItem="bBY-64-El0" firstAttribute="height" secondItem="jKd-kS-cig" secondAttribute="height" id="fc1-Qb-lb2"/>
+                    <constraint firstItem="jKd-kS-cig" firstAttribute="leading" secondItem="Miq-KN-PTc" secondAttribute="leading" id="gXw-b9-spK"/>
+                    <constraint firstItem="eHQ-BM-JAR" firstAttribute="height" secondItem="jKd-kS-cig" secondAttribute="height" id="if1-YG-Nmc"/>
+                    <constraint firstAttribute="trailing" secondItem="eHQ-BM-JAR" secondAttribute="trailing" id="jvX-65-M7J"/>
+                    <constraint firstItem="d9b-ug-rmf" firstAttribute="height" secondItem="jKd-kS-cig" secondAttribute="height" id="lQn-L4-nJL"/>
+                    <constraint firstItem="jKd-kS-cig" firstAttribute="top" secondItem="Miq-KN-PTc" secondAttribute="top" id="m5k-Ib-2I0"/>
+                    <constraint firstItem="d9b-ug-rmf" firstAttribute="width" secondItem="jKd-kS-cig" secondAttribute="width" id="pez-cZ-n4S"/>
+                    <constraint firstItem="bBY-64-El0" firstAttribute="top" secondItem="jKd-kS-cig" secondAttribute="top" id="wpJ-Oe-lR0"/>
+                    <constraint firstItem="d9b-ug-rmf" firstAttribute="top" secondItem="jKd-kS-cig" secondAttribute="top" id="zG0-rP-Bd3"/>
+                    <constraint firstItem="bBY-64-El0" firstAttribute="width" secondItem="jKd-kS-cig" secondAttribute="width" id="zze-i2-NYI"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="2DX-IY-jvr"/>
+                        <exclude reference="4dV-Od-mlb"/>
+                        <exclude reference="8mS-BQ-Wdt"/>
+                        <exclude reference="M4Z-oR-kc5"/>
+                        <exclude reference="R8Q-DU-Mmg"/>
+                        <exclude reference="R0I-N8-MAO"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="monkey" destination="d9b-ug-rmf" id="reT-Z2-B1H"/>
+                <outlet property="monkeyGet" destination="eHQ-BM-JAR" id="FnH-M1-7F0"/>
+                <outlet property="style" destination="bBY-64-El0" id="3eD-fr-26R"/>
+                <outlet property="time" destination="jKd-kS-cig" id="C3H-e7-SuJ"/>
+                <outlet property="w" destination="Sq9-Mf-xUT" id="IhE-12-zRS"/>
+            </connections>
+            <point key="canvasLocation" x="234" y="225"/>
+        </tableViewCell>
+    </objects>
+</document>

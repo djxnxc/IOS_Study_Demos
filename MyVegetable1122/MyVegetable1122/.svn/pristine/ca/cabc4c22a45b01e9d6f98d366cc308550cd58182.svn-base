@@ -1,0 +1,244 @@
+//
+//  AccountHQShuhui.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/21.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "ChongZhi.h"
+#import "XianEVC.h"
+#import "MainTabbarController.h"
+
+@interface ChongZhi ()<LLPaySdkDelegate>
+{
+    LLPaySdk *LLPayVC;
+}
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (weak, nonatomic) IBOutlet UILabel *card;
+@property (weak, nonatomic) IBOutlet UILabel *carddetail;
+@property (weak, nonatomic) IBOutlet UITextField *textfield;
+
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *CELLH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *labelH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bh;
+@property (weak, nonatomic) IBOutlet UIButton *nextBtn;
+- (IBAction)nextClicked;
+
+@end
+
+@implementation ChongZhi
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"充值";
+    //返回按钮
+    
+    self.navigationController.navigationBar.translucent = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBarHidden = NO;
+    
+    
+    
+    
+    
+    [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
+    UIBarButtonItem *item =[[UIBarButtonItem alloc] init];
+    item.title = @"";
+    [item setTintColor:RGB_gray];
+    self.navigationItem.backBarButtonItem = item;
+    
+    if (iPhone6P|iPhone6) {
+        
+        _bh.constant = 40;
+        self.nextBtn.layer.cornerRadius = 40.0/2;
+    } else {
+        
+        _bh.constant = 35;
+        self.nextBtn.layer.cornerRadius = 35.0/2;
+    }
+    self.nextBtn.layer.masksToBounds = YES;
+    [self.nextBtn setBackgroundColor:RGB_red];
+    self.nextBtn.titleLabel.font = JFont(fontBtn);
+    [self.nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    
+//    UIImage *stretchableButtonImage = [buttonImage  stretchableImageWithLeftCapWidth:12  topCapHeight:0];
+//    [self.detail  setImage:buttonImage  forState:UIControlStateNormal];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (From1(self)|From2(self)) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backBtn.frame = CGRectMake(-2, 0, 12, 20);
+        UIImage *buttonImage = [UIImage  imageNamed:@"back"];
+        buttonImage = [buttonImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [backBtn setImage:buttonImage forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(backa) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        self.navigationItem.leftBarButtonItem = backItem;
+    }
+}
+- (void)layoutSublayersOfLayer:(CALayer *)layer {
+//    if (iPhone6P) {
+//        _CELLH.constant = 50;
+//        _labelH.constant = 35;
+//        _bh.constant =40;
+//        self.nextBtn.layer.cornerRadius = 40/2;
+//    } else if (iPhone6) {
+//        _CELLH.constant = 50;
+//        _labelH.constant = 35;
+//        _bh.constant =40;
+//        self.nextBtn.layer.cornerRadius = 40/2;
+//    } else if (iPhone5) {
+//        _CELLH.constant = 50;
+//        _labelH.constant = 35;
+//        _bh.constant =35;
+//        self.nextBtn.layer.cornerRadius = 35.0/2;
+//    }
+    self.nextBtn.layer.cornerRadius = 35/2;
+    self.nextBtn.layer.masksToBounds = YES;
+    [self.nextBtn setBackgroundColor:RGB_red];
+    self.nextBtn.titleLabel.font = JFont(fontBtn);
+    [self.nextBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
+- (IBAction)nextClicked{
+    ZendaiAlertView *alert = [[ZendaiAlertView alloc]initWithTitle:@"温馨提示" contentText:@"您已成功充值。" leftButtonTitle:@"立即购买" rightButtonTitle:@"查看账户"];
+//    [self.view addSubview:alert];
+    [alert show];
+    alert.leftColor = RGB_yellow;
+    alert.rightColor = RGB_red;
+    MainTabbarController *t = [[MainTabbarController alloc] init];
+    __weak ZendaiAlertView *alertt = alert;
+    __weak ChongZhi *sel = self;
+    alert.leftBlock  =^(){
+        t.isfrom = 2;
+        [sel presentViewController:t  animated:YES completion:nil];
+        [alertt removeFromSuperviewi];
+    };
+    alert.rightBlock = ^(){
+#warning 保留了NAV中每个VC的地址，注意是佛安全。
+        t.isfrom = 3;
+        [sel presentViewController:t  animated:YES completion:nil];
+        [alertt removeFromSuperviewi];
+    };
+    
+    
+}
+
+#pragma mark 限额说明
+- (IBAction)next {
+    XianEVC *x = [[XianEVC alloc]init];
+    [self.navigationController pushViewController:x animated:YES];
+    
+    
+    LLPayVC=[[LLPaySdk alloc]init];
+    LLPayVC.sdkDelegate=self;
+//    NSDictionary* signedDic = contentDic;// 加过签名的订单字典
+//    UIViewController *topVC = [self appRootViewController];
+//    [LLPayVC presentPaySdkInViewController:topVC withTraderInfo:signedDic];
+    
+    
+}
+
+#pragma -mark 支付结果 LLPaySdkDelegate
+// 订单支付结果返回，主要是异常和成功的不同状态
+- (void)paymentEnd:(LLPayResult)resultCode withResultDic:(NSDictionary *)dic
+{
+    NSString *msg = @"支付异常";
+//    switch (resultCode) {
+//        case kLLPayResultSuccess:
+//        {
+//            paySuccess=YES;
+//            msg = @"支付成功";
+//            NSString* result_pay = dic[@"result_pay"];
+//            if ([result_pay isEqualToString:@"SUCCESS"])
+//            {
+//                [[MyDatabaseManager sharedManager] deleteTableRecord:_unpayModel];
+//                //                NSString *payBackAgreeNo = dic[@"agreementno"];
+//            }
+//            else if ([result_pay isEqualToString:@"PROCESSING"])
+//            {
+//                msg = @"支付单处理中";
+//            }
+//            else if ([result_pay isEqualToString:@"FAILURE"])
+//            {
+//                msg = @"支付单失败";
+//            }
+//            else if ([result_pay isEqualToString:@"REFUND"])
+//            {
+//                msg = @"支付单已退款";
+//            }
+//            
+//            ZendaiSuccessViewController *successViewController = [[ZendaiSuccessViewController alloc] init];
+//            successViewController.navigationTitle = @"加入财富增值成功";
+//            successViewController.successTitle = @"加入财富增值计划成功";
+//            //            successViewController.successDetail = @"恭喜您已成功加入财富增值计划！";
+//            successViewController.notificationString = GO_TO_INVEST_DETAIL;
+//            [self.navigationController pushViewController:successViewController animated:YES];
+//            
+//            break;
+//            
+//        }
+//            
+//        case kLLPayResultFail:
+//        {
+//            msg = @"支付失败";
+//            
+//        }
+//            break;
+//        case kLLPayResultCancel:
+//        {
+//            msg = @"支付取消";
+//        }
+//            break;
+//        case kLLPayResultInitError:
+//        {
+//            //            msg = @"sdk初始化异常";
+//        }
+//            break;
+//        case kLLPayResultInitParamError:
+//        {
+//            msg = dic[@"ret_msg"];
+//        }
+//            break;
+//        default:
+//            break;
+//    }
+//    
+//    if (!paySuccess) {
+//        
+//        [self performSelector:@selector(notifitionAlert:) withObject:msg afterDelay:1];
+//        
+//        //        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:msg delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//        //        [alert show];
+//        
+//        
+//    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+#pragma mark  返回
+- (void)backa{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+@end

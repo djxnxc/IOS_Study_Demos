@@ -1,0 +1,67 @@
+//
+//  AccountDQModel.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/24.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "AccountJLModel.h"
+
+@implementation AccountJLModel
+- (id)initWithDic:(NSDictionary *)dic{
+    if (self) {
+//        self.type = dic[@""];
+        if (dic[@"amount"]) {
+            
+            self.monkey = [NSString stringWithFormat:@"%@",dic[@"amount"]];
+        }else{
+            self.monkey=@"0.00";
+        }
+        if (dic[@"status"]) {
+            self.isUseOrold = [NSString stringWithFormat:@"%@",dic[@"status"]];
+        }else{
+            self.isUseOrold=@"0";
+        }
+        if (dic[@"endTime"]) {
+            self.effect = [NSString stringWithFormat:@"%@",dic[@"endTime"]];
+        }else{
+            self.effect=@"";
+        }
+        if (dic[@"source"]) {
+            self.from = [NSString stringWithFormat:@"%@",dic[@"source"]];
+        }else{
+            self.from=@"";
+        }
+        if (dic[@"status"]) {
+            self.status = [NSString stringWithFormat:@"%@",dic[@"status"]];
+        }else{
+            self.status=@"0";
+        }
+//        self.condition = dic[@""];
+//        self.type = dic[@""];
+//        self.type = dic[@""];
+    }
+    return self;
+}
+//@property (copy, nonatomic) NSString *type;
+
+//@property (copy, nonatomic) NSString *monkey;
+/**0 未 1 已经*/
+//@property (copy, nonatomic) NSString *isUseOrold;
+
+//@property (copy, nonatomic) NSString *from;
+
+//@property (copy, nonatomic) NSString *effect;
+//@property (copy, nonatomic) NSString *condition;
+
+
+
+
+
+
+
+
+
+
+@end

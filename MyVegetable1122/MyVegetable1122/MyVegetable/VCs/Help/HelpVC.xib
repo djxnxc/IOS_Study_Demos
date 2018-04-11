@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelpVC">
+            <connections>
+                <outlet property="tableView" destination="2s2-RJ-dzf" id="D2l-9M-vTK"/>
+                <outlet property="view" destination="FVP-nr-ZUo" id="d7B-aM-yks"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="FVP-nr-ZUo">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-RJ-dzf">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="tGW-6G-0nU"/>
+                        <outlet property="delegate" destination="-1" id="ZxN-bP-vWo"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="2s2-RJ-dzf" secondAttribute="trailing" id="N4N-Il-Q3Q"/>
+                <constraint firstAttribute="bottom" secondItem="2s2-RJ-dzf" secondAttribute="bottom" id="QbC-A7-epi"/>
+                <constraint firstItem="2s2-RJ-dzf" firstAttribute="top" secondItem="FVP-nr-ZUo" secondAttribute="top" id="VxT-he-mNf"/>
+                <constraint firstItem="2s2-RJ-dzf" firstAttribute="leading" secondItem="FVP-nr-ZUo" secondAttribute="leading" id="pAb-Qn-yoz"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-57" y="207"/>
+        </view>
+    </objects>
+</document>

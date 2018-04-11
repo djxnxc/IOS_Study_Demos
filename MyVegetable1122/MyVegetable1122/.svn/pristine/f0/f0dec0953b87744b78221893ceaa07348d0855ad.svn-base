@@ -1,0 +1,23 @@
+//
+//  HuoDongView.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/17.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "HuoDongCell.h"
+
+@implementation HuoDongCell
+- (void)awakeFromNib {
+}
++ (void)initWithModel:(HuoDongModel *)model{
+    
+}
+- (void)setHdmodel:(HuoDongModel *)hdmodel {
+    
+}
+
+- (IBAction)clickedBtn {
+}
+@end

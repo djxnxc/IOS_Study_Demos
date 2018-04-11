@@ -1,0 +1,89 @@
+//
+//  XianEVC.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/12/21.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "XianEVC.h"
+
+@interface XianEVC ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scroview;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *h;
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+
+@end
+
+@implementation XianEVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"限额说明";
+    
+    int i,j,k;
+    if (iPhone6P) {
+        i=40;
+        j=20;
+        k=20;
+        _h.constant = 45;
+    } else if (iPhone6){
+        i=40;
+        j=20;
+        k=20;
+        _h.constant = 40;
+    } else if (iPhone5){
+        i=36;
+        j=16;
+        k=0;
+        _h.constant = 36;
+    }
+    
+    
+    self.scroview.frame = CGRectMake(0, j, JSCREEN_W, JSCREEN_H+i);
+    UIImageView *im= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"xiane_xiane.jpg"]];
+    [self.scroview addSubview:im];
+    im.frame=self.scroview.frame;
+    self.scroview.contentSize = CGSizeMake(JSCREEN_W, JSCREEN_H+100+k);
+//    self.scroview.contentSize = CGSizeMake(JSCREEN_W, JSCREEN_H);
+    self.scroview.bounces = YES;
+    self.scroview.scrollEnabled = YES;
+    self.scroview.showsHorizontalScrollIndicator = NO;
+    self.scroview.showsVerticalScrollIndicator = NO;
+    
+   
+    
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (From1(self)|From2(self)) {
+        UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        backBtn.frame = CGRectMake(-2, 0, 12, 20);
+        UIImage *buttonImage = [UIImage  imageNamed:@"back@2x"];
+        buttonImage = [buttonImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [backBtn setImage:buttonImage forState:UIControlStateNormal];
+        [backBtn addTarget:self action:@selector(backa) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+        self.navigationItem.leftBarButtonItem = backItem;
+    }
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+#pragma mark  返回
+- (void)backa{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+@end

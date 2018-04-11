@@ -1,0 +1,25 @@
+//
+//  AccountDQSubOneCell.h
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/23.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+@class AccountJLModel;
+@interface AccountJLSubOneCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *isUseOrold;
+@property (weak, nonatomic) IBOutlet UILabel *monkey;
+@property (weak, nonatomic) IBOutlet UILabel *type;
+@property (weak, nonatomic) IBOutlet UILabel *from;
+@property (weak, nonatomic) IBOutlet UILabel *effect;
+@property (weak, nonatomic) IBOutlet UILabel *condition1;
+
+@property (weak, nonatomic) IBOutlet UIImageView *hongbaoBg;
+@property (weak, nonatomic) IBOutlet UIImageView *hongbaoXX;
+@property (weak, nonatomic) IBOutlet UILabel *hongbaoMonkey;
+
+@property (nonatomic, strong) AccountJLModel *model;
+@end

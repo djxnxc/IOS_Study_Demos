@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountJY">
+            <connections>
+                <outlet property="contetnView" destination="yUS-iE-Ha2" id="vQ6-qA-S1e"/>
+                <outlet property="indView" destination="h87-8c-9UI" id="l9r-Ja-AAo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h87-8c-9UI">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="account_lv.png" translatesAutoresizingMaskIntoConstraints="NO" id="h0x-8d-O9D">
+                            <rect key="frame" x="159.5" y="4" width="1" height="27"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="pKR-LK-58N"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="h0x-8d-O9D" firstAttribute="centerY" secondItem="h87-8c-9UI" secondAttribute="centerY" id="3WZ-Qn-Mpz"/>
+                        <constraint firstAttribute="height" constant="35" id="fY6-xt-DzB"/>
+                        <constraint firstItem="h0x-8d-O9D" firstAttribute="top" secondItem="h87-8c-9UI" secondAttribute="top" constant="4" id="ozq-KZ-cdU"/>
+                        <constraint firstItem="h0x-8d-O9D" firstAttribute="centerX" secondItem="h87-8c-9UI" secondAttribute="centerX" id="uaI-BQ-xeH"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUS-iE-Ha2">
+                    <rect key="frame" x="0.0" y="35" width="320" height="445"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="h87-8c-9UI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0ek-Vv-K8I"/>
+                <constraint firstAttribute="trailing" secondItem="h87-8c-9UI" secondAttribute="trailing" id="Fcf-kM-8mb"/>
+                <constraint firstItem="yUS-iE-Ha2" firstAttribute="top" secondItem="h87-8c-9UI" secondAttribute="bottom" id="Ji7-c7-OgO"/>
+                <constraint firstItem="yUS-iE-Ha2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SOG-Gb-0Lz"/>
+                <constraint firstItem="h87-8c-9UI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="asz-96-hh6"/>
+                <constraint firstAttribute="trailing" secondItem="yUS-iE-Ha2" secondAttribute="trailing" id="elY-5N-I1T"/>
+                <constraint firstAttribute="bottom" secondItem="yUS-iE-Ha2" secondAttribute="bottom" id="wtU-1e-s3M"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="188" y="321"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="account_lv.png" width="3" height="204"/>
+    </resources>
+</document>

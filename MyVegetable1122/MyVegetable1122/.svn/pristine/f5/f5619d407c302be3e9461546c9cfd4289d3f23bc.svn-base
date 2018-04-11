@@ -1,0 +1,204 @@
+//
+//  PrefixHeader.pch
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/11.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "SDImageCache.h"
+#import "MJRefresh.h"
+#import "AFNetworking.h"
+//#import "UIKit+AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "Tool.h"
+#import "Common.h"
+//#import "NetWork.h"
+
+#import "NSString+Zendai.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#define AFNETWORKING_ALLOW_INVALID_SSL_CERTIFICATES
+
+#import "UIImage+MJ.h"
+#import "UIView+MJ.h"
+#import "UIView+UIViewAdditions.h"
+#import "NSString+Common.h"
+#import "Toast+UIView.h"
+#import "JAlertManager.h"
+#import "NSJSONSerialization+Json.h"
+#import "NSString+Extension.h"
+
+#import "UIColor+Common.h"
+//#import "WXApi.h"
+//#import "WXApiObject.h"
+#import "Toast+UIView.h"
+#import "Toast+UIView.h"
+//工具类
+#import "NetWorkManager.h"
+#import "MBProgressHUD.h"
+//#import "ApiInterface.h"
+#import "AFAPIMarco.h"
+#import "LoginVC.h"
+#import "ZendaiAlertView.h"
+#import "WDCUserManage.h"
+#import "WDCAccount.h"
+#import "ZendaiAlertView.h"
+#import "SDImageCache.h"
+#import "SDWebImageManager.h"
+#import "UIImageView+WebCache.h"
+//#import "WDCAccount.h"
+#import "WDCUserManage.h"
+
+#import "LLPaySdk.h"
+#import "Networking.h"
+#import "UMSocial.h"
+//#import ""
+
+#import "BuyModel.h"
+//通知
+#define IN_BACKGROUND    @"IN_BACKGROUND"
+
+//友盟唯一KEY
+#define UMkey @"568a1fe9e0f55ab28a00140e"
+#define XLkey @"1451553398"
+
+//测试通道 如果是1就开启测试，如果是0 就关闭测试
+#define IS_TEST_1    1
+
+#ifdef DEBUG
+#define JLog(...) NSLog(__VA_ARGS__)
+#else
+#define JLog(...)
+#endif
+
+//适配 屏幕宽比例
+#define ratioW      (JSCREEN_W)/320
+//适配 屏幕高比例
+//#define ratioH      (JSCREEN_H)/(568-44)
+
+#define ratioH      (JSCREEN_H)/(568)
+
+#define From1(p)  [p isBeingPresented]
+#define From2(p)  [p isMovingToParentViewController]
+
+
+//字体
+#define JFont(size) [UIFont systemFontOfSize:size]
+//按比例算
+//导航条字体
+#define NavFontSize         18*ratioW
+//taabar字体
+#define TabBarItemFontSize  13
+//页面小子
+#define fontSmall           11*ratioW
+//页面中字
+#define fontMid             13*ratioW
+//页面大字
+#define fontBig             18*ratioW
+//页面大大字
+#define fontBigBig          20*ratioW
+//页面大大字
+#define fontBtn             16*ratioW
+
+
+#define JFont18           JFont(18*ratioW)
+#define JFont16           JFont(16*ratioW)
+#define JFont15           JFont(15*ratioW)
+#define JFont14           JFont(14*ratioW)
+#define JFont13           JFont(13*ratioW)
+#define JFont11           JFont(11*ratioW)
+#define JFont10           JFont(10*ratioW)
+
+
+//贝塞尔曲线圆弧宽度
+#define Jradius 0.08;
+/**是否有网络*/
+#define JIsNetWorking @"JIsNetWorking"
+
+//用户 涵盖用户的所有信息
+#define LAST_USER_INFO @"lastUser"
+
+//用户手机号
+#define LAST_USER_Phone @"LAST_USER_Phone"
+
+//Notification
+#define JNotificationZhangHu @"JNotificationZhangHu"
+//从我的账户 活期里面发送的消息
+#define JNotificationZhangHuWDHQi @"JNotificationZhangHuWDHQi"
+
+
+
+
+//本地化的
+
+/**是否有用户登录 yes=1 no=0/null*/
+#define JIsLoginUser @"JIsLoginUser"
+
+/**是否实名认证  BOOL*/
+#define JIsNamesure @"JIsNamesure"
+/**是否绑定银行卡  BOOL*/
+#define JIsTieCard @"JIsTieCard"
+/**是否设置手势密码 BOOL  */
+#define JIsSetSecretShoushi @"JIsSetSecretShoushi"
+/**登录密码*/
+#define JSaveSecretLogin @"JSaveSecretLogin"
+/**登录账户*/
+#define JSaveAccountLogin @"JSaveSecretLogin"
+
+/**交易密码*/
+#define JSaveSecretShoushi @"yijingchucunshoushile"
+//保存在本地用户的手势密码(nsstring)，不区分用户，一个新用户登录时，需要重设密码。也就是注销的时候，同时注销本地的手势密码。
+//注销账户后，再次进入，不需要手势密码。
+#define SSFBDGesturePasswordKey  @"UserBDDGesturePassword"
+
+/**
+ 说明：进入后台后，判断是否有手势密码来判断是否进入手势密码页面。
+ 退出登录后，手势密码一并清除
+ */
+
+
+//设备版本
+#define PHONEID  [UIDevice currentDevice].identifierForVendor.UUIDString
+
+//屏幕的宽高
+#define  JSCREEN_W   [UIScreen mainScreen].bounds.size.width
+#define  JSCREEN_H   [UIScreen mainScreen].bounds.size.height
+//当前设备
+#define iPhone4s ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+#define iPhone6P ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2208), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+
+//
+#define highti4_30 30
+#define highti5_35 35
+#define highti6_40 40
+
+#define hight_label iPhone5 ? 35:45
+
+#define highti4_cell 35
+#define highti5_cell 44
+#define highti6_cell 55
+#define highti6P_cell 65
+
+//提示信息的时长
+#define JDuration1 2.0f
+//#define JDuration2 1.5f
+//#define JDuration3 2.0f
+
+
+
+#ifdef DEBUG
+#   define ULog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#else
+#   define ULog(...)
+#endif
+
+
+#endif /* PrefixHeader_pch */

@@ -1,0 +1,29 @@
+//
+//  AccountHQCell.m
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/21.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import "AccountHQCell.h"
+#import "AccountHQCellModel.h"
+@implementation AccountHQCell
+
+- (void)setModel:(AccountHQCellModel *)model {
+    self.time.text = model.time;
+    self.monkey.text = model.monkey;
+    self.monkeyGet.text = model.monkeyGet;
+    self.style.text= model.style;
+    self.w.constant=JSCREEN_W/4.0;
+}
+- (void)layoutSublayersOfLayer:(CALayer *)layer {
+    if (iPhone6P) {
+        self.w.constant=JSCREEN_W/4.0;
+    }if (iPhone6 ) {
+        self.w.constant=JSCREEN_W/4.0;
+    }if (iPhone5) {
+        self.w.constant=JSCREEN_W/4.0;
+    }
+}
+@end

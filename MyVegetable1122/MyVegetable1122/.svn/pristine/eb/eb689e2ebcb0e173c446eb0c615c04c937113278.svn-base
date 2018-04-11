@@ -1,0 +1,71 @@
+//
+//  FirstUserView.m
+//  MyVegetable
+//
+//  Created by apple on 16/1/6.
+//  Copyright © 2016年 yunhoo. All rights reserved.
+//
+
+#import "FirstUserView.h"
+
+@implementation FirstUserView
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
+- (IBAction)clickBtn:(id)sender {
+    [self dissmes];
+}
+
+-(id)initWithNib
+{
+    
+    NSArray* arr=[[NSBundle mainBundle]loadNibNamed:@"StartHelp" owner:self options:nil];
+    self=[arr firstObject];
+    if (self) {
+        win=[UIApplication sharedApplication].keyWindow;
+        CGRect f=win.frame;
+        UIImageView* v1=[[UIImageView alloc]initWithFrame:f];
+        v1.image=[UIImage imageNamed:@"h1.jpg"];
+        [self.useScroller addSubview:v1];
+        f.origin.x=f.size.width;
+        UIImageView* v2=[[UIImageView alloc]initWithFrame:f];
+        v2.image=[UIImage imageNamed:@"h2.jpg"];
+        [self.useScroller addSubview:v2];
+        f.origin.x+=f.size.width;
+        UIImageView* v3=[[UIImageView alloc]initWithFrame:f];
+        v3.image=[UIImage imageNamed:@"h3.jpg"];
+        [self.useScroller addSubview:v3];
+        f.origin.x+=f.size.width;
+        UIImageView* v4=[[UIImageView alloc]initWithFrame:f];
+        v4.image=[UIImage imageNamed:@"h4.jpg"];
+        [self.useScroller addSubview:v4];
+        self.useScroller.contentSize=CGSizeMake(4*f.size.width, 400);
+        self.useScroller.delegate=self;
+        
+        
+    }
+    return self;
+}
+-(void)show
+{
+    self.frame=win.frame;
+    [win addSubview:self];
+}
+-(void)dissmes
+{
+    [self removeFromSuperview];
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView.contentOffset.x>=3*win.frame.size.width) {
+        self.btn.hidden=NO;
+    }else{
+        self.btn.hidden=YES;
+    }
+}
+@end

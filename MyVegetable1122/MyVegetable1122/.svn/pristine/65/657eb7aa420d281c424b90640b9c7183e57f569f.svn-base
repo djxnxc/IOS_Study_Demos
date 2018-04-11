@@ -1,0 +1,24 @@
+//
+//  AccountDQModel.h
+//  MyVegetable
+//
+//  Created by mythkiven on 15/11/24.
+//  Copyright © 2015年 yunhoo. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface AccountDQModel : NSObject
+
+//@property (copy, nonatomic) NSString *topleftUp;
+//@property (copy, nonatomic) NSString *toprightUp;
+@property (copy, nonatomic) NSString *leftUp;
+@property (copy, nonatomic) NSString *leftDOwn;
+@property (copy, nonatomic) NSString *midUp;
+@property (copy, nonatomic) NSString *midDown;
+//默认到期日
+@property (copy, nonatomic) NSString *rightUp;
+@property (copy, nonatomic) NSString *rightDown;
+
+- (id)initWithDicc:(NSDictionary *)dic;
+@end

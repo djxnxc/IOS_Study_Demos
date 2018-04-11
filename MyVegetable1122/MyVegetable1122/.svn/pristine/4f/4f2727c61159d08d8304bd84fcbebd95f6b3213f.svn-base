@@ -1,0 +1,98 @@
+//
+//  P6HomePageViewController.h
+//  MyVegetable
+//
+//  Created by apple on 16/1/21.
+//  Copyright © 2016年 yunhoo. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "UIViewControllerFactory.h"
+#import "JCycleScrollView.h"
+#import <QuartzCore/QuartzCore.h>
+#import "CCProgressView.h"
+#import "HLightBtn.h"
+#import "UIButton+Extension.h"
+#import "HtmlZP.h"
+#import "HtmlHB.h"
+#import "ImgModel.h"
+#import "BuyOne.h"
+#import <CoreMotion/CoreMotion.h>
+#import "UICountingLabel.h"
+#import "PICircularProgressView.h"
+#import "UIDevice+ProcessesAdditions.h"
+
+#import "FirstUserView.h"
+#define EPSILON     1e-6
+#define kDuration 1.0   // 动画持续时间(秒)
+#import "NameSure.h"
+#import "DetailVC.h"
+@class CCProgressView,PICircularProgressView;
+
+@interface P6HomePageViewController : UIViewController<JCycleScrollViewDelegate,HZMAPIManagerDelegate>
+{
+    UICountingLabel *_gradeLabel;
+    UICountingLabel *_titleLabel;
+    float _x ;
+    JCycleScrollView *_j;
+    NSMutableArray *_JArr;
+    
+    long long overSecont;
+    NSTimer *timer;
+    CGAffineTransform currentTransform;
+    CGAffineTransform newTransform;
+    double r;
+    BOOL iphone4SFlag;
+    NSString* myCode;
+    CGFloat process;
+}
+@property (strong, nonatomic) PICircularProgressView *progressView;
+@property (nonatomic , strong)  NSTimer *theTimer;
+@property(nonatomic,strong)CCProgressView * circleChart;
+@property (strong, nonatomic) IBOutlet UIScrollView *totalScroll;
+
+@property (nonatomic, copy) NSString *urlStr;
+@property (strong, nonatomic) IBOutlet UIImageView *minIco;
+@property (strong, nonatomic) IBOutlet UILabel *yc;
+@property (strong, nonatomic) IBOutlet UILabel *fb;
+@property (strong, nonatomic) IBOutlet UILabel *yk;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnH;
+//顶部的scrollowview
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
+//点菜好礼的view
+@property (weak, nonatomic) IBOutlet UIView *mindupview;
+//圆下方3个view
+@property (weak, nonatomic) IBOutlet UIView *threeBtnView;
+//圆上方的view
+@property (weak, nonatomic) IBOutlet UIView *upView;
+
+@property (weak, nonatomic) IBOutlet UILabel *kegoufene;
+@property (weak, nonatomic) IBOutlet UIButton *lijiqianggou;
+- (IBAction)jiliqianggou;
+//资金由。。公司承保
+@property (weak, nonatomic) IBOutlet UILabel *zijinanquan;
+
+//圆 所在的view
+@property (weak, nonatomic) IBOutlet UIView *dropview;
+@property (weak, nonatomic) IBOutlet UIButton *hongbaoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *zhuanpanBtn;
+- (IBAction)hongbaoClicked;
+- (IBAction)zhuanpanClicked;
+//适配
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropViewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnBoomH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *midView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *threeBtnViewH;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kegouH;
+
+
+
+@property (nonatomic, strong) CMMotionManager* motionManager;
+@property (nonatomic, strong) CADisplayLink* motionDisplayLink;
+@property (nonatomic) float motionLastYaw;
+
+@property (nonatomic, strong) NSMutableArray *productData;
+//资金安全的宽度 160
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *boomLabelW;
+@end
