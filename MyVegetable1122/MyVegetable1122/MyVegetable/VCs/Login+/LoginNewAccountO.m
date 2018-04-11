@@ -9,6 +9,7 @@
 #import "LoginNewAccountO.h"
 #import "LoseLoginFind.h"
 #import "LoginNewAccountT.h"
+#import "UIButton+WebCache.h"
 @interface LoginNewAccountO ()<HZMAPIManagerDelegate,UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *viewH;
 @property (weak, nonatomic) IBOutlet UITextField *phone;
@@ -46,6 +47,56 @@
      [_yanzhengma setBackgroundImage:nil forState:UIControlStateNormal];
     [_yanzhengma.layer setCornerRadius:5];
     [_yanzhengma.layer setMasksToBounds:YES];
+    
+    //多线程按顺序执行任务
+    //1、串行队列+异步 这个不用写了应该
+    
+    //2、GCD使用barrier
+    dispatch_queue_t queue1 = dispatch_queue_create(0, DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue1, ^{
+       //下载图片1
+    });
+    dispatch_barrier_async(queue1, ^{
+        //下载图片2
+        //barrier（栅栏 ）执行完任务1才会执行任务2，任务2执行完才执行任务3
+    });
+    dispatch_async(queue1, ^{
+        //下载图片3
+    });
+    //3、NSOpeartion，用addDenpency(添加依赖关系)来实现
+    NSOperationQueue *queue2 = [[NSOperationQueue alloc]init];
+    NSBlockOperation *A=[NSBlockOperation blockOperationWithBlock:^{
+    }];
+    NSBlockOperation *B=[NSBlockOperation blockOperationWithBlock:^{
+    }];
+    
+    NSBlockOperation *C=[NSBlockOperation blockOperationWithBlock:^{
+    }];
+    //添加依赖关系 先执行后者 即执行完A在执行B
+    [B addDependency:A];
+    [C addDependency:B];
+    //添加到队列
+    [queue2 addOperation:A];
+    [queue2 addOperation:B];
+    [queue2 addOperation:C];
+    //执行结果A  B  C
+    
+    
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //下载1
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //下载2
+    });
+   
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        //界面刷新
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //下载3
+    });
+    //结果 1 2 3
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -69,12 +120,9 @@
 - (void)reloadImg {
     //http://116.226.191.6:9901/passport
     //http://116.226.191.6:9081
-    NSString *urlStr = [NSString stringWithFormat:@"%@/code.p2p?type=1&divnceId=%@",SERVICE_URL,PHONEID];
-    
-    NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlStr]];
-    UIImage *image=[[UIImage alloc] initWithData:imageData];
+    NSString *urlStr = [NSString stringWithFormat:@"%@/code.p2p?type=1&divnceId=%@", SERVICE_Passort_URL,PHONEID];
+    [_yanzhengma sd_setImageWithURL:[NSURL URLWithString:urlStr] forState:UIControlStateNormal];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
-    [_yanzhengma setBackgroundImage:image forState:UIControlStateNormal];
 }
 - (void)reloadData {
      [MBProgressHUD showHUDAddedTo:self.view animated:YES];

@@ -140,7 +140,7 @@
     self.tixian.titleLabel.font = JFont(fontBtn);
     
     //右侧按钮
-    UIButton *rightBtn = [self createButtonWithTitle:@"" backImgName:@"account_bar_icon" frame:CGRectMake(0, 0, 16*ratioW, 16*ratioW) titleColor:[UIColor clearColor]];
+    UIButton *rightBtn = [self createButtonWithTitle:@"" backImgName:@"account_bar_icon@2x" frame:CGRectMake(0, 0, 16*ratioW, 16*ratioW) titleColor:[UIColor clearColor]];
     [rightBtn addTarget:self action:@selector(jumpSet) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
 

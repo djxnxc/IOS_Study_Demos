@@ -95,6 +95,7 @@
         for (int i = 0; i < [_slideImages count]; i++) {
             ImgModel *model = _slideImages[i];
             UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(i * _jScrollW, 0, _jScrollW, _jScrollH)];
+//            iv.contentMode = UIViewContentModeScaleAspectFill;
             iv.userInteractionEnabled = YES;
             
             if (model.iconName) {

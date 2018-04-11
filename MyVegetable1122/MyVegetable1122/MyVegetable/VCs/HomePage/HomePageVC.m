@@ -355,7 +355,7 @@
             }
             for (NSDictionary *d in arr) {
                 ImgModel *model = [[ImgModel alloc] init];
-//                model.iconUrl =  [ResourUrl stringByAppendingPathComponent:[d objectForKey:@"filePath"]];
+                model.iconUrl =  [ResourUrl stringByAppendingPathComponent:[d objectForKey:@"filePath"]];
                 model.iconUrl = [d objectForKey:@"filePath"];
                 model.iconID =   [d objectForKey:@"id"];
                 model.myUrl=[d objectForKey:@"url"];
@@ -522,9 +522,9 @@
         WebHtml5ViewController* l=[UIViewControllerFactory getViewController:HTML5_WebView];
         
         l.hidesBottomBarWhenPushed = YES;
-        l.messTitle=@"点好菜赢好礼";
+        l.messTitle=@"理财赢好礼";
         //http://static.wdclc.cn/wx/pages/dial.html
-        //l.navigationController.title=@"点好菜赢好礼";
+        //l.navigationController.title=@"理财赢好礼";
         WDCAccount *a1 = [WDCUserManage getLastUserInfo];
         l.url=[NSString stringWithFormat:@"%@/wx/pages/appDial.html?type=2&uid=%@",SERVICE_URL,a1.userId];
         [self.navigationController pushViewController:l animated:YES];
