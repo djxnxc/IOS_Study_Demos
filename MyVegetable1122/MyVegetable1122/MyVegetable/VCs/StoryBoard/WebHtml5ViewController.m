@@ -109,8 +109,8 @@ if ([response.requestId isEqualToString:HomePageYQM_NetWoring]) {
             NSString* function=[dictb objectForKey:@"functionId"];
             if ([function isEqualToString:@"10001"]) {
                 [UMSocialData defaultData].extConfig.wechatSessionData.url=[NSString stringWithFormat:@"http://static.wdclc.cn/wx/pages/account/register.html?code=%@",self.myCode];
-                [UMSocialData defaultData].extConfig.wechatSessionData.title=@"我的菜理财福利大放送，现金、红包、豪礼等你拿！";
-                [UMSocialData defaultData].extConfig.wechatTimelineData.title=@"我的菜理财福利大放送，现金、红包、豪礼等你拿！";
+                [UMSocialData defaultData].extConfig.wechatSessionData.title=@"我的理财福利大放送，现金、红包、豪礼等你拿！";
+                [UMSocialData defaultData].extConfig.wechatTimelineData.title=@"我的理财福利大放送，现金、红包、豪礼等你拿！";
                 [UMSocialData defaultData].extConfig.wechatTimelineData.url=[NSString stringWithFormat:@"http://static.wdclc.cn/wx/pages/account/register.html?code=%@",self.myCode];
                 [UMSocialData defaultData].extConfig.qqData.url=[NSString stringWithFormat:@"http://static.wdclc.cn/wx/pages/account/register.html?code=%@",self.myCode];
                 [UMSocialSnsService presentSnsIconSheetView:self
@@ -127,8 +127,8 @@ if ([response.requestId isEqualToString:HomePageYQM_NetWoring]) {
                 NSString* add=[NSString stringWithFormat:@"http://static.wdclc.cn/wx/pages/dial.html?code=%@",myCode];
                 [UMSocialData defaultData].extConfig.wechatSessionData.url=add;
                 [UMSocialData defaultData].extConfig.wechatTimelineData.url=add;
-                [UMSocialData defaultData].extConfig.wechatSessionData.title=@"我的菜理财福利大放送，现金、红包、豪礼等你拿！";
-                [UMSocialData defaultData].extConfig.wechatTimelineData.title=@"我的菜理财福利大放送，现金、红包、豪礼等你拿！";
+                [UMSocialData defaultData].extConfig.wechatSessionData.title=@"我的理财福利大放送，现金、红包、豪礼等你拿！";
+                [UMSocialData defaultData].extConfig.wechatTimelineData.title=@"我的理财福利大放送，现金、红包、豪礼等你拿！";
                 [UMSocialData defaultData].extConfig.qqData.url=add;
                 [UMSocialSnsService presentSnsIconSheetView:self
                                                      appKey:UMkey

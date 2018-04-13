@@ -442,7 +442,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat width = self.view.frame.size.width;
     CGFloat offSetX = scrollView.contentOffset.x;
-    NSLog(@"---%f",offSetX);
+//    NSLog(@"---%f",offSetX);
     CGFloat offSetIndicatorX = (width/3)/width * (offSetX-width);
     CGRect frame = _indicatorView.frame;
     frame.origin.x = offSetIndicatorX + _curPage*width/3;

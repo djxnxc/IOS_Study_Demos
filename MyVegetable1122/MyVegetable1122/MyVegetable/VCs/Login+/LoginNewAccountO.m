@@ -120,9 +120,12 @@
 - (void)reloadImg {
     //http://116.226.191.6:9901/passport
     //http://116.226.191.6:9081
-    NSString *urlStr = [NSString stringWithFormat:@"%@/code.p2p?type=1&divnceId=%@", SERVICE_Passort_URL,PHONEID];
-    [_yanzhengma sd_setImageWithURL:[NSURL URLWithString:urlStr] forState:UIControlStateNormal];
+    NSString *urlStr = [NSString stringWithFormat:@"%@/code.p2p?type=1&divnceId=%@",SERVICE_URL,PHONEID];
+    
+    NSData *imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:urlStr]];
+    UIImage *image=[[UIImage alloc] initWithData:imageData];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [_yanzhengma setBackgroundImage:image forState:UIControlStateNormal];
 }
 - (void)reloadData {
      [MBProgressHUD showHUDAddedTo:self.view animated:YES];

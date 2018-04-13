@@ -27,7 +27,7 @@
 #import "NameSure.h"
 #import "DetailVC.h"
 //半径为 10；
-@interface HomePageVC ()<JCycleScrollViewDelegate,HZMAPIManagerDelegate>
+@interface HomePageVC ()<JCycleScrollViewDelegate,HZMAPIManagerDelegate,UITableViewDelegate,UITableViewDataSource>
 
 {
     UICountingLabel *_gradeLabel;
@@ -41,16 +41,15 @@
 }
 
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cell;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnH;
 //顶部的scrollowview
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollview;
 //点菜好礼的view
 @property (weak, nonatomic) IBOutlet UIView *mindupview;
 //圆下方3个view
 @property (weak, nonatomic) IBOutlet UIView *threeBtnView;
-//圆上方的view
-@property (weak, nonatomic) IBOutlet UIView *upView;
 
 @property (weak, nonatomic) IBOutlet UILabel *kegoufene;
 @property (weak, nonatomic) IBOutlet UIButton *lijiqianggou;
@@ -64,23 +63,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *zhuanpanBtn;
 - (IBAction)hongbaoClicked;
 - (IBAction)zhuanpanClicked;
-//适配
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropViewH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnBoomH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *midView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *threeBtnViewH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *kegouH;
-
-
 
 @property (nonatomic, strong) CMMotionManager* motionManager;
 @property (nonatomic, strong) CADisplayLink* motionDisplayLink;
 @property (nonatomic) float motionLastYaw;
 
 @property (nonatomic, strong) NSMutableArray *productData;
-//资金安全的宽度 160
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *boomLabelW;
+
 
 @end
 
@@ -93,200 +82,74 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"首页";
     
-    [self configUI];
-//    [self configDropView];
-    //self.dropview.frame = CGRectMake(0, 0, JSCREEN_W, 140);
-    
-    
-    
-    self.midView.constant = self.midView.constant*ratioH;
-    self.threeBtnViewH.constant = self.threeBtnViewH.constant*ratioH;
-//    self.kegouH.constant = self.kegouH.constant*ratioH;
-    
-    
     [self.navigationController.navigationBar setTintColor:[UIColor grayColor]];
     UIBarButtonItem *item =[[UIBarButtonItem alloc] init];
     item.title = @"";
     [item setTintColor:RGB_gray];
     self.navigationItem.backBarButtonItem = item;
-    
+  
     _productData = [NSMutableArray array];
     _JArr = [NSMutableArray array];
-    if (![Tool objectForKey:@"first"]) {
-        FirstUserView *view=[[FirstUserView alloc]initWithNib];
-        [view show];
-        [Tool setObject:@"first" forKey:@"first"];
-    }
-   // [Tool setObject:@"0" forKey:JIsLoginUser];
-    if (iPhone4s) {
-        //CGRect f=self.lijiqianggou.frame;
-        //self.lijiqianggou.transform=CGAffineTransformTranslate(self.lijiqianggou.transform, f.origin.x, f.origin.y+5);
-    }
+    [self getImg];
+    [self getProduct];
+    [self configUI];
     
-    if (![[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"] &&[Tool objectForKey:@"first"]){
-   //     [Tool setObject:@"0" forKey:JIsLoginUser];
-//        if ([[Tool objectForKey:JIsSetSecretShoushi] boolValue]) {
-//            PasswordGestureViewController *l = [[PasswordGestureViewController alloc]init];
-//            l.hidesBottomBarWhenPushed = YES;
-//            l.isfrom = 21;
-//            l.state=SSFPasswordGestureViewStateCheck;
-//            //[self presentViewController:l animated:YES completion:nil];
-//            [self.navigationController pushViewController:l animated:YES];
-//        }else
-        [self.view makeToast:@"用户未登录，请到“帐户”处登录！" duration:1.5];
-    }
-    
-    [self.totalScroll setContentSize:self.view.frame.size];
-    self.totalScroll.header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-        [self getProduct];
-        //[tableView reloadData];
-        [self.totalScroll.header endRefreshing];
-        
-        
-    }];
-    process=0;
     
 }
 #pragma mark 起始
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    iphone4SFlag=NO;
-    UIImageView* imgArrow=_hongbaoBtn.imageView;
-    [_hongbaoBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -imgArrow.size.width, 0, imgArrow.size.width)];
-    [_hongbaoBtn setImageEdgeInsets:UIEdgeInsetsMake(0, _hongbaoBtn.titleLabel.bounds.size.width, 0, -_hongbaoBtn.titleLabel.bounds.size.width)];
-    [self getImg];
-    [self getProduct];
-    [self configUI];
-//    [self configDropView];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-//    self.navigationController.navigationBar.translucent = NO;
-/*    if (![[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"]){
-        //[self.view makeToast:@"用户未登录，请到“帐户”处登录！" duration:1.5];
-        PasswordGestureViewController *l = [[PasswordGestureViewController alloc]init];
-        l.hidesBottomBarWhenPushed = YES;
-        l.isfrom = 21;
-        l.state=SSFPasswordGestureViewStateCheck;
-        //self.window.rootViewController = l;
-        //_isBackground =0;
-        [self.navigationController pushViewController:l animated:YES];
-    }*/
-    //[self getInvestCode];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
-    [self.progressView  removeFromSuperview];
+//    [self.progressView  removeFromSuperview];
     
 }
 #pragma - UI
 - (void)configUI {
     
-    [self.hongbaoBtn setTitleColor:RGB_red forState:UIControlStateNormal];
-    [self.zhuanpanBtn setTitleColor:RGB_red forState:UIControlStateNormal];
-   
-    
     self.navigationController.navigationBar.translucent = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-//    NSMutableArray *marr = [NSMutableArray array];
-//    for (int i=0; i<4; i++) {
-//        ImgModel *model = [[ImgModel alloc]init];
-//        model.iconID = [NSString stringWithFormat:@"%d",i];
-//        model.iconName = @"homePage_ad1";
-////        model.iconUrl
-//        [marr addObject:model];
-//    }
-//    for (UIView* v in self.scrollview.subviews) {
-//        [v removeFromSuperview];
-//    }
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    if (![Tool objectForKey:@"first"]) {
+        FirstUserView *view=[[FirstUserView alloc]initWithNib];
+        [view show];
+        [Tool setObject:@"first" forKey:@"first"];
+    }
     
-    CGRect jcFram;
-    if (iPhone4s){
-        iphone4SFlag=YES;
-        self.BtnH.constant = highti4_30;
-        self.lijiqianggou.layer.cornerRadius = highti4_30/2;
-        CGRect df=self.mindupview.frame;
-        df.origin.y=100;
-        self.mindupview.frame=df;
-        df=self.dropview.frame;
-        df.origin.y=165;
-        self.dropview.frame=df;
-        //_j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 80) duration:2.0f slideImages:_JArr];
-        jcFram=CGRectMake(0, 0, JSCREEN_W, 80);
-    }if (iPhone5) {
-            self.BtnH.constant = highti5_35;
-            self.lijiqianggou.layer.cornerRadius = highti5_35/2;
-            //_j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 100) duration:2.0f slideImages:_JArr];
-            jcFram=CGRectMake(0, 0, JSCREEN_W, 140);
-        } else if(iPhone6) {
-            self.BtnH.constant = highti6_40;
-            self.lijiqianggou.layer.cornerRadius = highti6_40/2;
-            self.scrollviewH.constant = 140;
-            _kegoufene.font = JFont11;
-            _zijinanquan.titleLabel.font = JFont10;
-            //_j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 140) duration:2.0f slideImages:_JArr];
-            jcFram=CGRectMake(0, 0, JSCREEN_W, 140);
-        }else if(iPhone6P) {
-            self.BtnH.constant = highti6_40;
-            self.lijiqianggou.layer.cornerRadius = highti6_40/2;
-            self.scrollviewH.constant = 150;
-            _kegoufene.font = JFont(14);
-            self.boomLabelW.constant = 170;
-            _zijinanquan.titleLabel.font = JFont(14);
-            //_j = [[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, 150) duration:2.0f slideImages:_JArr];
-            jcFram=CGRectMake(0, 0, JSCREEN_W, 150);
-            CGRect r=self.threeBtnView.frame;
-            r.origin.y=self.threeBtnView.frame.origin.y+self.threeBtnView.frame.size.height-60;
-            self.threeBtnView.frame=r;
-            r=self.minIco.frame;
-            r.origin.x=_zijinanquan.frame.origin.x-20;
-            r.origin.y=r.origin.y-4;
-            self.minIco.frame=r;
-            r=_zijinanquan.frame;
-            r.origin.y=r.origin.y-4;
-             r.origin.x=_zijinanquan.frame.origin.x-10;
-            r.size.width=200;
-            _zijinanquan.frame=r;
-            
-            UIImageView* imgArrow=_hongbaoBtn.imageView;
-            [_hongbaoBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -imgArrow.size.width, 0, imgArrow.size.width)];
-            [_hongbaoBtn setImageEdgeInsets:UIEdgeInsetsMake(0, _hongbaoBtn.titleLabel.bounds.size.width, 0, -_hongbaoBtn.titleLabel.bounds.size.width)];
-            CGRect fr=CGRectMake(20, 4, 160, 42);
-            _zhuanpanBtn.frame=fr;
-            fr.origin.x=229;
-            _hongbaoBtn.frame=fr;
-            r=self.kegoufene.frame;
-            r.origin.y=r.origin.y-8;
-            self.kegoufene.frame=r;
-            r=self.lijiqianggou.frame;
-            r.origin.y=r.origin.y-10;
-            r.size.height=r.size.height+4;
-            self.lijiqianggou.frame=r;
-            self.yc.font=JFont(14);
-            self.fb.font=JFont(14);
-            self.yk.font=JFont(14);
-        }else{
-            self.BtnH.constant =highti5_35;
-            self.lijiqianggou.layer.cornerRadius = highti5_35/2;
-           
-            jcFram=CGRectMake(0, 0, JSCREEN_W, 100);
-        }
+    if (![[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"] &&[Tool objectForKey:@"first"]){
+        [self.view makeToast:@"用户未登录，请到“帐户”处登录！" duration:1.5];
+    }
+    
+    //    [self.totalScroll setContentSize:CGSizeMake(600, 800)];
+    //    [self.totalScroll layoutIfNeeded];
+    //    [self.view layoutIfNeeded];
+    self.tableView.header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        [self getProduct];
+        //[tableView reloadData];
+        [self.tableView.header endRefreshing];
+        
+        
+    }];
+    process=0;
     _j.sdelegate = self;
     if (_j==nil) {
-        _j=[[JCycleScrollView alloc]initWithFrame:jcFram duration:2 slideImages:_JArr];
+        _j=[[JCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, JSCREEN_W, JSCREEN_W*80/205) duration:2 slideImages:_JArr];
     
     [self.scrollview addSubview:_j];
     }
     
-//    界面的UI
 //    颜色
     self.dropview.backgroundColor = RGB_gray;
-    self.upView.backgroundColor = RGB_gray;
     self.threeBtnView.backgroundColor = RGB_gray;
     
-    
+    self.lijiqianggou.layer.cornerRadius = 35/2;
     self.lijiqianggou.layer.masksToBounds = YES;
     [self.lijiqianggou setBackgroundColor:RGB_red];
     self.lijiqianggou.titleLabel.font = JFont(fontBtn);
@@ -299,6 +162,17 @@
     [Btn setBackgroundImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
     Btn.frame = frame;
     return Btn;
+}
+#pragma mark-UITableView代理
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return JSCREEN_W*146/375+JSCREEN_W*220/375+520-146-220;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+    return self.cell;
 }
 #pragma mark - 网络
 #pragma mark 获取轮播图片
@@ -394,19 +268,6 @@
             if ([[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"]) {
                 [self getInvestCode];
             }
-            //倒计时
-//            int bStatus=[[dic objectForKey:@"buttonStatus"] intValue];
-//            if (bStatus==1) {
-//                overSecont=[[dic objectForKey:@"timeLine"] longLongValue];
-//                [self.lijiqianggou setTitle:[self getTime] forState:UIControlStateNormal];
-//                timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeCount) userInfo:nil repeats:YES];
-//            }else if(bStatus==2){
-//                [self.lijiqianggou setTitle:@"立即抢购" forState:UIControlStateNormal];
-//            }else if(bStatus==3){
-//                [self.lijiqianggou setTitle:@"敬请期待" forState:UIControlStateDisabled];
-//                [self.lijiqianggou setTitle:@"敬请期待" forState:UIControlStateNormal];
-//                self.lijiqianggou.enabled=NO;
-//            }
         }
     }
     if ([response.requestId isEqualToString:HomePageYQM_NetWoring]) {
@@ -491,12 +352,6 @@
 #pragma mark  红包
 - (IBAction)hongbaoClicked {
     if ([[Tool objectForKey:JIsLoginUser] isEqualToString:@"1"]) {
-        /*HtmlHB *l = [[HtmlHB alloc] init];
-        l.webTitle=@"邀好友拿现金";
-        //http://static.wdclc.cn/wx/pages/invite.html
-        WDCAccount *a1 = [WDCUserManage getLastUserInfo];
-        l.url=[NSString stringWithFormat:@"http://static.wdclc.cn/wx/pages/invite.html?type=2&uid=%@",a1.userId];
-        l.hidesBottomBarWhenPushed = YES;*/
         WebHtml5ViewController* l=[UIViewControllerFactory getViewController:HTML5_WebView];
         WDCAccount *a1 = [WDCUserManage getLastUserInfo];
         l.url=[NSString stringWithFormat:@"%@/wx/pages/appInvite.html?type=2&uid=%@",SERVICE_URL,a1.userId];
@@ -524,7 +379,6 @@
         l.hidesBottomBarWhenPushed = YES;
         l.messTitle=@"理财赢好礼";
         //http://static.wdclc.cn/wx/pages/dial.html
-        //l.navigationController.title=@"理财赢好礼";
         WDCAccount *a1 = [WDCUserManage getLastUserInfo];
         l.url=[NSString stringWithFormat:@"%@/wx/pages/appDial.html?type=2&uid=%@",SERVICE_URL,a1.userId];
         [self.navigationController pushViewController:l animated:YES];
@@ -547,19 +401,8 @@
 }
 
 - (void)didClickedScrollView:(UIGestureRecognizer *)img{
-    UIImageView *imgg = [img view];
-    UIImage *gg = imgg.image;
-    
-    
-        
-    
-    
+    UIImageView *imgg = (UIImageView *)[img view];
     HtmlHB* hb=[[HtmlHB alloc]init];
-//    UIViewController *v = [[UIViewController alloc] init];
-//    v.view.frame = CGRectMake(0, 64, JSCREEN_W, JSCREEN_H);
-//    UIImageView *im = [[UIImageView alloc] initWithImage:gg];
-//    im.frame = v.view.frame;
-//    [v.view addSubview:im];
         for (ImgModel* m in _JArr) {
             if ([m.iconID integerValue]==imgg.tag) {
                 hb.url=m.myUrl;
@@ -615,23 +458,10 @@
     }
     
     CGFloat w = JSCREEN_W;
-    CGFloat h=140 ;
+    CGFloat h= JSCREEN_W*180/375;
     CGFloat l = 35*ratioH;
-    if (iPhone4s) {
-        self.dropViewH.constant = 100;
-        h = 100;
-    }
-    if (iPhone6) {
-        self.dropViewH.constant = 140*1.3;
-        h = 140*1.3;
-    } else if(iPhone6P) {
-        self.dropViewH.constant = 140*1.3;
-        h = 140*1.3;
-    }else if(iPhone5){
-        h = 120;
-    }
     
-    CGFloat wH=self.dropview.frame.size.height;
+    CGFloat wH=JSCREEN_W*220/375;
     self.view.userInteractionEnabled=YES;
     _circleChart = [[CCProgressView alloc] initWithFrame:CGRectMake(w/2-h/2, (wH-h)/2,  h, h)];
     _circleChart.userInteractionEnabled = YES;
@@ -669,8 +499,8 @@
   
     
     //利率
-    _titleLabel=[[UICountingLabel alloc]initWithFrame:CGRectMake(w/2-70, wH/2-15, 140.0, 30)];
-    CGRect f=_titleLabel.frame;
+    _titleLabel=[[UICountingLabel alloc]initWithFrame:CGRectMake(w/2-70, wH/2-15, h, 30)];
+//    CGRect f=_titleLabel.frame;
     [_titleLabel setTextAlignment:NSTextAlignmentCenter];
     [_titleLabel setFont:[UIFont boldSystemFontOfSize:20]];
     [_titleLabel setTextColor:[UIColor whiteColor]];
@@ -715,19 +545,8 @@
     self.progressView.userInteractionEnabled = YES;
     CGFloat wH=self.dropview.frame.size.height;
     CGFloat w = JSCREEN_W;
-    CGFloat h ;
-    if (iPhone6) {
-        h = 140*1.3;
-    } else if(iPhone6P) {
-        h = 140*1.3;
-    }else if(iPhone4s){
-        h=100;
-    }else
-    {
-        h = 120;
-    }
-    
-    
+    CGFloat h= JSCREEN_W*180/375;
+
     self.progressView.frame = CGRectMake(w/2-h/2, (wH-h)/2,  h, h);
     self.progressView.center=CGPointMake(w/2, wH/2);
     [self.dropview addSubview:self.progressView];
@@ -820,9 +639,9 @@
 
 
 #pragma mark - 其他
--(void)setFontColorLabel:(UILabel *)label :(int)a :(int)b {
+-(void)setFontColorLabel:(UILabel *)label :(NSUInteger)a :(NSUInteger)b {
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithAttributedString:label.attributedText];
-    NSRange r =  NSMakeRange(a, b);
+//    NSRange r =  NSMakeRange(a, b);
     [att addAttributes:@{NSForegroundColorAttributeName:RGB_red,NSFontAttributeName:[UIFont systemFontOfSize:25]} range:NSMakeRange(a, b)];
 //    [att addAttributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),NSUnderlineColorAttributeName:RGB_red} range:NSMakeRange(a, b)];
     label.attributedText = att;

@@ -22,8 +22,6 @@
 @property (strong, nonatomic) PICircularProgressView *progressView;
 @property (nonatomic , strong)  NSTimer *theTimer;
 @property(nonatomic,strong)CCProgressView * circleChart;
-@property (strong, nonatomic) IBOutlet UIScrollView *totalScroll;
-
 @property (nonatomic, copy) NSString *urlStr;
 @property (strong, nonatomic) IBOutlet UIImageView *minIco;
 @property (strong, nonatomic) IBOutlet UILabel *yc;

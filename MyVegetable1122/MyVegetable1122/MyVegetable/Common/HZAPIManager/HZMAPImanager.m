@@ -91,7 +91,8 @@
     
     // 请求参数
 //    NSDictionary *dic =[NSDictionary dictionaryWithObjectsAndKeys:wxRequest.requsetId,@"TXNCODE",[NSJSONSerialization returnJsonStrWithObject:wxRequest.requestParamDic],@"reqStr", nil];
-    JLog(@"requestDic :%@--%@",wxRequest.requsetId,wxRequest.requestParamDic);
+    
+//    JLog(@"requestDic :%@--%@",wxRequest.requsetId,wxRequest.requestParamDic);
     [manager POST:urlStr parameters:wxRequest.requestParamDic success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         NSString *str =[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
 
@@ -99,7 +100,7 @@
         response.requestId = wxRequest.requsetId;
         response.tag = wxRequest.tag;
         response.responseData =[NSJSONSerialization returnObjectWithJsonStr:str];
-        JLog(@"responseData :%@",response.responseData);
+//        JLog(@"responseData :%@",response.responseData);
         response.callBackDelegate =wxRequest.callBackDelegate;
         
         //特殊情况

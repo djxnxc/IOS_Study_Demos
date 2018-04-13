@@ -16,7 +16,7 @@
     double r;
     CGFloat progress;
 }
-@property (strong, nonatomic) IBOutlet UIScrollView *scrollerv;
+//@property (strong, nonatomic) IBOutlet UIScrollView *scrollerv;
 @property (strong, nonatomic) PICircularProgressView *progressView;
 @property (nonatomic , strong)  NSTimer *theTimer;
 @property(nonatomic,strong)DrowCircle * circleChart;

@@ -44,7 +44,7 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:frame];
         [self createScrollView];
         _scrollView.contentOffset = CGPointMake(_jScrollW, 0);
-        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 5*frame.size.height/6, frame.size.width, frame.size.height/6)];
+        _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 15, frame.size.width, 15)];
         [self createPageControl];
         [self addSubview:_pageControl];
        
@@ -121,7 +121,7 @@
 }
 
 - (void)createPageControl {
-    _pageControl.center = CGPointMake(_jScrollW/2, 3*_jScrollH/4);
+    _pageControl.center = CGPointMake(_jScrollW/2, _jScrollH-15);
     _pageControl.numberOfPages = _slideImages.count - 2;
     _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     _pageControl.pageIndicatorTintColor =  RGB(211, 211, 211, 1);

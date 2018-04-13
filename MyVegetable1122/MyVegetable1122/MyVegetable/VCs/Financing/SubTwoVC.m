@@ -238,7 +238,7 @@
     m.title =[NSString stringWithFormat:@"%ld",index];
     m.icon = @"financing_huoqi_bg";
     if (self.useData.count) {
-        if (self.useData.count%2) {//奇数
+        if (self.useData.count%2&&self.useData.count!=1) {//奇数
             m.model = self.useData[self.useData.count/2+1];
         }else{
             m.model = self.useData[self.useData.count/2];
@@ -261,7 +261,7 @@
     CGFloat size = self.viewSize;
     CGPoint center = view.center;
     view.center = center;
-//    NSLog(@"%lf",progress);
+    //    NSLog(@"%lf",progress);
     //    size = size * (2.2 - 1.5 * (fabs(progress)));
     //    size = size * 2;
     if (iPhone6) {
@@ -277,14 +277,14 @@
             size = 101;
         }
     }else if (iPhone5){
-
+        
         if (fabs(progress) <= 0.5) {
             size = 130;
         }else {
             size = 80;
         }
     }
-//    JLog(@"-------%lf",fabs(progress));
+    //    JLog(@"-------%lf",fabs(progress));
     
     view.frame = CGRectMake(0, 0, size, size);
     view.layer.cornerRadius = size/2 ;
@@ -352,17 +352,17 @@
         }
         else {//左侧
             
-             DingqiLICAI *qview = (DingqiLICAI *)view;
-             DingLICAIModel *m = [[DingLICAIModel alloc] init];
-           
+            DingqiLICAI *qview = (DingqiLICAI *)view;
+            DingLICAIModel *m = [[DingLICAIModel alloc] init];
+            
             if (sIndex!=99) {
                 DingLICAIModel *mm = _useData[sIndex];
                 BuyModel *model = mm.model;
                 m.smallTitle = [NSString stringWithFormat:@"%ld",model.cycle];
             }else{
-                 m.smallTitle= @"Null";
+                m.smallTitle= @"Null";
             }
-                        m.icon = @"financing_huoqi_bg";
+            m.icon = @"financing_huoqi_bg";
             [qview setDmodel:m];
         }
         transform = CATransform3DRotate(transform, angle , 0.0f, 1.0f, 0.0f);
@@ -383,7 +383,6 @@
     }
     
     view.layer.transform = transform;
-    
     
 }
 #pragma mark 获取产品信息

@@ -162,9 +162,9 @@
     _pageViewController.delegate = self;
     _pageViewController.dataSource = self;
     [_pageViewController setViewControllers:@[_vcArray[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
-    _pageViewController.view.frame = self.contetnView.frame;
+    _pageViewController.view.frame = CGRectMake(0, 0, self.contetnView.frame.size.width, self.contetnView.frame.size.height);
     _pageViewController.view.backgroundColor = RGB_gray;
-    [self.view addSubview:_pageViewController.view];
+    [self.contetnView addSubview:_pageViewController.view];
     
     
     //找到pageViewController view的scrollview，并将其代理设为self

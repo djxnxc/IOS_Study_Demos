@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		137519BD207F36A70047FC7A /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137519BB207F36A70047FC7A /* TestController.m */; };
+		137519BE207F36A70047FC7A /* TestController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 137519BC207F36A70047FC7A /* TestController.xib */; };
 		1379EEA1207DD9E900C087FC /* sucess.png in Resources */ = {isa = PBXBuildFile; fileRef = 1379EE0B207DD9E800C087FC /* sucess.png */; };
 		1379EEA2207DD9E900C087FC /* strGe.png in Resources */ = {isa = PBXBuildFile; fileRef = 1379EE0C207DD9E800C087FC /* strGe.png */; };
 		1379EEA3207DD9E900C087FC /* login_xuanzhong.png in Resources */ = {isa = PBXBuildFile; fileRef = 1379EE0D207DD9E800C087FC /* login_xuanzhong.png */; };
@@ -484,6 +486,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		137519BA207F36A70047FC7A /* TestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
+		137519BB207F36A70047FC7A /* TestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
+		137519BC207F36A70047FC7A /* TestController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestController.xib; sourceTree = "<group>"; };
 		1379EE0B207DD9E800C087FC /* sucess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sucess.png; sourceTree = "<group>"; };
 		1379EE0C207DD9E800C087FC /* strGe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = strGe.png; sourceTree = "<group>"; };
 		1379EE0D207DD9E800C087FC /* login_xuanzhong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_xuanzhong.png; sourceTree = "<group>"; };
@@ -1823,6 +1828,9 @@
 				88593C5C1C0BF598001633EB /* HtmlZP.h */,
 				88593C5D1C0BF598001633EB /* HtmlZP.m */,
 				88593C5E1C0BF598001633EB /* HtmlZP.xib */,
+				137519BA207F36A70047FC7A /* TestController.h */,
+				137519BB207F36A70047FC7A /* TestController.m */,
+				137519BC207F36A70047FC7A /* TestController.xib */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -2090,9 +2098,9 @@
 			children = (
 				88A99C401BF4496C00B10700 /* SubTwoVC.h */,
 				88A99C411BF4496C00B10700 /* SubTwoVC.m */,
+				881112E61BFDBDAF0064F1F5 /* SubTwoVC.xib */,
 				88103D771C1EA9600027456B /* TransData.h */,
 				88103D781C1EA9600027456B /* TransData.m */,
-				881112E61BFDBDAF0064F1F5 /* SubTwoVC.xib */,
 				88162F891BFABE850008A23D /* LTInfiniteScrollView.h */,
 				88162F8A1BFABE850008A23D /* LTInfiniteScrollView.m */,
 				881112F21BFDC9590064F1F5 /* DingLICAIModel.h */,
@@ -2803,6 +2811,7 @@
 				1379EF18207DD9E900C087FC /* account_ticket pink.png in Resources */,
 				889516841C040B1B00750268 /* AccountJLSubTwoCell.xib in Resources */,
 				8817917D1C1FEFFD002DD033 /* ios-social-sdk-share-quick.html in Resources */,
+				137519BE207F36A70047FC7A /* TestController.xib in Resources */,
 				1379EECA207DD9E900C087FC /* help-red@3x.png in Resources */,
 				1379EEEA207DD9E900C087FC /* dingyuehao.png in Resources */,
 				1379EED3207DD9E900C087FC /* bgbg.png in Resources */,
@@ -3016,6 +3025,7 @@
 				8815328E1BF2DC7D00804588 /* UIScrollView+MJExtension.m in Sources */,
 				881532891BF2DC7D00804588 /* MJRefreshGifHeader.m in Sources */,
 				881199711BFF129800C17BBA /* SSFPasswordGestureView.m in Sources */,
+				137519BD207F36A70047FC7A /* TestController.m in Sources */,
 				881532801BF2DC7D00804588 /* MJRefreshComponent.m in Sources */,
 				881532C11BF2DC8900804588 /* UIColor+Common.m in Sources */,
 				88130A6D1C000F1700A20F84 /* SBJsonUTF8Stream.m in Sources */,

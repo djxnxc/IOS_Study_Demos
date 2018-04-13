@@ -1,4 +1,4 @@
-//
+ //
 //  MyTabBarController.m
 //  LoveXianMian
 //
@@ -74,12 +74,16 @@
 //    CGSize s=[[UIScreen mainScreen] currentMode].size;
     
     if (iPhone6P) {
-        P6HomePageViewController* p6=[UIViewControllerFactory getViewController:P6_HomePage];
-        navXM1=[[UINavigationController alloc]initWithRootViewController:p6];
+//        P6HomePageViewController* p6=[UIViewControllerFactory getViewController:P6_HomePage];
+//        navXM1=[[UINavigationController alloc]initWithRootViewController:p6];
+        HomePageVC *xmvc =  [[HomePageVC alloc]initWithNibName:@"HomePageVC" bundle:nil];
+        //    xmvc.urlStr = LIMITURL;//页面接口网址
+        navXM1 = [[UINavigationController alloc]initWithRootViewController:xmvc];
     }else{
     HomePageVC *xmvc =  [[HomePageVC alloc]initWithNibName:@"HomePageVC" bundle:nil];
 //    xmvc.urlStr = LIMITURL;//页面接口网址
         navXM1 = [[UINavigationController alloc]initWithRootViewController:xmvc];
+      
     }
     //理财
     FinancingVC*cpc=  [[FinancingVC alloc]initWithNibName:@"FinancingVC" bundle:nil];

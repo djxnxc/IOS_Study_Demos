@@ -23,7 +23,7 @@
 #import "BuyOne.h"
 
 //半径为 10；
-@interface SubOneVC ()<HZMAPIManagerDelegate>
+@interface SubOneVC ()<HZMAPIManagerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 {
     UILabel *_titleLabel1;
@@ -34,7 +34,7 @@
 }
 @property (nonatomic, strong) NSMutableArray *productData;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnW;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnW;
 
 @property (nonatomic, strong) CMMotionManager* motionManager;
 @property (nonatomic, strong) CADisplayLink* motionDisplayLink;
@@ -45,7 +45,9 @@
 - (IBAction)clickedFuBtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *fuBTNshouyi;
 
- 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *cell;
 
 //上方label
 @property (weak, nonatomic) IBOutlet UILabel *uplabel;
@@ -57,7 +59,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *midView;
 //3图标
-@property (weak, nonatomic) IBOutlet UIView *bgview;
+//@property (weak, nonatomic) IBOutlet UIView *bgview;
 @property (weak, nonatomic) IBOutlet UILabel *labelone;
 @property (weak, nonatomic) IBOutlet UIImageView *imgone;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
@@ -65,7 +67,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgthree;
 @property (weak, nonatomic) IBOutlet UILabel *labelThree;
 
-@property (weak, nonatomic) IBOutlet UIView *upBg;
+//@property (weak, nonatomic) IBOutlet UIView *upBg;
 
 //xiafang
 @property (weak, nonatomic) IBOutlet UILabel *detaillabel;
@@ -76,19 +78,19 @@
 
 
 //popview 85-30-13
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *popH;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *popW;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *popLabelH;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *popH;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *popW;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *popLabelH;
 //140
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropViewH;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dropViewH;
 //顶部月期的label的高度
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topH;
-
-//浮标的尺寸
-//53
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *FUW;
-//50
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *FUH;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topH;
+//
+////浮标的尺寸
+////53
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *FUW;
+////50
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *FUH;
 
 @end
 
@@ -103,16 +105,7 @@
     
     [self configUI];
     
-    [self.scrollerv setContentSize:self.view.frame.size];
-    self.scrollerv.header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-        [self getProduct];
-        //[tableView reloadData];
-        [self.scrollerv.header endRefreshing];
-        
-        
-    }];
-    
+   
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -140,42 +133,12 @@
     self.labelThree.font = JFont(12);
     self.labelThree.textColor = [UIColor lightGrayColor];
     
-    self.bgview.backgroundColor = [UIColor whiteColor];
     self.midView.backgroundColor = RGB_gray;
     
    
     self.detaillabel.font = JFont(12);
     self.detaillabel.textColor = [UIColor lightGrayColor];
-    
-    if (iPhone6P) {
-        self.topH.constant = 60;
-        self.popW.constant = 110;
-        self.popH.constant = 45;
-        self.FUW.constant = 65;
-        self.FUH.constant = 60;
-        self.detaillabel.font = JFont11;
-        self.indLabe.font = JFont(12);
-        self.popLabelH.constant = 24;
-        _qiangouBtn.layer.cornerRadius = highti6_40/2.0;
-        _qiangouBtn.layer.masksToBounds = YES;
-        _BtnW.constant = highti6_40;
-        
-    }else if(iPhone6){
-        self.topH.constant = 60;
-        self.popW.constant = 100;
-        self.popH.constant = 40;
-        self.detaillabel.font = JFont11;
-        self.indLabe.font = JFont(12);
-        self.popLabelH.constant = 22;
-//        self.UpLbelH.constant = 30;
-        _qiangouBtn.layer.cornerRadius = highti6_40/2.0;
-        _qiangouBtn.layer.masksToBounds = YES;
-        _BtnW.constant = highti6_40;
-    }else {
-        _qiangouBtn.layer.cornerRadius = highti5_35/2.0;
-        _qiangouBtn.layer.masksToBounds = YES;
-        _BtnW.constant = highti5_35;
-    }
+
     self.qiangouBtn.layer.masksToBounds = YES;
     [self.qiangouBtn setBackgroundColor:RGB_red];
     self.qiangouBtn.titleLabel.font = JFont(fontBtn);
@@ -198,11 +161,17 @@
 }
 #pragma - UI
 - (void)configUI {
-    
-    self.dropview.backgroundColor = RGB_gray;
-    self.upBg.backgroundColor = RGB_gray;
+    self.qiangouBtn.layer.cornerRadius = 40/2;
     self.navigationController.navigationBar.translucent = YES;
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self getProduct];
+        //[tableView reloadData];
+        [self.tableView.header endRefreshing];
+    }];
 
 }
 - (UIButton *)createButtonWithTitle:(NSString *)title backImgName:(NSString *)imgName frame:(CGRect)frame titleColor:(UIColor *)color{
@@ -213,7 +182,17 @@
     Btn.frame = frame;
     return Btn;
 }
-
+#pragma mark - UITableView代理
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 520-250+JSCREEN_W*250/375;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    _cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return _cell;
+}
 
 #pragma mark 获取产品信息
 #warning 请求数据待确认
@@ -388,32 +367,15 @@
         maxa = [maxa stringByAppendingString:@"%"];
         self.fuBTNshouyi.text = [NSString stringWithFormat:@"如何获取%@收益", maxa];
     }
-    CGFloat WH=self.dropview.frame.size.height;
-    
+
     CGFloat w = JSCREEN_W;
-    CGFloat h=140 ;
+    CGFloat h= JSCREEN_W*180/375;
     CGFloat l = 35*ratioH;
-    if (iPhone4s) {
-        self.dropViewH.constant = 100;
-        h = 100;
-    }else
-    if (iPhone6) {
-        self.dropViewH.constant = 140*1.3;
-        h = 140*1.3;
-    } else if(iPhone6P) {
-        self.dropViewH.constant = 140*1.5;
-        h = 140*1.5;
-    }else if(iPhone5){
-        h = 140;
-    }
-    
-    
+    CGFloat wH=JSCREEN_W*250/375;
     self.view.userInteractionEnabled=YES;
-    _circleChart = [[DrowCircle alloc] initWithFrame:CGRectMake(w/2-h/2, (WH-h)/2,  h, h)];
+    _circleChart = [[DrowCircle alloc] initWithFrame:CGRectMake(w/2-h/2, (wH-h)/2,  h, h)];
     
     _circleChart.backgroundColor = [UIColor clearColor];
-    //    _circleChart.center = self.dropview.center;
-    
     [self.dropview addSubview:_circleChart];
  
     
@@ -437,12 +399,12 @@
     
     
     
-    UIImageView *labb = [[UIImageView alloc] initWithFrame:CGRectMake(w/2-35, WH/2-10+l, 80.0, 1.0)];
+    UIImageView *labb = [[UIImageView alloc] initWithFrame:CGRectMake(w/2-35, wH/2-10+l, 80.0, 1.0)];
     [labb setImage:[UIImage imageNamed:@"financing_huoqi_xuxian2"]];
     [self.dropview addSubview:labb];
     
     //年化收益率
-    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(w/2-35, WH/2-10-l, 80.0, 20.0)];
+    UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(w/2-35, wH/2-10-l, 80.0, 20.0)];
     [lab setTextAlignment:NSTextAlignmentCenter];
     [self.dropview addSubview:lab];
     lab.textColor = [UIColor whiteColor];
@@ -450,7 +412,7 @@
     lab.font = JFont13;
     
     //利率
-    _titleLabel=[[UICountingLabel alloc]initWithFrame:CGRectMake(w/2-70, WH/2-15, 140.0, 30)];
+    _titleLabel=[[UICountingLabel alloc]initWithFrame:CGRectMake(w/2-70, wH/2-15, 140.0, 30)];
     [_titleLabel setTextAlignment:NSTextAlignmentCenter];
     [_titleLabel setFont:[UIFont boldSystemFontOfSize:25.0f]];
     [_titleLabel setTextColor:[UIColor whiteColor]];
@@ -482,9 +444,9 @@
     self.dropview.userInteractionEnabled = YES;
     UIButton *btn =nil;
     if (iPhone4s) {
-        btn=[self createButtonWithTitle:@"查看详情>" backImgName:@"" frame:CGRectMake(w/2-35, WH/2+l-5, 70.0, 20) titleColor:[UIColor blackColor]];
+        btn=[self createButtonWithTitle:@"查看详情>" backImgName:@"" frame:CGRectMake(w/2-35, wH/2+l-5, 70.0, 20) titleColor:[UIColor blackColor]];
     }else{
-        btn =  [self createButtonWithTitle:@"查看详情>" backImgName:@"" frame:CGRectMake(w/2-35, WH/2+l, 70.0, 20) titleColor:[UIColor blackColor]];
+        btn =  [self createButtonWithTitle:@"查看详情>" backImgName:@"" frame:CGRectMake(w/2-35, wH/2+l, 70.0, 20) titleColor:[UIColor blackColor]];
     }
     btn.enabled =YES;
     btn.userInteractionEnabled = YES;
@@ -553,7 +515,7 @@
 
 
 #pragma mark - 其他
--(void)setFontColorLabel:(UILabel *)label :(int)a :(int)b {
+-(void)setFontColorLabel:(UILabel *)label :(NSInteger)a :(NSInteger)b {
     NSMutableAttributedString *att = [[NSMutableAttributedString alloc]initWithAttributedString:label.attributedText];
     [att addAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor],NSFontAttributeName:[UIFont systemFontOfSize:25]} range:NSMakeRange(a, b)];
     //    [att addAttributes:@{NSUnderlineStyleAttributeName:@(NSUnderlineStyleSingle),NSUnderlineColorAttributeName:RGB_red} range:NSMakeRange(a, b)];
