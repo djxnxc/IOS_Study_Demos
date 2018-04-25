@@ -17,7 +17,7 @@
 @implementation Person
 
 /**
- C语言函数至少包含两个参数self _cmd（self 代表着函数本身，而 _cmd 则是一个 SEL 数据体，包含了具体的方法地址
+
  **/
 void aaa(id self, SEL _cmd, NSNumber *meter) {
     NSLog(@"runtime动态添加对象方法1----跑了%@米", meter);

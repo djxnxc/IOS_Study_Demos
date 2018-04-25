@@ -19,7 +19,77 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+/**runtime方法交换
+    //第一步获取方法名：
+     Method A=class_getClassMethod(self, @selector(imageNamed:));
+     Method B=class_getClassMethod(self, @selector(ln_imaheNamed:));
+    //第二步交换方法
+    Method_exchangeImplementions(A,B);
+**/
+/**runtime动态添加属性
+    -(void)setName:(NSString *)name{
+        objc_setAssociatedObject(self,@"name_key",name,OBJC_ASSOCIATION_RETAIN_NONATOMIC;
+    }
+    -(NSString *)name{
+        return onjc_getAssociatedObject(self,@"name_key");
+    }
+ **/
 
+/**runtime动态添加方法
+    //添加对象方法
+    void aaa(id self,SEL _cmd,NSNumber *length){
+ 
+    }
+    +(BOOL)resolveInstanceMethod:(SEL)sel{
+        if (sel == NSSelectorFromString(@"run:")) {
+            class_addMethod([Person class],sel,(IMP)aaa,"v@:@");
+            return YES;
+        }
+        return [super resolveInstanceMethod:sel];
+    }
+    //在类中调用方式
+    Person *p = [[Person alloc]init];
+    [p performSelector:@selector(run:) withObject:100];
+ 
+    //添加类方法
+    void bbb(id self,SEL _cmd,NSNumber *length){
+    }
+    +(BOOL)resolveClassMethod:(SEL)sel{
+        if(sel == NSSelectorFromString(@"eat:")){
+            Class metaClass = Class_getMetaClass("Person");
+            class_addMethod(metaClass,"v@:@");
+            return YES;
+        }
+        return [super resolveClassMethod:sel];
+    }
+    //在类中调用方式
+    [Person performSelector:@selector(eat:) withObject:100];
+**/
+    
+/**runtime修改属性
+    Person *p = [[Person alloc]init];
+    unsigned int count = 0;
+    objc_property_t  *propertyList= class_copyPropertyList([Person class], &count);
+    for(int i =0 ;i<count;i++){
+        objc_property_t property = propertyList[i];
+        NSString *propertyName = [NSString stringWithUTF8String:property_getName(property)];
+        if ([propertyName isEqualToString:@"age"]) {
+            [p setValue:@"10" forKey:propertyName];
+        }
+    }
+**/
+/**runtime修改成员变量
+    Person *p = [[Person alloc]init];
+    unsigned int count = 0;
+    Ivar *varList = class_copyIvarList([Person class],&count);
+    for (int i = 0; i<count; i++) {
+        Ivar var = varList[i];
+        NSString *varName = [NSString stringWithUTF8String:ivar_getName(var)];
+        if ([varName isEqualToString:@"sex"]) {
+            object_setIvar(p, var, @"男");
+        }
+    }
+**/
 /**
     runtime 交换方法
 **/
