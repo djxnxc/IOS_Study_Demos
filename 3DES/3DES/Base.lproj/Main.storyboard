@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="原始数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12O-Oh-LA3">
+                                <rect key="frame" x="15" y="95" width="81" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yvM-r0-JlG">
+                                <rect key="frame" x="101" y="95" width="259" height="137.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="des加密数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLa-At-a7i">
+                                <rect key="frame" x="15" y="247.5" width="81" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fHl-oG-hpa">
+                                <rect key="frame" x="101" y="247.5" width="259" height="137"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="des解密数据" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufu-d1-bHI">
+                                <rect key="frame" x="15" y="399.5" width="81" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ekg-IA-KUZ">
+                                <rect key="frame" x="101" y="399.5" width="259" height="137.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XML-20-34U">
+                                <rect key="frame" x="30" y="587" width="142.5" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.54714393707155051" blue="0.91802528508627945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DIz-Pj-1CO"/>
+                                </constraints>
+                                <state key="normal" title="加密">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="encryptionDes_btnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EaX-Vj-Qlv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWI-Af-cZg">
+                                <rect key="frame" x="202.5" y="587" width="142.5" height="30"/>
+                                <color key="backgroundColor" red="0.1125099050858881" green="1" blue="0.59234641443534719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="解密">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="decryptionDes_btnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tuj-rb-BYV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加密key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1at-7L-kL7">
+                                <rect key="frame" x="15" y="56.5" width="81" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AfW-a5-bcP">
+                                <rect key="frame" x="101" y="50" width="259" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="txb-kk-VOp"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.27988219559999999" green="0.53441961660000004" blue="0.80262048470000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fHl-oG-hpa" firstAttribute="top" secondItem="yvM-r0-JlG" secondAttribute="bottom" constant="15" id="0Mv-Mg-BsM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CWI-Af-cZg" secondAttribute="trailing" constant="30" id="1nq-mJ-m1O"/>
+                            <constraint firstItem="Ufu-d1-bHI" firstAttribute="width" secondItem="12O-Oh-LA3" secondAttribute="width" id="2Vc-aK-BWH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CWI-Af-cZg" secondAttribute="bottom" constant="50" id="4JT-Yb-63i"/>
+                            <constraint firstItem="Ekg-IA-KUZ" firstAttribute="top" secondItem="Ufu-d1-bHI" secondAttribute="top" id="5yi-O9-H3G"/>
+                            <constraint firstItem="fHl-oG-hpa" firstAttribute="height" secondItem="yvM-r0-JlG" secondAttribute="height" id="6qi-n7-xBV"/>
+                            <constraint firstItem="XML-20-34U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="7Jk-1d-k4d"/>
+                            <constraint firstItem="Ekg-IA-KUZ" firstAttribute="top" secondItem="fHl-oG-hpa" secondAttribute="bottom" constant="15" id="7vX-Zt-2Qz"/>
+                            <constraint firstItem="yvM-r0-JlG" firstAttribute="top" secondItem="12O-Oh-LA3" secondAttribute="top" id="Dkb-c0-Tc2"/>
+                            <constraint firstItem="zLa-At-a7i" firstAttribute="width" secondItem="12O-Oh-LA3" secondAttribute="width" id="Dww-6R-9Jb"/>
+                            <constraint firstItem="zLa-At-a7i" firstAttribute="leading" secondItem="12O-Oh-LA3" secondAttribute="leading" id="Ivl-pj-NF8"/>
+                            <constraint firstItem="fHl-oG-hpa" firstAttribute="width" secondItem="yvM-r0-JlG" secondAttribute="width" id="J28-VC-38i"/>
+                            <constraint firstItem="Ekg-IA-KUZ" firstAttribute="trailing" secondItem="yvM-r0-JlG" secondAttribute="trailing" id="JIu-QJ-pHf"/>
+                            <constraint firstItem="yvM-r0-JlG" firstAttribute="width" secondItem="AfW-a5-bcP" secondAttribute="width" id="PbL-74-dSU"/>
+                            <constraint firstItem="CWI-Af-cZg" firstAttribute="height" secondItem="XML-20-34U" secondAttribute="height" id="Pud-g0-BPE"/>
+                            <constraint firstItem="fHl-oG-hpa" firstAttribute="leading" secondItem="AfW-a5-bcP" secondAttribute="leading" id="QkX-p9-Rl5"/>
+                            <constraint firstItem="CWI-Af-cZg" firstAttribute="leading" secondItem="XML-20-34U" secondAttribute="trailing" constant="30" id="R4Y-uJ-rbI"/>
+                            <constraint firstItem="Ufu-d1-bHI" firstAttribute="leading" secondItem="12O-Oh-LA3" secondAttribute="leading" id="Rml-RN-h7U"/>
+                            <constraint firstItem="12O-Oh-LA3" firstAttribute="leading" secondItem="1at-7L-kL7" secondAttribute="leading" id="SPZ-pm-IcX"/>
+                            <constraint firstItem="AfW-a5-bcP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="TcN-nO-50f"/>
+                            <constraint firstItem="AfW-a5-bcP" firstAttribute="centerY" secondItem="1at-7L-kL7" secondAttribute="centerY" id="W0W-6d-L5Y"/>
+                            <constraint firstItem="fHl-oG-hpa" firstAttribute="top" secondItem="zLa-At-a7i" secondAttribute="top" id="Y7d-UW-Ou7"/>
+                            <constraint firstItem="yvM-r0-JlG" firstAttribute="leading" secondItem="AfW-a5-bcP" secondAttribute="leading" id="b5M-Lv-ijT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvM-r0-JlG" secondAttribute="trailing" constant="15" id="btn-8F-9g2"/>
+                            <constraint firstItem="CWI-Af-cZg" firstAttribute="width" secondItem="XML-20-34U" secondAttribute="width" id="dNf-js-dX5"/>
+                            <constraint firstItem="12O-Oh-LA3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="fxs-9g-hQf"/>
+                            <constraint firstItem="12O-Oh-LA3" firstAttribute="width" secondItem="1at-7L-kL7" secondAttribute="width" id="iPF-Nc-hUU"/>
+                            <constraint firstItem="CWI-Af-cZg" firstAttribute="top" secondItem="Ekg-IA-KUZ" secondAttribute="bottom" constant="50" id="k7r-tz-Umd"/>
+                            <constraint firstItem="CWI-Af-cZg" firstAttribute="centerY" secondItem="XML-20-34U" secondAttribute="centerY" id="l1Y-y4-Jm7"/>
+                            <constraint firstItem="yvM-r0-JlG" firstAttribute="top" secondItem="AfW-a5-bcP" secondAttribute="bottom" constant="15" id="lTa-u4-es8"/>
+                            <constraint firstItem="yvM-r0-JlG" firstAttribute="leading" secondItem="12O-Oh-LA3" secondAttribute="trailing" constant="5" id="vdk-uV-C59"/>
+                            <constraint firstItem="Ekg-IA-KUZ" firstAttribute="width" secondItem="yvM-r0-JlG" secondAttribute="width" id="viy-xE-qNn"/>
+                            <constraint firstItem="Ekg-IA-KUZ" firstAttribute="leading" secondItem="AfW-a5-bcP" secondAttribute="leading" id="wBQ-IS-z0m"/>
+                            <constraint firstItem="AfW-a5-bcP" firstAttribute="leading" secondItem="yvM-r0-JlG" secondAttribute="leading" id="yje-Gd-QZs"/>
+                            <constraint firstItem="fHl-oG-hpa" firstAttribute="trailing" secondItem="yvM-r0-JlG" secondAttribute="trailing" id="zDd-mv-8p2"/>
+                            <constraint firstItem="Ekg-IA-KUZ" firstAttribute="height" secondItem="yvM-r0-JlG" secondAttribute="height" id="ziZ-0b-CW2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="data_textView" destination="yvM-r0-JlG" id="gdK-oT-pso"/>
+                        <outlet property="desDecryption_textView" destination="Ekg-IA-KUZ" id="HQx-Ix-Ok5"/>
+                        <outlet property="desKey_textField" destination="AfW-a5-bcP" id="lXP-1K-nlJ"/>
+                        <outlet property="des_textView" destination="fHl-oG-hpa" id="Aai-TX-k7B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>

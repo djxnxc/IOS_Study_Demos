@@ -20,6 +20,7 @@
 		13CDEE43204796E1007B93EC /* RuntimeStudyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CDEE42204796E1007B93EC /* RuntimeStudyUITests.m */; };
 		13CDEE52204797A3007B93EC /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 13CDEE51204797A3007B93EC /* UIImage+Image.m */; };
 		13CDEE5420479943007B93EC /* icon_daxie.png in Resources */ = {isa = PBXBuildFile; fileRef = 13CDEE5320479943007B93EC /* icon_daxie.png */; };
+		B34480F120ECB8CF00621AB3 /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = B34480F020ECB8CE00621AB3 /* temp.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		13CDEE50204797A3007B93EC /* UIImage+Image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
 		13CDEE51204797A3007B93EC /* UIImage+Image.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
 		13CDEE5320479943007B93EC /* icon_daxie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_daxie.png; sourceTree = "<group>"; };
+		B34480F020ECB8CE00621AB3 /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		13CDEE1D204796E1007B93EC /* RuntimeStudy */ = {
 			isa = PBXGroup;
 			children = (
+				B34480F020ECB8CE00621AB3 /* temp.txt */,
 				13CDEE5320479943007B93EC /* icon_daxie.png */,
 				13CDEE1E204796E1007B93EC /* AppDelegate.h */,
 				13CDEE1F204796E1007B93EC /* AppDelegate.m */,
@@ -265,6 +268,7 @@
 				13CDEE2B204796E1007B93EC /* LaunchScreen.storyboard in Resources */,
 				13CDEE28204796E1007B93EC /* Assets.xcassets in Resources */,
 				13CDEE26204796E1007B93EC /* Main.storyboard in Resources */,
+				B34480F120ECB8CF00621AB3 /* temp.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

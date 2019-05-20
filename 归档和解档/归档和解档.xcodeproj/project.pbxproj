@@ -17,6 +17,7 @@
 		13FDD11F20463F7400631C74 /* _____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FDD11E20463F7400631C74 /* _____UITests.m */; };
 		13FDD13120463FA000631C74 /* YCArchiveBaseModel+ArchiveMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FDD12D20463FA000631C74 /* YCArchiveBaseModel+ArchiveMethod.m */; };
 		13FDD13220463FA000631C74 /* YCArchiveBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 13FDD13020463FA000631C74 /* YCArchiveBaseModel.m */; };
+		B3F9311920E25F57000A1EFA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F9311820E25F57000A1EFA /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		13FDD12E20463FA000631C74 /* YCArchiveBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCArchiveBaseModel.h; sourceTree = "<group>"; };
 		13FDD12F20463FA000631C74 /* YCArchiveBaseModel+ArchiveMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YCArchiveBaseModel+ArchiveMethod.h"; sourceTree = "<group>"; };
 		13FDD13020463FA000631C74 /* YCArchiveBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCArchiveBaseModel.m; sourceTree = "<group>"; };
+		B3F9311720E25F57000A1EFA /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		B3F9311820E25F57000A1EFA /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				13FDD10520463F7400631C74 /* LaunchScreen.storyboard */,
 				13FDD10820463F7400631C74 /* Info.plist */,
 				13FDD10920463F7400631C74 /* main.m */,
+				B3F9311720E25F57000A1EFA /* User.h */,
+				B3F9311820E25F57000A1EFA /* User.m */,
 			);
 			path = "归档和解档";
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 			files = (
 				13FDD0FF20463F7400631C74 /* ViewController.m in Sources */,
 				13FDD13220463FA000631C74 /* YCArchiveBaseModel.m in Sources */,
+				B3F9311920E25F57000A1EFA /* User.m in Sources */,
 				13FDD13120463FA000631C74 /* YCArchiveBaseModel+ArchiveMethod.m in Sources */,
 				13FDD10A20463F7400631C74 /* main.m in Sources */,
 				13FDD0FC20463F7400631C74 /* AppDelegate.m in Sources */,

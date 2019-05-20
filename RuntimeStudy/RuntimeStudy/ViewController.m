@@ -12,7 +12,10 @@
 #import "Person.h"
 #import <objc/message.h>
 @interface ViewController ()
-
+{
+    NSMutableString *receiveStr;
+}
+@property(nonatomic,strong)NSMutableArray *arr;
 @end
 
 @implementation ViewController
@@ -174,10 +177,113 @@
             NSLog(@"runtime获取所有成员变量---%d---%@---%@",i,varName,varType);
         }
     }
+//    [self AAA];
+    [self test];
     // Do any additional setup after loading the view, typically from a nib.
 }
+-(void)test{
+    Byte dataB[4];
+    dataB[0] = 0xFF;
+    dataB[1] = 0xa2;
+    dataB[2] = 0xa3;
+    dataB[3] = 0xa4;
+    NSData *data =[NSData dataWithBytes:dataB length:4] ;
+    Byte *dataByte =(Byte *)[data bytes];
+    Byte firstByte[1];//每包的第一个字节
+    firstByte[0] = dataByte[0];
+    NSData *firstData = [NSData dataWithBytes:firstByte length:1];
+    Byte endByte[1];//尾包第一个字节
+    endByte[0] = (Byte) 0xFF;
+    NSData *endData = [NSData dataWithBytes:endByte length:1];
+    NSLog(@"--------->接收拼接");
+    NSData *subData =[data subdataWithRange:NSMakeRange(1, [data length]-1)];
+    NSString * tmpStr=[[NSString alloc]initWithData:subData encoding:NSUTF8StringEncoding];
+    [receiveStr appendString:tmpStr];
+    if ([firstData isEqual:endData]) {
+        NSLog(@"--------->拼接结束");
+        //数据接收结束,需要解析数据确定任务需要做什么,暂时不处理
+        receiveStr = [NSMutableString string];
+//        [self sendToBleWithJson:[self getJson]];
+    }
+}
+-(void)AAA{
+    self.arr = [NSMutableArray arrayWithCapacity:0];
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"temp" ofType:@"txt"];
 
+    NSString *dataFile = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+    NSArray *array = [dataFile componentsSeparatedByString:@"\n"];
+    for (NSString *str in array) {
+//        NSLog(@"----%@\n",str);
+        NSMutableString *str1 = [str mutableCopy];
+        for (int i=0; i<str1.length; i++) {
+//            NSLog(@"第%d个字符是:%c",i, [str1 characterAtIndex:i]);
+            char commitChar = [str1 characterAtIndex:i];
+            if((((commitChar>64)&&(commitChar<91))||[self change:commitChar])&&i!=0){
+                [str1 insertString:@"," atIndex:i];
+                i++;
+            }
+        }
+        [self.arr addObject:str1];
+    }
+    NSError *error;
+    NSString *newStr = [self.arr componentsJoinedByString:@"\n"];
+    NSString *filePath2 = @"/Users/dengjiaxiang/Desktop/123.txt";
+    [newStr writeToFile:filePath2 atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error) {
+        NSLog(@"导出失败:%@",error);
+    }else{
+        NSLog(@"导出成功");
+    }
 
+    
+//    NSString *testString = @"ásolÁrbol";
+//    NSInteger alength = [testString length];
+//
+//    for (int i = 0; i<alength; i++) {
+//        char commitChar = [testString characterAtIndex:i];
+//        NSLog(@"%hhd",commitChar);
+//        NSString *temp = [testString substringWithRange:NSMakeRange(i,1)];
+//        const char *u8Temp = [temp UTF8String];
+//        if (3==strlen(u8Temp)){
+//
+//            NSLog(@"字符串中含有中文");
+//        }else if((commitChar>64)&&(commitChar<91)){
+//
+//            NSLog(@"字符串中含有大写英文字母");
+//        }else if((commitChar>96)&&(commitChar<123)){
+//
+//            NSLog(@"字符串中含有小写英文字母");
+//        }else if((commitChar>47)&&(commitChar<58)){
+//
+//            NSLog(@"字符串中含有数字");
+//        }else{
+//
+//            NSLog(@"字符串中含有非法字符");
+//        }
+//    }
+}
+-(BOOL)change:(char)c{
+    if ([[NSString stringWithFormat:@"%c",c] isEqualToString:@"Á"]) {
+        return YES;
+    }
+    if ([[NSString stringWithFormat:@"%c",c] isEqualToString:@"É"]) {
+        return YES;
+    }
+    if ([[NSString stringWithFormat:@"%c",c] isEqualToString:@"Í"]) {
+        return YES;
+    }
+    if ([[NSString stringWithFormat:@"%c",c] isEqualToString:@"Ó"]) {
+        return YES;
+    }
+    if ([[NSString stringWithFormat:@"%c",c] isEqualToString:@"Ú"]) {
+        return YES;
+    }
+    if ([[NSString stringWithFormat:@"%c",c] isEqualToString:@"Ñ"]) {
+        return YES;
+    }
+    return NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

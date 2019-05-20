@@ -18,6 +18,7 @@
 		133F79F61FAFFC5B0018BF2D /* DJXIndexTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 133F79F41FAFFC5B0018BF2D /* DJXIndexTableView.m */; };
 		133F79F71FAFFC5B0018BF2D /* DJXIndexTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133F79F51FAFFC5B0018BF2D /* DJXIndexTableView.xib */; };
 		133F79F91FAFFD360018BF2D /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 133F79F81FAFFD360018BF2D /* city.plist */; };
+		B3D7CDF320D8FF10003041B5 /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3D7CDF220D8FF10003041B5 /* test.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		133F79F41FAFFC5B0018BF2D /* DJXIndexTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DJXIndexTableView.m; sourceTree = "<group>"; };
 		133F79F51FAFFC5B0018BF2D /* DJXIndexTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DJXIndexTableView.xib; sourceTree = "<group>"; };
 		133F79F81FAFFD360018BF2D /* city.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = city.plist; sourceTree = "<group>"; };
+		B3D7CDF220D8FF10003041B5 /* test.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				133F79CC1FAFFB630018BF2D /* LaunchScreen.storyboard */,
 				133F79CF1FAFFB630018BF2D /* Info.plist */,
 				133F79F81FAFFD360018BF2D /* city.plist */,
+				B3D7CDF220D8FF10003041B5 /* test.plist */,
 				133F79D01FAFFB630018BF2D /* main.m */,
 				133F79F31FAFFC5B0018BF2D /* DJXIndexTableView.h */,
 				133F79F41FAFFC5B0018BF2D /* DJXIndexTableView.m */,
@@ -249,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3D7CDF320D8FF10003041B5 /* test.plist in Resources */,
 				133F79CE1FAFFB630018BF2D /* LaunchScreen.storyboard in Resources */,
 				133F79CB1FAFFB630018BF2D /* Assets.xcassets in Resources */,
 				133F79F91FAFFD360018BF2D /* city.plist in Resources */,
