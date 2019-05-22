@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9D4-cU-4DK">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Bax-Jh-iLh">
+            <objects>
+                <navigationController id="9D4-cU-4DK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j6f-As-JhS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4ee-Od-MvG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6E-t4-exg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2302" y="-149"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWQ-2Q-q9p">
+                                <rect key="frame" x="156.5" y="318.5" width="62" height="30"/>
+                                <state key="normal" title="读取视频"/>
+                                <connections>
+                                    <action selector="getVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6YL-5B-SWJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xWQ-2Q-q9p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tS9-2g-VUZ"/>
+                            <constraint firstItem="xWQ-2Q-q9p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vR3-vd-T2a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IeP-b4-WgZ">
+                        <barButtonItem key="rightBarButtonItem" title="列表" id="q5p-Pe-g6f">
+                            <connections>
+                                <segue destination="qtA-Ox-azF" kind="push" id="fiP-6F-gaJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1439" y="-149"/>
+        </scene>
+        <!--本地视频列表-->
+        <scene sceneID="FSS-dJ-cN3">
+            <objects>
+                <viewController id="qtA-Ox-azF" customClass="MyVideoListVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oXT-dI-eAA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lPb-5h-PS4">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lPb-5h-PS4" firstAttribute="leading" secondItem="yNV-XC-ytf" secondAttribute="leading" id="8fN-Fr-iTc"/>
+                            <constraint firstItem="yNV-XC-ytf" firstAttribute="bottom" secondItem="lPb-5h-PS4" secondAttribute="bottom" id="H9J-I3-Ybs"/>
+                            <constraint firstItem="yNV-XC-ytf" firstAttribute="trailing" secondItem="lPb-5h-PS4" secondAttribute="trailing" id="THD-of-C8N"/>
+                            <constraint firstItem="lPb-5h-PS4" firstAttribute="top" secondItem="yNV-XC-ytf" secondAttribute="top" id="lg8-Su-gXj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yNV-XC-ytf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="本地视频列表" id="06N-qZ-HXg"/>
+                    <connections>
+                        <outlet property="videoList_tab" destination="lPb-5h-PS4" id="Bmu-xz-ftI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FvU-MY-X3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-655" y="-150"/>
+        </scene>
+    </scenes>
+</document>
